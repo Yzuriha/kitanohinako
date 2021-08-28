@@ -43,7 +43,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: dump results
         env:
-          RESULTS1: ${{ steps.update_worksheet_1.outputs.results[0] }}
+          RESULTS1: ${{ steps.update_worksheet_1.outputs.results.results }}
 #          RESULTS2: ${{ steps.update_worksheet_2.outputs.results[0] }}
         run: |
           echo "$RESULTS1" | jq > blogV2.json
