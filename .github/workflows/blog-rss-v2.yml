@@ -223,7 +223,7 @@ jobs:
         env:
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
           RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
-          RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
+#          RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
 #          RESULTS4: ${{ steps.update_worksheet_4.outputs.results }}
 #          RESULTS5: ${{ steps.update_worksheet_5.outputs.results }}
 #          RESULTS6: ${{ steps.update_worksheet_6.outputs.results }}
@@ -239,8 +239,7 @@ jobs:
           echo "$RESULTS1" | jq ".results[0].result.rawData" > blogV2.json
           echo "," >> blogV2.json
           echo "$RESULTS2" | jq ".results[0].result.rawData" >> blogV2.json
-          echo "," >> blogV2.json
-          echo "$RESULTS3" | jq ".results[0].result.rawData" >> blogV2.json
+
 
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
