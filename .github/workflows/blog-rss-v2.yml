@@ -49,7 +49,7 @@ jobs:
           R1=$RESULTS1
           R2=$RESULTS2
           NEW=("${R1[@]}" "${R2[@]}")
-          echo "NEW" > blog.json
+          echo "$NEW" > blog.json
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
