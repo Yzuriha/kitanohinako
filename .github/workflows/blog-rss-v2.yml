@@ -9,21 +9,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - id: 'update_worksheet_0'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-        with:
-          spreadsheetId: ${{ secrets.GSHEET_ID }}
-          commands: | # list of commands, specified as a valid JSON string
-            [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A0:F0"
-                }
-              }
-            ]
-        env:
-          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_1'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
@@ -1611,7 +1596,6 @@ jobs:
 
       - name: dump results
         env:
-          RESULTS0: ${{ steps.update_worksheet_0.outputs.results }}
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
           RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
           RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
@@ -1712,9 +1696,7 @@ jobs:
           RESULTS98: ${{ steps.update_worksheet_98.outputs.results }}
           RESULTS99: ${{ steps.update_worksheet_99.outputs.results }}
         run: |
-          echo "$RESULTS0" | jq ".results[0].result.rawData" > blogV2.json
-          echo "," >> blogV2.json
-          echo "$RESULTS1" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "$RESULTS1" | jq ".results[0].result.rawData" > blogV2.json
           echo "," >> blogV2.json
           echo "$RESULTS2" | jq ".results[0].result.rawData" >> blogV2.json
           echo "," >> blogV2.json
