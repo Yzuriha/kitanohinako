@@ -16,8 +16,15 @@ jobs:
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-      - name: dump results
-        env:
-          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-        run: echo "$RESULTS" | jq
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Overwrite File
+        uses: Radioh/action-content-overwrite@v1
+        with:
+          filePath: "./test.txt"
+          content: ${{ steps.update_worksheet.outputs.results }}
+#      - name: dump results
+#        env:
+#          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+#        run: echo "$RESULTS" | jq
