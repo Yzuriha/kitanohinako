@@ -18,6 +18,11 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@v2
+      - name: dump results
+        env:
+          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+        run: echo "$RESULTS" | jq
 #      - name: Overwrite File
 #        uses: Radioh/action-content-overwrite@v1.0
 #        with:
