@@ -1,23 +1,22 @@
-name: RSS
+# bare minimal
+name: googlesheet
+
 on: push
 
 jobs:
-  generate_rss:
-    runs-on: macOS-latest
-    name: Generate RSS
+  fetch:
+    runs-on: ubuntu-latest
     steps:
-      - name: Create Json
-        uses: i-valchev/rss-to-json@1.0.0
+      - id: googlesheet_actions
+        uses: rjoydip/googlesheet-actions@0.1.1
         with:
-          sortBy: An optional parameter to sort the feed items by a field. Default is isoDate.
-          sortOrder: An optional parameter to specify the order direction. 'desc' or 'asc'. Default is desc.
-      - name: Commit file changes
+          sheet-id: "1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM"
+      - id: echo
+        uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            console.log(${{steps.googlesheet_actions.outputs.result}})
+      - name: test
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git diff --quiet --cached || git commit -m "Update file"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          cat $HOME/data.json
