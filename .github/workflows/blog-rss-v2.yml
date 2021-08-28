@@ -230,11 +230,11 @@ jobs:
           RESULTS7: ${{ steps.update_worksheet_7.outputs.results }}
           RESULTS8: ${{ steps.update_worksheet_8.outputs.results }}
           RESULTS9: ${{ steps.update_worksheet_9.outputs.results }}
-          RESULTS10: ${{ steps.update_worksheet_10.outputs.results }}
-          RESULTS11: ${{ steps.update_worksheet_11.outputs.results }}
-          RESULTS12: ${{ steps.update_worksheet_12.outputs.results }}
-          RESULTS13: ${{ steps.update_worksheet_13.outputs.results }}
-          RESULTS14: ${{ steps.update_worksheet_14.outputs.results }}
+#          RESULTS10: ${{ steps.update_worksheet_10.outputs.results }}
+#          RESULTS11: ${{ steps.update_worksheet_11.outputs.results }}
+#          RESULTS12: ${{ steps.update_worksheet_12.outputs.results }}
+#          RESULTS13: ${{ steps.update_worksheet_13.outputs.results }}
+#          RESULTS14: ${{ steps.update_worksheet_14.outputs.results }}
         run: |
           echo "$RESULTS1" | jq ".results[0].result.rawData" > blogV2.json
           echo "," >> blogV2.json
