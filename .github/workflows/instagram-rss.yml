@@ -11,7 +11,7 @@ jobs:
           spreadsheetId: 1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData", "args": { "range": "Blog!A2:F25" } }
+              { "command": "getData", "args": { "range": "Instagram!A2:F25" } }
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
@@ -23,13 +23,8 @@ jobs:
           #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
           RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: echo "$RESULTS" | jq
-#      - name: Overwrite File
-#        uses: Radioh/action-content-overwrite@v1.0
-#        with:
-#          filePath: "test.txt"
-#          content: ${{ steps.update_worksheet.outputs.results }}
-#      - name: dump results
-#        env:
-#          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-#        run: echo "$RESULTS" | jq
+      - name: Overwrite File
+        uses: Radioh/action-content-overwrite@v1.0
+        with:
+          filePath: "test.txt"
+          content: ${{ steps.update_worksheet.outputs.results }}
