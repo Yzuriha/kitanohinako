@@ -47,7 +47,22 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A12:F18"
+                  "range": "Blog!A12:F15"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet_15'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A12:F15"
                 }
               }
             ]
@@ -223,22 +238,49 @@ jobs:
         env:
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
           RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
-#          RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
-#          RESULTS4: ${{ steps.update_worksheet_4.outputs.results }}
-#          RESULTS5: ${{ steps.update_worksheet_5.outputs.results }}
-#          RESULTS6: ${{ steps.update_worksheet_6.outputs.results }}
-#          RESULTS7: ${{ steps.update_worksheet_7.outputs.results }}
-#          RESULTS8: ${{ steps.update_worksheet_8.outputs.results }}
-#          RESULTS9: ${{ steps.update_worksheet_9.outputs.results }}
-#          RESULTS10: ${{ steps.update_worksheet_10.outputs.results }}
-#          RESULTS11: ${{ steps.update_worksheet_11.outputs.results }}
-#          RESULTS12: ${{ steps.update_worksheet_12.outputs.results }}
-#          RESULTS13: ${{ steps.update_worksheet_13.outputs.results }}
-#          RESULTS14: ${{ steps.update_worksheet_14.outputs.results }}
+          RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
+          RESULTS15: ${{ steps.update_worksheet_15.outputs.results }}
+          RESULTS4: ${{ steps.update_worksheet_4.outputs.results }}
+          RESULTS5: ${{ steps.update_worksheet_5.outputs.results }}
+          RESULTS6: ${{ steps.update_worksheet_6.outputs.results }}
+          RESULTS7: ${{ steps.update_worksheet_7.outputs.results }}
+          RESULTS8: ${{ steps.update_worksheet_8.outputs.results }}
+          RESULTS9: ${{ steps.update_worksheet_9.outputs.results }}
+          RESULTS10: ${{ steps.update_worksheet_10.outputs.results }}
+          RESULTS11: ${{ steps.update_worksheet_11.outputs.results }}
+          RESULTS12: ${{ steps.update_worksheet_12.outputs.results }}
+          RESULTS13: ${{ steps.update_worksheet_13.outputs.results }}
+          RESULTS14: ${{ steps.update_worksheet_14.outputs.results }}
         run: |
           echo "$RESULTS1" | jq ".results[0].result.rawData" > blogV2.json
           echo "," >> blogV2.json
           echo "$RESULTS2" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS3" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS15" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS4" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS5" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS6" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS7" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS8" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS9" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS10" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS11" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS12" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS13" | jq ".results[0].result.rawData" >> blogV2.json
+          echo "," >> blogV2.json
+          echo "$RESULTS14" | jq ".results[0].result.rawData" >> blogV2.json
 
 
 
