@@ -9,8 +9,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: Remove old blogV2.json
-        run: rm blogV2.json
+#      - name: Remove old blogV2.json
+#        run: rm blogV2.json
       - id: 'update_worksheet_1'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
