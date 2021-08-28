@@ -11,7 +11,7 @@ jobs:
           spreadsheetId: 1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData", "args": { "range": "Blog!A2:F25" } }
+              { "command": "getData", "args": { "range": "Blog!A2:F2" } }
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
@@ -22,12 +22,7 @@ jobs:
         env:
           #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
           RESULTS: ${{ steps.update_worksheet.outputs.results }}
-#        run: echo "$RESULTS" > test.txt | jq
-        run: echo "${#RESULTS:0:5}" > test.txt
-#        run: |
-#          for i in seq 0 ${#RESULTS}; do \
-#              echo ${RESULTS:$i:2000000} \
-#          done
+        run: echo "$RESULTS" > test.txt | jq
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
           # The arguments for the `git add` command (see the paragraph below for more info)
