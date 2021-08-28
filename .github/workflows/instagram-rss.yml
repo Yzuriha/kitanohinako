@@ -9,7 +9,6 @@ jobs:
       - name: Create Json
         uses: i-valchev/rss-to-json@1.0.0
         with:
-          source: https://blog.nogizaka46.com/hinako.kitano/atom.xml
           target: output/feeds.json # An optional parameter to specify the target. Defaults to feeds.json
           sortBy: An optional parameter to sort the feed items by a field. Default is isoDate.
           sortOrder: An optional parameter to specify the order direction. 'desc' or 'asc'. Default is desc.
