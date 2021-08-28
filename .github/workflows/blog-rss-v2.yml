@@ -44,7 +44,7 @@ jobs:
       - name: dump results
         env:
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
-          RESULTS2: ${{ steps.update_worksheet_2.outputs.results[0] }}
+          RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
         run: |
           echo "$RESULTS1" | jq > blogV2.json
           echo "$RESULTS2" | jq >> blogV2.json
