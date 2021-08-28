@@ -1,4 +1,4 @@
-name: Blog RSS
+name: Blog RSS V2
 on: push
 
 jobs:
