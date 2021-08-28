@@ -15,20 +15,15 @@ jobs:
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
-          commands: | # list of commands, specified as a valid JSON string
-            [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A2:F8"
-                }
-              }
-            ]
+          commands: |
+            [{ "command": "getData", "args": { "range": "Blog!A2:F8" }}]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - id: 'update_worksheet_2'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
               { "command": "getData",
