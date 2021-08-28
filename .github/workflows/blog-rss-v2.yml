@@ -92,7 +92,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!32:F37"
+                  "range": "Blog!A32:F37"
                 }
               }
             ]
