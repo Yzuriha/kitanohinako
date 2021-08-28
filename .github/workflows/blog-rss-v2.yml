@@ -11,7 +11,7 @@ jobs:
           ref: gh-pages
 
       - id: 'update_worksheet_1'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -27,7 +27,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_2'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -43,7 +43,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_3'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -59,7 +59,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_4'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -75,7 +75,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_5'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -91,7 +91,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_6'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -107,7 +107,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_7'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -123,7 +123,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_8'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -139,7 +139,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_9'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -155,7 +155,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_10'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -171,7 +171,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_11'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -187,7 +187,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_12'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -203,7 +203,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_13'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -219,7 +219,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_14'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -235,7 +235,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_15'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -251,7 +251,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_16'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -267,7 +267,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_17'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -283,7 +283,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_18'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -299,7 +299,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_19'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -315,7 +315,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_20'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -331,7 +331,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_21'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -347,7 +347,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_22'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -363,7 +363,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_23'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -379,7 +379,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_24'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -395,7 +395,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_25'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -411,7 +411,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_26'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -427,7 +427,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_27'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -443,7 +443,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_28'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -459,7 +459,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_29'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -475,7 +475,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_30'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -491,7 +491,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_31'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -507,7 +507,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_32'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -523,7 +523,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_33'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -539,7 +539,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_34'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -555,7 +555,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_35'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -571,7 +571,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_36'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -587,7 +587,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_37'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -603,7 +603,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_38'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -619,7 +619,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_39'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -635,7 +635,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_40'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -651,7 +651,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_41'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -667,7 +667,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_42'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -683,7 +683,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_43'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -699,7 +699,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_44'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -715,7 +715,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_45'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -731,7 +731,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_46'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -747,7 +747,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_47'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -763,7 +763,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_48'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -779,7 +779,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_49'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -795,7 +795,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_50'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -811,7 +811,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_51'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -827,7 +827,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_52'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -843,7 +843,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_53'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -859,7 +859,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_54'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -875,7 +875,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_55'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -891,7 +891,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_56'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -907,7 +907,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_57'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -923,7 +923,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_58'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -939,7 +939,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_59'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -955,7 +955,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_60'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -971,7 +971,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_61'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -987,7 +987,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_62'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1003,7 +1003,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_63'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1019,7 +1019,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_64'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1035,7 +1035,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_65'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1051,7 +1051,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_66'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1067,7 +1067,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_67'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1083,7 +1083,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_68'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1099,7 +1099,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_69'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1115,7 +1115,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_70'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1131,7 +1131,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_71'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1147,7 +1147,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_72'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1163,7 +1163,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_73'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1179,7 +1179,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_74'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1195,7 +1195,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_75'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1211,7 +1211,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_76'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1227,7 +1227,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_77'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1243,7 +1243,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_78'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1259,7 +1259,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_79'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1275,7 +1275,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_80'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1291,7 +1291,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_81'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1307,7 +1307,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_82'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1323,7 +1323,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_83'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1339,7 +1339,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_84'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1355,7 +1355,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_85'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1371,7 +1371,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_86'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1387,7 +1387,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_87'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1403,7 +1403,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_88'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1419,7 +1419,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_89'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1435,7 +1435,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_90'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1451,7 +1451,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_91'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1467,7 +1467,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_92'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1483,7 +1483,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_93'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1499,7 +1499,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_94'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1515,7 +1515,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_95'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1531,7 +1531,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_96'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1547,7 +1547,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_97'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1563,7 +1563,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_98'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
@@ -1579,7 +1579,7 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
 
       - id: 'update_worksheet_99'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
