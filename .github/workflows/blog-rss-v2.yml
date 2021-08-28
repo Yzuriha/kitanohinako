@@ -5,23 +5,34 @@ jobs:
   fetch:
     runs-on: macos-latest
     steps:
-      - id: googlesheet_actions
-        uses: rjoydip/googlesheet-actions@0.1.1
+      - id: 'update_worksheet'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
-          sheet-id: ${{ secrets.GSHEET_ID }}
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A2:F15"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
       - id: echo
         uses: actions/github-script@v2
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             console.log(${{steps.googlesheet_actions.outputs.result}})
-      - name: test
-        run: |
-          cat $HOME/data.json
-#      - name: Checkout
-#        uses: actions/checkout@v2
-#        with:
-#          ref: gh-pages
+        - name: test
+          run: |
+            cat $HOME/data.json
 #      - name: dump results
 #        env:
 #          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
