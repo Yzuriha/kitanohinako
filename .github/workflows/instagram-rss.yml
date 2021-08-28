@@ -1,5 +1,8 @@
 name: Instagram RSS
-on: push
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+
 
 jobs:
   fetch:
@@ -39,7 +42,7 @@ jobs:
           # The name of the branch to use, if different from the one that triggered the workflow.
           # Default: the branch that triggered the run
           branch: gh-pages
-#
-#          # The message for the commit.
-#          # Default: 'Commit from GitHub Actions (name of the workflow)'
-#          message: 'Update instagram.json'
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update instagram.json'
