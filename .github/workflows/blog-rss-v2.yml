@@ -36,6 +36,11 @@ jobs:
                 "args": {
                   "range": "Blog!A9:F12"
                 }
+              },
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A13:F15"
+                }
               }
             ]
         env:
