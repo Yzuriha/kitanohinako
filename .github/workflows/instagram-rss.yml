@@ -18,30 +18,24 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages
+#        with:
+#          ref: gh-pages
       - name: dump results
         env:
-          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
           RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: echo "$RESULTS" | jq > instagram.json
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A && git commit -m "Updated instagram.json"
-          git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}
-#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
-#        with:
-#
-#          # The name of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_name: Github Actions
-#
-#          # The email of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_email: actions@github.com
-#
-#          # The message for the commit.
-#          # Default: 'Commit from GitHub Actions (name of the workflow)'
-#          message: 'Update instagram.json'
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+        with:
+
+          # The name of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_name: Github Actions
+
+          # The email of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_email: actions@github.com
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update instagram.json'
