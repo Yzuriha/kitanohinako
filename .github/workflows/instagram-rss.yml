@@ -12,7 +12,7 @@ jobs:
         id: rss
         uses: katydecorah/instagram-rss-action@v0.2.0
         with:
-          yourInstagram: invalidname123
+          yourInstagram: kitanohinako_official
           listOfInstagrams: kitanohinako_official
           pretty: false
       - name: Commit files
