@@ -17,7 +17,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A${{ matrx.rows }}:F${{ matrix.columns }}"
+                  "range": "Blog!A${{ matrix.rows }}:F${{ matrix.columns }}"
                 }
               }
             ]
