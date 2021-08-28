@@ -324,12 +324,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A20:F20"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 20,
+                   "maxRow": 20,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -484,12 +488,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A30:F30"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 30,
+                   "maxRow": 30,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -644,12 +652,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A40:F40"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 40,
+                   "maxRow": 40,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -804,12 +816,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A50:F50"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 50,
+                   "maxRow": 50,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -964,12 +980,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A60:F60"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 60,
+                   "maxRow": 60,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -1124,12 +1144,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A70:F70"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 70,
+                   "maxRow": 70,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -1284,12 +1308,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A80:F80"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 80,
+                   "maxRow": 80,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
@@ -1444,12 +1472,16 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A90:F90"
-                }
-              }
-            ]
+               { "command": "getData",
+                 "args": {
+                   "minRow": 90,
+                   "maxRow": 90,
+                   "minCol": 1,
+                   "maxCol": 6,
+                   "worksheetTitle": "Blog"
+                 }
+               }
+             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
