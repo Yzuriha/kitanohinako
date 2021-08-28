@@ -1,0 +1,49 @@
+name: Blog RSS
+on: push
+
+jobs:
+  fetch:
+    runs-on: macos-latest
+    steps:
+      - id: googlesheet_actions
+        uses: rjoydip/googlesheet-actions@0.1.1
+        with:
+          sheet-id: ${{ secrets.GSHEET_ID }}
+      - id: echo
+        uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            console.log(${{steps.googlesheet_actions.outputs.result}})
+      - name: test
+        run: |
+          cat $HOME/data.json
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          ref: gh-pages
+#      - name: dump results
+#        env:
+#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+#        run: |
+#          rm blog.json
+#          echo "$RESULTS" | jq > blog.json
+#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+#        with:
+#
+#          # The name of the user that will be displayed as the author of the commit.
+#          # Default: depends on the default_author input
+#          author_name: Github Actions
+#
+#          # The email of the user that will be displayed as the author of the commit.
+#          # Default: depends on the default_author input
+#          author_email: actions@github.com
+#
+#          # The name of the branch to use, if different from the one that triggered the workflow.
+#          # Default: the branch that triggered the run
+#          branch: gh-pages
+#
+#          # The message for the commit.
+#          # Default: 'Commit from GitHub Actions (name of the workflow)'
+#          message: 'Update blog.json'
