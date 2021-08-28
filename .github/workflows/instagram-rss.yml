@@ -19,11 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: dump results
-        env:
-          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+#        env:
+#          #  the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
 #        run: echo "$RESULTS" > test.txt | jq
-        run: echo "hello"
+        run: echo "${{ steps.update_worksheet.outputs.results }}"
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
           # The arguments for the `git add` command (see the paragraph below for more info)
