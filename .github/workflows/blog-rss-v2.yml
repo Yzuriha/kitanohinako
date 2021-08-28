@@ -39,33 +39,16 @@ jobs:
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-      - id: 'update_worksheet_3'
-        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-        with:
-          spreadsheetId: ${{ secrets.GSHEET_ID }}
-          commands: | # list of commands, specified as a valid JSON string
-            [
-              { "command": "getData",
-                "args": {
-                  "range": "Blog!A12:F15"
-                }
-              }
-            ]
-        env:
-          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: dump results
         env:
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
           RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
-          RESULTS3: ${{ steps.update_worksheet_3.outputs.results }}
         run: |
           echo "$RESULTS1" | jq ".results[0].result.rawData" > blogV2.json
           echo "," >> blogV2.json
           echo "$RESULTS2" | jq ".results[0].result.rawData" >> blogV2.json
           echo "," >> blogV2.json
-          echo "$RESULTS3" | jq ".results[0].result.rawData" >> blogV2.json
-          echo "," >> blogV2.json
+
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
