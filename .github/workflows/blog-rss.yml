@@ -1,4 +1,4 @@
-name: Instagram RSS
+name: Blog RSS
 on: push
 
 jobs:
@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        rows: [ 2 ]
+        rows: [ 1 ]
     steps:
       - id: 'update_worksheet'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
@@ -16,7 +16,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F${{ matrix.rows }}"
+                  "range": "Blog!A2:F${{ matrix.rows + 2 }}"
                 }
               }
             ]
@@ -49,4 +49,4 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'Update instagram.json'
+          message: 'Update blog.json'
