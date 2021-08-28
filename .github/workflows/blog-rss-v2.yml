@@ -1,11 +1,17 @@
-name: Blog RSS V2
+name: Blog RSS
 on: push
 
 jobs:
   fetch:
     runs-on: macos-latest
     steps:
-      - id: 'update_worksheet'
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Remove old blogV2.json
+        run: rm blogV2.json
+      - id: 'update_worksheet_1'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
@@ -13,43 +19,50 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F19"
+                  "range": "Blog!A2:F9"
                 }
               }
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-      - name: Checkout
-        uses: actions/checkout@v2
+      - id: 'update_worksheet_2'
+      uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+      with:
+        spreadsheetId: ${{ secrets.GSHEET_ID }}
+        commands: | # list of commands, specified as a valid JSON string
+          [
+            { "command": "getData",
+              "args": {
+                "range": "Blog!A10:F17"
+              }
+            }
+          ]
+      env:
+        GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+        GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - name: dump results
+        env:
+          RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
+          RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
+        run: |
+          echo "$RESULTS1" | jq >> blogV2.json \
+          echo "$RESULTS2" | jq >> blogV2.json
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
-          ref: gh-pages
-      - name: View context attributes
-        uses: actions/github-script@v4
-        with:
-          script: console.log(${{ steps.update_worksheet.outputs.results }})
-#      - name: dump results
-#        env:
-#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-#        run: |
-#          rm blog.json
-#          echo "$RESULTS" | jq > blog.json
-#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
-#        with:
-#
-#          # The name of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_name: Github Actions
-#
-#          # The email of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_email: actions@github.com
-#
-#          # The name of the branch to use, if different from the one that triggered the workflow.
-#          # Default: the branch that triggered the run
-#          branch: gh-pages
-#
-#          # The message for the commit.
-#          # Default: 'Commit from GitHub Actions (name of the workflow)'
-#          message: 'Update blog.json'
+
+          # The name of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_name: Github Actions
+
+          # The email of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_email: actions@github.com
+
+          # The name of the branch to use, if different from the one that triggered the workflow.
+          # Default: the branch that triggered the run
+          branch: gh-pages
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update blog.json'
