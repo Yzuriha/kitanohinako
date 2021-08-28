@@ -19,7 +19,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F9"
+                  "range": "Blog!A2:F8"
                 }
               }
             ]
@@ -34,7 +34,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A10:F17"
+                  "range": "Blog!A9:F16"
                 }
               }
             ]
