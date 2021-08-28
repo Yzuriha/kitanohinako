@@ -1,24 +1,24 @@
-name: RSS
+name: Blog post workflow
 on: push
 
 jobs:
-  generate_rss:
-    runs-on: macOS-latest
-    name: Generate RSS
+  pull_blog_rss:
+    name: Update with latest blog posts
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: RSS
-        id: rss
-        uses: katydecorah/instagram-rss-action@v0.2.0
+      - uses: actions/checkout@v2
+      - name: Get RSS Feed
+        uses: kohrongying/readme-the-rss@master
         with:
-          yourInstagram: kitanohinako_official
-          listOfInstagrams: kitanohinako_official
-          pretty: false
-      - name: Commit files
-        if: ${{ success() && steps.rss.outputs.RSS_STATUS == 'success' }}
+          feed_url: https://blog.nogizaka46.com/hinako.kitano/atom.xml
+          count: 6 # default 5
+      - name: Commit file changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A && git commit -m "Updated instagram.json"
-          git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}
+          git config --global user.name 'yzuriha'
+          git config --global user.email 'inoriislove@gmail.com'
+          git add .
+          git diff --quiet --cached || git commit -m "Update README"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
