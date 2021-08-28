@@ -164,6 +164,7 @@ jobs:
                  "args": {
                    "minRow": 10,
                    "maxRow": 10,
+                   "minCol": 1,
                    "maxCol": 6,
                    "worksheetTitle": "Blog"
                  }
