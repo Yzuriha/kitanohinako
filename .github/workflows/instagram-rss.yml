@@ -1,12 +1,9 @@
-name: gsheet.action test
+name: Instagram RSS
 on: push
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 2, 4, 6 ]
     steps:
       - id: 'update_worksheet'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
@@ -14,7 +11,7 @@ jobs:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
-              { "command": "getData", "args": { "range": "Instagram!A2:F1000" } }
+              { "command": "getData", "args": { "range": "Instagram!A2:F999" } }
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
@@ -31,8 +28,8 @@ jobs:
 
           # The name of the user that will be displayed as the author of the commit.
           # Default: depends on the default_author input
-          author_name: Author Name
+          author_name: Github Actions
 
           # The email of the user that will be displayed as the author of the commit.
           # Default: depends on the default_author input
-          author_email: mail@example.com
+          author_email: actions@github.com
