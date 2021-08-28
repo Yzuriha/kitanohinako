@@ -25,10 +25,10 @@ jobs:
         with:
           ref: gh-pages
       - name: dump results
-        env:
+#        env:
           #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-        run: echo "$RESULTS" | jq > blog.json
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+        run: echo "${{ steps.update_worksheet.outputs.results }}" | jq > blog.json
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
