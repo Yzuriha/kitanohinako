@@ -3,7 +3,7 @@ on: push
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - id: 'update_worksheet'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
