@@ -21,7 +21,7 @@ jobs:
       - name: Overwrite File
         uses: Radioh/action-content-overwrite@v1.0
         with:
-          filePath: "./test.txt"
+          filePath: "test.txt"
           content: ${{ steps.update_worksheet.outputs.results }}
 #      - name: dump results
 #        env:
