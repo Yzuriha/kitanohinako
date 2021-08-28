@@ -1,12 +1,12 @@
 name: Instagram RSS
-on:
-  schedule:
-    - cron:  '0 0 * * *'
-
+on: push
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rows: [ 2 ]
     steps:
       - id: 'update_worksheet'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
@@ -16,7 +16,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Instagram!A2:F999"
+                  "range": "Blog!A2:F${{ matrix.rows }}"
                 }
               }
             ]
@@ -29,9 +29,9 @@ jobs:
           ref: gh-pages
       - name: dump results
         env:
-#            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
           RESULTS: ${{ steps.update_worksheet.outputs.results }}
-        run: echo "$RESULTS" | jq > instagram.json
+        run: echo "$RESULTS" | jq > blog.json
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
