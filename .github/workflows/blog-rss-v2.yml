@@ -36,7 +36,7 @@ jobs:
                 "args": {
                   "range": "Blog!A9:F12"
                 }
-              },
+              }
             ]
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
@@ -44,7 +44,7 @@ jobs:
       - name: dump results
         env:
           RESULTS1: ${{ steps.update_worksheet_1.outputs.results }}
-          RESULTS2: ${{ steps.update_worksheet_2.outputs.results }}
+          RESULTS2: ${{ steps.update_worksheet_2.outputs.results[0] }}
         run: |
           echo "$RESULTS1" | jq > blogV2.json
           echo "$RESULTS2" | jq >> blogV2.json
