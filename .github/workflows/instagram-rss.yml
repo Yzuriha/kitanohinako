@@ -10,7 +10,7 @@ jobs:
       - id: googlesheet_actions
         uses: rjoydip/googlesheet-actions@0.1.1
         with:
-          sheet-id: "1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM"
+          sheet-id: ${{ 1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM }}
       - id: echo
         uses: actions/github-script@v2
         with:
