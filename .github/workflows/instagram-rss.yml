@@ -33,3 +33,11 @@ jobs:
           # The email of the user that will be displayed as the author of the commit.
           # Default: depends on the default_author input
           author_email: actions@github.com
+
+          # The local path to the directory where your repository is located. You should use actions/checkout first to set it up.
+          # Default: '.'
+          cwd: './tree/gh-pages'
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update instagram.json'
