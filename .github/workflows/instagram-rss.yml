@@ -18,8 +18,6 @@ jobs:
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages
       - name: dump results
         env:
 #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
