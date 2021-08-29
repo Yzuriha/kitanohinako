@@ -65,7 +65,7 @@ jobs:
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-      - id: 'update_worksheet4'
+      - id: 'update_worksheet5'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
