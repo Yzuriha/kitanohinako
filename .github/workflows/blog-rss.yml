@@ -1,127 +1,127 @@
-#name: Blog RSS
-#on: push
-#
-#jobs:
-#  fetch:
-#    runs-on: windows-latest
-#    steps:
-#      - id: 'update_worksheet1'
-#        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-#        with:
-#          spreadsheetId: ${{ secrets.GSHEET_ID }}
-#          commands: | # list of commands, specified as a valid JSON string
-#            [
-#              { "command": "getData",
-#                "args": {
-#                  "range": "Blog!A2:F2"
-#                }
-#              }
-#            ]
+name: Blog RSS
+on: push
+
+jobs:
+  fetch:
+    runs-on: windows-latest
+    steps:
+      - id: 'update_worksheet1'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A2:F2"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet2'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A3:F51"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet3'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A52:F78"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet4'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A79:F81"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet5'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A82:F83"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: Dump Results 1
+        shell: python
 #        env:
-#          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-#          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-#      - id: 'update_worksheet2'
-#        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-#        with:
-#          spreadsheetId: ${{ secrets.GSHEET_ID }}
-#          commands: | # list of commands, specified as a valid JSON string
-#            [
-#              { "command": "getData",
-#                "args": {
-#                  "range": "Blog!A3:F51"
-#                }
-#              }
-#            ]
-#        env:
-#          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-#          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-#      - id: 'update_worksheet3'
-#        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-#        with:
-#          spreadsheetId: ${{ secrets.GSHEET_ID }}
-#          commands: | # list of commands, specified as a valid JSON string
-#            [
-#              { "command": "getData",
-#                "args": {
-#                  "range": "Blog!A52:F78"
-#                }
-#              }
-#            ]
-#        env:
-#          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-#          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-#      - id: 'update_worksheet4'
-#        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-#        with:
-#          spreadsheetId: ${{ secrets.GSHEET_ID }}
-#          commands: | # list of commands, specified as a valid JSON string
-#            [
-#              { "command": "getData",
-#                "args": {
-#                  "range": "Blog!A79:F81"
-#                }
-#              }
-#            ]
-#        env:
-#          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-#          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-#      - id: 'update_worksheet5'
-#        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
-#        with:
-#          spreadsheetId: ${{ secrets.GSHEET_ID }}
-#          commands: | # list of commands, specified as a valid JSON string
-#            [
-#              { "command": "getData",
-#                "args": {
-#                  "range": "Blog!A82:F83"
-#                }
-#              }
-#            ]
-#        env:
-#          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-#          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-#      - name: Checkout
-#        uses: actions/checkout@v2
-#        with:
-#          ref: gh-pages
-#      - name: Dump Results 1
-#        shell: python
-##        env:
-##          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-##          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-#        run: |
-#          # -*- coding: utf-8 -*-
-#          import codecs, json
-#
-#          null = None
-#          true = True
-#          false = False
-#
-#          origin = ${{ steps.update_worksheet1.outputs.results }}
-#          append1 = ${{ steps.update_worksheet2.outputs.results }}
-#          append2 = ${{ steps.update_worksheet3.outputs.results }}
-#
-#          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
-#          origin["results"][0]["result"]["formatted"] += append2["results"][0]["result"]["formatted"]
-#
-#          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
-#              json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
-#
-#      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
-#        with:
-#
-#          # The name of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_name: Github Actions
-#
-#          # The email of the user that will be displayed as the author of the commit.
-#          # Default: depends on the default_author input
-#          author_email: actions@github.com
-#
-#          # The name of the branch to use, if different from the one that triggered the workflow.
-#          # Default: the branch that triggered the run
-#          branch: gh-pages
-#
-#          # The message for the commit.
-#          # Default: 'Commit from GitHub Actions (name of the workflow)'
-#          message: 'Update blog.json'
+#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+        run: |
+          # -*- coding: utf-8 -*-
+          import codecs, json
+
+          null = None
+          true = True
+          false = False
+
+          origin = ${{ steps.update_worksheet1.outputs.results }}
+          append1 = ${{ steps.update_worksheet2.outputs.results }}
+          append2 = ${{ steps.update_worksheet3.outputs.results }}
+
+          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
+          origin["results"][0]["result"]["formatted"] += append2["results"][0]["result"]["formatted"]
+
+          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
+              json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
+
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
+        with:
+
+          # The name of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_name: Github Actions
+
+          # The email of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_email: actions@github.com
+
+          # The name of the branch to use, if different from the one that triggered the workflow.
+          # Default: the branch that triggered the run
+          branch: gh-pages
+
+          # The message for the commit.
+          # Default: 'Commit from GitHub Actions (name of the workflow)'
+          message: 'Update blog.json'
