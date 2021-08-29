@@ -46,7 +46,7 @@ jobs:
 #          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
           # -*- coding: utf-8 -*-
-          import codecs, json
+          import codecs, json, jsonmerge
           from jsonmerge import Merger
           schema = {
                        "properties": {
