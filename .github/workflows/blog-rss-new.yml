@@ -58,7 +58,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A79:F82"
+                  "range": "Blog!A79:F81"
                 }
               }
             ]
@@ -85,9 +85,11 @@ jobs:
           origin = ${{ steps.update_worksheet1.outputs.results }}
           append1 = ${{ steps.update_worksheet2.outputs.results }}
           append2 = ${{ steps.update_worksheet3.outputs.results }}
+          append3 = ${{ steps.update_worksheet4.outputs.results }}
 
           origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
           origin["results"][0]["result"]["formatted"] += append2["results"][0]["result"]["formatted"]
+          origin["results"][0]["result"]["formatted"] += append3["results"][0]["result"]["formatted"]
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
