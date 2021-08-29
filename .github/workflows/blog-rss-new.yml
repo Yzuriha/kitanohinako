@@ -26,14 +26,14 @@ jobs:
           ref: gh-pages
       - name: dump results
         shell: python
-#        env:
-#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+        env:
+          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
           # -*- coding: utf-8 -*-
           import codecs, json
           with codecs.open('BlogV2.json', 'w', 'utf8') as f:
-               f.write(json.dumps(${{ steps.update_worksheet.outputs.results }}, sort_keys = True, ensure_ascii=False))
+               f.write(json.dumps(RESULTS, sort_keys = True, ensure_ascii=False))
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
