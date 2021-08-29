@@ -50,6 +50,8 @@ jobs:
           import codecs, json
 
           null = None
+          true = True
+          false = False
 
           origin = ${{ steps.update_worksheet1.outputs.results }}
           append1 = ${{ steps.update_worksheet2.outputs.results }}
