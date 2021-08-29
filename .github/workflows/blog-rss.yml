@@ -1,13 +1,11 @@
 name: Blog RSS
-on:
-  schedule:
-    - cron:  '0 0 * * *'
+on: push
 
 jobs:
   fetch:
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
-      - id: 'update_worksheet'
+      - id: 'update_worksheet1'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
@@ -15,7 +13,67 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F11"
+                  "range": "Blog!A2:F2"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet2'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A3:F51"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet3'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A52:F78"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet4'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A79:F81"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet5'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A82:F83"
                 }
               }
             ]
@@ -26,12 +84,49 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: dump results
-        env:
-          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+      - name: Dump Results 1
+        shell: python
+#        env:
+#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
-          echo "$RESULTS" | jq > blog.json
+          # -*- coding: utf-8 -*-
+          import codecs, json
+
+          null = None
+          true = True
+          false = False
+
+          origin = ${{ steps.update_worksheet1.outputs.results }}
+          append1 = ${{ steps.update_worksheet2.outputs.results }}
+          append2 = ${{ steps.update_worksheet3.outputs.results }}
+
+          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
+          origin["results"][0]["result"]["formatted"] += append2["results"][0]["result"]["formatted"]
+
+          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
+              json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
+
+      - name: dump results 2
+        shell: python
+        run: |
+          # -*- coding: utf-8 -*-
+          import codecs, json
+
+          null = None
+          true = True
+          false = False
+
+          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
+              origin = outfile
+              append3 = ${{ steps.update_worksheet4.outputs.results }}
+              append4 = ${{ steps.update_worksheet5.outputs.results }}
+
+              origin["results"][0]["result"]["formatted"] += append3["results"][0]["result"]["formatted"]
+              origin["results"][0]["result"]["formatted"] += append4["results"][0]["result"]["formatted"]
+              json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
+
+
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
