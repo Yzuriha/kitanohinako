@@ -13,7 +13,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F3"
+                  "range": "Blog!A2:F2"
                 }
               }
             ]
@@ -28,7 +28,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A4:F6"
+                  "range": "Blog!A3:F9"
                 }
               }
             ]
@@ -50,13 +50,13 @@ jobs:
 
           null = None
 
-          data1 = ${{ steps.update_worksheet1.outputs.results }}
-          data2 = ${{ steps.update_worksheet2.outputs.results }}
+          origin = ${{ steps.update_worksheet1.outputs.results }}
+          append1 = ${{ steps.update_worksheet2.outputs.results }}
 
-          data1["results"][0]["result"]["rawData"] += data2["results"][0]["result"]["rawData"]
+          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
-              json.dump(data1, outfile, ensure_ascii=False, indent=4)
+              json.dump(origin, outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
