@@ -13,8 +13,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A1:F2",
-                  "hasHeaderRow": true
+                  "range": "Blog!A2:F2",
                 }
               }
             ]
@@ -56,13 +55,6 @@ jobs:
           origin = ${{ steps.update_worksheet1.outputs.results }}
           append1 = ${{ steps.update_worksheet2.outputs.results }}
 
-          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
-
-          new_key_title = "title"
-          old_key_title = "(A)"
-
-          for elem in origin["results"][0]["result"]["formatted"]:
-              elem['title'] = elem.pop('(A)')
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
