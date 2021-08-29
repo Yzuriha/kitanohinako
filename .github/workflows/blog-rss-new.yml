@@ -53,7 +53,7 @@ jobs:
           data1 = ${{ steps.update_worksheet1.outputs.results }}
           data2 = ${{ steps.update_worksheet2.outputs.results }}
 
-          data1["results"][0]["result"]["rawData"][0] += data2["results"][0]["result"]["rawData"][0]
+          data1["results"][0]["result"]["rawData"] += data2["results"][0]["result"]["rawData"]
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(data1, outfile, ensure_ascii=False, indent=4)
