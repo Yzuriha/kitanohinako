@@ -46,26 +46,16 @@ jobs:
 #          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
           # -*- coding: utf-8 -*-
-          import codecs, json, jsonmerge
-          from jsonmerge import Merger
-          schema = {
-                       "properties": {
-                           "bar": {
-                               "mergeStrategy": "append"
-                           }
-                       }
-                   }
+          import codecs, json
 
           null = None
 
           data1 = ${{ steps.update_worksheet1.outputs.results }}
           data2 = ${{ steps.update_worksheet2.outputs.results }}
 
-          merger = Merger(schema)
-          result = merger.merge(data1, data2)
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
-              json.dump(result, outfile, ensure_ascii=False, indent=4)
+              json.dump(data1["results"], outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
