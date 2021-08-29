@@ -30,6 +30,7 @@ jobs:
 #          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
 #          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
+          # -*- coding: utf-8 -*-
           f = open("blogV2.json", "w")
           f.write("${{ steps.update_worksheet.outputs.results }}")
           f.close()
