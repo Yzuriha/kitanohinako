@@ -28,7 +28,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A52:F68"
+                  "range": "Blog!A52:F78"
                 }
               }
             ]
@@ -53,10 +53,10 @@ jobs:
           data1 = ${{ steps.update_worksheet1.outputs.results }}
           data2 = ${{ steps.update_worksheet2.outputs.results }}
 
-
+          merged = {key: value for (key, value) in (data1.items() + data2.items())}
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
-              json.dump(data1, outfile, ensure_ascii=False, indent=4)
+              json.dump(merged, outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
