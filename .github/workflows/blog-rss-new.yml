@@ -13,7 +13,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A1:F1",
+                  "range": "Blog!A1:F2",
                   "hasHeader": true
                 }
               }
@@ -29,7 +29,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F9"
+                  "range": "Blog!A3:F3"
                 }
               }
             ]
