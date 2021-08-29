@@ -29,7 +29,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A3:F3"
+                  "range": "Blog!A3:51"
                 }
               }
             ]
@@ -50,12 +50,11 @@ jobs:
           import codecs, json
 
           null = None
-          true = True
-          false = False
 
           origin = ${{ steps.update_worksheet1.outputs.results }}
           append1 = ${{ steps.update_worksheet2.outputs.results }}
 
+          origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin, outfile, ensure_ascii=False, indent=4)
