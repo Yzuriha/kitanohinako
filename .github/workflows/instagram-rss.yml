@@ -5,9 +5,9 @@ on:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - id: 'update_worksheet'
+      - id: 'update_worksheet1'
         uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
         with:
           spreadsheetId: ${{ secrets.GSHEET_ID }}
@@ -15,7 +15,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Instagram!A2:F999"
+                  "range": "Instagram!A2:F511"
                 }
               }
             ]
@@ -27,10 +27,20 @@ jobs:
         with:
           ref: gh-pages
       - name: dump results
-        env:
-#            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
-        run: echo "$RESULTS" | jq > instagram.json
+        shell: python
+        run: |
+          # -*- coding: utf-8 -*-
+          import codecs, json
+
+          null = None
+          true = True
+          false = False
+
+          origin = ${{ steps.update_worksheet1.outputs.results }}
+
+          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
+              json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
+
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
@@ -48,4 +58,4 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'Update instagram.json'
+          message: 'Update blog.json'

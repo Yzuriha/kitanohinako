@@ -58,7 +58,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A79:F98"
+                  "range": "Blog!A79:F95"
                 }
               }
             ]
