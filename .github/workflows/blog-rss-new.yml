@@ -13,7 +13,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F2",
+                  "range": "Blog!A2:F2"
                 }
               }
             ]
