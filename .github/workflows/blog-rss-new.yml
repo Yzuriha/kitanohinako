@@ -50,6 +50,21 @@ jobs:
         env:
           GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
           GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - id: 'update_worksheet4'
+        uses: jroehl/gsheet.action@release # you can specify '@release' to always have the latest changes
+        with:
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData",
+                "args": {
+                  "range": "Blog!A79:F111"
+                }
+              }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -70,9 +85,11 @@ jobs:
           origin = ${{ steps.update_worksheet1.outputs.results }}
           append1 = ${{ steps.update_worksheet2.outputs.results }}
           append2 = ${{ steps.update_worksheet3.outputs.results }}
+          append3 = ${{ steps.update_worksheet4.outputs.results }}
 
           origin["results"][0]["result"]["formatted"] += append1["results"][0]["result"]["formatted"]
           origin["results"][0]["result"]["formatted"] += append2["results"][0]["result"]["formatted"]
+          origin["results"][0]["result"]["formatted"] += append3["results"][0]["result"]["formatted"]
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
