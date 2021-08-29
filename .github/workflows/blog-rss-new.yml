@@ -32,8 +32,14 @@ jobs:
         run: |
           # -*- coding: utf-8 -*-
           import codecs, json
-          with codecs.open('BlogV2.json', 'w', 'utf8') as f:
-               f.write(json.dumps(${{ steps.update_worksheet.outputs.results }}, sort_keys = True, ensure_ascii=False))
+
+          data = ${{ steps.update_worksheet.outputs.results }}
+
+          parsed_data = json.loads(data)
+
+          with open('BlogV2.json', 'w') as outfile:
+              json.dump(parsed_data, outfile)
+
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
