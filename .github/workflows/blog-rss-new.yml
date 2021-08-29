@@ -14,7 +14,7 @@ jobs:
               { "command": "getData",
                 "args": {
                   "range": "Blog!A1:F2",
-                  "hasHeader": "true"
+                  "hasHeaderRow": true
                 }
               }
             ]
