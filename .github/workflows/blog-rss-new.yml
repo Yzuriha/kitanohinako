@@ -1,7 +1,5 @@
-name: Blog RSS
-on:
-  schedule:
-    - cron:  '0 0 * * *'
+name: Blog RSS New
+on: push
 
 jobs:
   fetch:
@@ -15,7 +13,7 @@ jobs:
             [
               { "command": "getData",
                 "args": {
-                  "range": "Blog!A2:F11"
+                  "range": "Blog!A2:F30"
                 }
               }
             ]
@@ -27,11 +25,14 @@ jobs:
         with:
           ref: gh-pages
       - name: dump results
-        env:
-          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
-          RESULTS: ${{ steps.update_worksheet.outputs.results }}
+        shell: python
+#        env:
+#          #            the output of the action can be found in ${{ steps.update_worksheet.outputs.results }}
+#          RESULTS: ${{ steps.update_worksheet.outputs.results }}
         run: |
-          echo "$RESULTS" | jq > blog.json
+          f = open("blog.json", "w")
+          f.write("${{ steps.update_worksheet.outputs.results }}")
+          f.close()
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
