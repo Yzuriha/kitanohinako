@@ -107,7 +107,7 @@ jobs:
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
 
-      - name: dump results 2
+      - name: Dump Results 2
         shell: python
         run: |
           # -*- coding: utf-8 -*-
@@ -118,7 +118,7 @@ jobs:
           false = False
 
           with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
-              origin = outfile
+              origin = json.load(outfile)
               append3 = ${{ steps.update_worksheet4.outputs.results }}
               append4 = ${{ steps.update_worksheet5.outputs.results }}
 
