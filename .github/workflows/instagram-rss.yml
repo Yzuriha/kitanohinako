@@ -38,7 +38,7 @@ jobs:
 
           origin = ${{ steps.update_worksheet1.outputs.results }}
 
-          with open('BlogV2.json', 'w', encoding='utf-8') as outfile:
+          with open('instagram.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["results"][0]["result"]["formatted"], outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
