@@ -11,7 +11,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-          path: 'assets'
       - name: dump results
         shell: python
         run: |
@@ -56,3 +55,5 @@ jobs:
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
           message: 'Update blog.json'
+
+          cwd: './assets'
