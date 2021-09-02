@@ -34,7 +34,7 @@ jobs:
 
           origin = json.loads(r.text)
 
-          with open('7gogo.json', 'w', encoding='utf-8') as outfile:
+          with open('./assets/7gogo.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin["data"], outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
