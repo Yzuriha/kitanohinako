@@ -21,7 +21,7 @@ jobs:
           try:
               import requests as requests
           except ImportError:
-              subprocess.check_call([sys.executable, "-m", "pip", "install", 'pandas'])
+              subprocess.check_call([sys.executable, "-m", "pip", "install", 'requests'])
           finally:
               import codecs, json, requests
 
