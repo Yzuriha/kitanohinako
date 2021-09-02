@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <base-section title="Schedule" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <schedule-card></schedule-card>
