@@ -10,8 +10,9 @@ import api from '@/api'
 export default {
   components: {MainNav},
   created() {
-    // this.accessSpreadSheet()
+    this.accessSpreadSheet()
     // console.log(api.getFilesInRepo())
+    console.log(api.get7gogoData())
 
 
   },

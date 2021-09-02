@@ -19,6 +19,9 @@ export default {
                 "Content-Type": "application/json"
             }}
         )
+    },
+    get7gogoData() {
+        return AXIOS.get("https://yzuriha.github.io/kitanohinako/instagram.json")
     }
 
 }

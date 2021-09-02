@@ -15,7 +15,6 @@ export default createStore({
   mutations: {
     SET_BLOG_DATA(state, data) {
       state.blogData = data
-      // console.log(state.blogData)
     }
   },
   actions: {
