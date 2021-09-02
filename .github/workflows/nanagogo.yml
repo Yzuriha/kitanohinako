@@ -10,7 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: gh-pages/assets
+          ref: gh-pages
+          path: 'assets'
       - name: dump results
         shell: python
         run: |
