@@ -32,7 +32,7 @@ jobs:
 
           r =requests.get('https://api.7gogo.jp/web/v2/talks/kitano-hinako/posts')
 
-          origin = r.text
+          origin = json.loads(r.text)
 
           with open('7gogo.json', 'w', encoding='utf-8') as outfile:
               json.dump(origin, outfile, ensure_ascii=False, indent=4)
