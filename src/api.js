@@ -21,7 +21,7 @@ export default {
         )
     },
     get7gogoData() {
-        return AXIOS.get("https://yzuriha.github.io/kitanohinako/instagram.json")
+        return AXIOS.get("https://yzuriha.github.io/kitanohinako/7gogo.json")
     }
 
 }
