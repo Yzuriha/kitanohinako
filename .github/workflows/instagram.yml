@@ -25,7 +25,7 @@ jobs:
         shell: cmd
         run: |
           # -*- coding: utf-8 -*-
-          instaloader profile kitanohinako_official --dirname-pattern=img/instagram --filename-pattern={date_utc}_{shortcode}
+          instaloader profile kitanohinako_official --dirname-pattern=img/instagram --filename-pattern={date_utc}_{shortcode}_COUNT
       - name: create Json
         shell: python
         run: |
@@ -35,27 +35,27 @@ jobs:
 
           directory = './img/instagram'
           data = []
-          jsonString = '{"filename":"value1","text":"value2", "type":"value3"}'
-          jsonObject = json.loads(jsonString)
           for filename in os.listdir(directory):
-              if filename.endswith(".jpg") or filename.endswith(".png"):
+              jsonString = '{"filename":"value1","text":"value2", "type":"value3"}'
+              jsonObject = json.loads(jsonString)
+              if not filename.startswith("kitanohinako_official") and filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".jpeg"):
                   jsonObject["filename"] = filename
                   jsonObject["type"] = "image"
               elif filename.endswith(".mp4"):
                   jsonObject["filename"] = filename
                   jsonObject["type"] = "video"
-              elif filename.endswith(".txt"):
-                  with open(os.path.join(directory, filename), encoding='utf-8') as f:
-                      lines = f.readlines()
-                  jsonObject["text"] = lines
               else:
                   continue
+              filenameForText = filename.split("_COUNT")[0] + "_COUNT.txt"
+              with open(os.path.join(directory, filenameForText), encoding='utf-8') as f:
+                  lines = f.readlines()
+              jsonObject["text"] = lines
               data.append(jsonObject)
 
           directoryForJson = './assets/'
           file_path = os.path.join(directoryForJson, 'instagram.json')
           with open(file_path, 'w', encoding='utf-8') as outfile:
-                        json.dump(data, outfile, ensure_ascii=False, indent=4)
+                      json.dump(data, outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
