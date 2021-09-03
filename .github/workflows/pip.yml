@@ -20,6 +20,33 @@ jobs:
         run: |
           # -*- coding: utf-8 -*-
           instaloader profile kitanohinako_official
+      - name: create Json
+        shell: python
+        run: |
+          # -*- coding: utf-8 -*-
+          import os
+          import json
+
+          directory = './kitanohinako_official'
+          data = []
+          jsonString = '{"filename":"value1","text":"value2"}'
+          jsonObject = json.loads(jsonString)
+          for filename in os.listdir(directory):
+              if filename.endswith(".jpg") or filename.endswith(".png"):
+                  jsonObject["filename"] = filename
+                  print(os.path.join(directory, filename))
+              elif  filename.endswith(".txt"):
+                  with open(os.path.join(directory, filename), encoding='utf-8') as f:
+                      lines = f.readlines()
+                  jsonObject["text"] = lines
+                  print(os.path.join(directory, filename))
+              else:
+                  continue
+              data.append(jsonObject)
+
+          file_path = os.path.join(directory, 'instagram.json')
+          with open(file_path, 'w', encoding='utf-8') as outfile:
+                        json.dump(data, outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
