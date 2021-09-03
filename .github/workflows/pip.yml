@@ -14,12 +14,12 @@ jobs:
       - uses: BSFishy/pip-action@v1
         with:
           packages: |
-            instagram-scraper
+            instaloader
       - name: dump results
         shell: python
         run: |
           # -*- coding: utf-8 -*-
-          instagram-scraper kitanohinako_official -t none --latest --media-metadata
+          instaloader profile kitanohinako_official
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
