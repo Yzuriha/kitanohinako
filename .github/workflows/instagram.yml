@@ -22,7 +22,7 @@ jobs:
           packages: |
             instaloader
       - name: dump results
-#        shell: python
+        shell: cmd
         run: |
           # -*- coding: utf-8 -*-
           instaloader profile kitanohinako_official --dirname-pattern=img/instagram --filename-pattern={date_utc}_{shortcode}
