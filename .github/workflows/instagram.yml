@@ -1,7 +1,11 @@
 name: Instagram.json
-on: push
-#  schedule:
-#    - cron: '0 0,12 * * *'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - gh-pages
+  schedule:
+    - cron: '0 0,12 * * *'
 
 
 jobs:
