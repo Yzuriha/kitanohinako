@@ -1,7 +1,7 @@
 name: Instagram.json
-on:
-  schedule:
-    - cron: '0 0,12 * * *'
+on: push
+#  schedule:
+#    - cron: '0 0,12 * * *'
 
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
 #        shell: python
         run: |
           # -*- coding: utf-8 -*-
-          instaloader profile kitanohinako_official
+          instaloader profile kitanohinako_official --dirname-pattern=img/instagram
       - name: create Json
         shell: python
         run: |
@@ -29,7 +29,7 @@ jobs:
           import os
           import json
 
-          directory = './kitanohinako_official'
+          directory = './img/instagram'
           data = []
           jsonString = '{"filename":"value1","text":"value2"}'
           jsonObject = json.loads(jsonString)
@@ -46,7 +46,8 @@ jobs:
                   continue
               data.append(jsonObject)
 
-          file_path = os.path.join(directory, 'instagram.json')
+          directoryForJson = './assets/'
+          file_path = os.path.join(directoryForJson, 'instagram.json')
           with open(file_path, 'w', encoding='utf-8') as outfile:
                         json.dump(data, outfile, ensure_ascii=False, indent=4)
 
