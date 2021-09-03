@@ -25,7 +25,7 @@ jobs:
 #        shell: python
         run: |
           # -*- coding: utf-8 -*-
-          instaloader profile kitanohinako_official --dirname-pattern=img/instagram
+          instaloader profile kitanohinako_official --dirname-pattern=img/instagram --filename-pattern={date_utc}_{shortcode}
       - name: create Json
         shell: python
         run: |
@@ -35,17 +35,19 @@ jobs:
 
           directory = './img/instagram'
           data = []
-          jsonString = '{"filename":"value1","text":"value2"}'
+          jsonString = '{"filename":"value1","text":"value2", "type":"value3"}'
           jsonObject = json.loads(jsonString)
           for filename in os.listdir(directory):
               if filename.endswith(".jpg") or filename.endswith(".png"):
                   jsonObject["filename"] = filename
-                  print(os.path.join(directory, filename))
-              elif  filename.endswith(".txt"):
+                  jsonObject["type"] = "image"
+              elif filename.endswith(".mp4"):
+                  jsonObject["filename"] = filename
+                  jsonObject["type"] = "video"
+              elif filename.endswith(".txt"):
                   with open(os.path.join(directory, filename), encoding='utf-8') as f:
                       lines = f.readlines()
                   jsonObject["text"] = lines
-                  print(os.path.join(directory, filename))
               else:
                   continue
               data.append(jsonObject)
