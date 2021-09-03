@@ -1,5 +1,7 @@
-name: pip
-on: push
+name: Instagram.json
+on:
+  schedule:
+    - cron: '0 0,12 * * *'
 
 
 jobs:
@@ -65,4 +67,4 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'Update 7gogo.json'
+          message: 'Update instagram.json'
