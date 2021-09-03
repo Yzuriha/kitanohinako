@@ -3,6 +3,7 @@ on: push
 #  schedule:
 #    - cron:  '0 0 * * *'
 
+
 jobs:
   fetch:
     runs-on: windows-latest
@@ -23,18 +24,25 @@ jobs:
           except ImportError:
               subprocess.check_call([sys.executable, "-m", "pip", "install", 'requests'])
           finally:
-              import codecs, json, requests
+              import codecs, json, requests, os.path
 
 
           null = None
           true = True
           false = False
 
-          r =requests.get('https://api.7gogo.jp/web/v2/talks/kitano-hinako/posts')
+          r = requests.get('https://api.7gogo.jp/web/v2/talks/kitano-hinako/posts')
 
           origin = json.loads(r.text)
 
-          with open('7gogo.json', 'w', encoding='utf-8') as outfile:
+          directory = './assets/'
+          filename = "7gogo.json"
+
+          file_path = os.path.join(directory, filename)
+          if not os.path.isdir(directory):
+              os.mkdir(directory)
+
+          with open(file_path, 'w', encoding='utf-8') as outfile:
               json.dump(origin["data"], outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
