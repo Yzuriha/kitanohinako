@@ -54,8 +54,8 @@ jobs:
 
           directoryForJson = './assets/'
           file_path = os.path.join(directoryForJson, 'instagram.json')
-          if not os.path.isdir(directory):
-              os.mkdir(directory)
+          if not os.path.isdir(directoryForJson):
+              os.mkdir(directoryForJson)
           with open(file_path, 'w', encoding='utf-8') as outfile:
                       json.dump(data, outfile, ensure_ascii=False, indent=4)
 
