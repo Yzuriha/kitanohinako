@@ -3,22 +3,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch:
-    runs-on: windows-latest
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install npm
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - id: Build-Vue
+        uses: xRealNeon/VuePagesAction@1.0.0
         with:
-          node-version: '14'
-      - name: Start deploy
-        run: |
-          npm run build
-          cd dist
-          git init
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A && git commit -m "deploy"
-          git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}
-          cd -
+          username: 'yzuriha'
+          reponame: 'kitanohinako'
+          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
