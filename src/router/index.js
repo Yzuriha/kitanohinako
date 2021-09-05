@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from "@/store";
 import Home from '@/views/home.vue'
 import Gogo from '@/views/7gogo.vue'
 import Blog from '@/views/blog.vue'
@@ -17,7 +18,8 @@ const routes = [
   {
     path: '/7gogo',
     name: '7gogo',
-    component: Gogo
+    component: Gogo,
+    hash: 'test'
   },
   {
     path: '/blog',
@@ -62,7 +64,24 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  // scrollBehavior(to, from, savedPosition) {
+  //   // return desired position
+  //   console.log(to)
+  //   if(to.name === "7gogo" && to.hash) {
+  //     return {
+  //       el: to.hash
+  //     };
+  //   }
+  // }
+})
+
+router.beforeEach((to, from) => {
+  // ...
+  // explicitly return false to cancel the navigation
+  // console.log(from)
+  // console.log(to)
+  store.dispatch("setActiveSite", to.name)
 })
 
 export default router

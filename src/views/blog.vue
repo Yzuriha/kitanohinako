@@ -1,15 +1,17 @@
 <template>
-  <base-section title="Blog" additional-classes="text-center">
+  <div class="blog">
+  <base-section title="BLOG" additional-classes="text-center">
     <template v-slot:content>
       <blog-card v-for="blog in getLimitedAmount"
                  :title="blog.title"
                  :date="blog.date"
                  :description="blog.description"
-                 :image-url="blog.thumbnail"
-      ></blog-card>
+                 :image-url="blog.thumbnail">
+      </blog-card>
       <div @click="showMore">more</div>
     </template>
   </base-section>
+  </div>
 <!--  {{getLimitedAmount}}-->
 
 </template>

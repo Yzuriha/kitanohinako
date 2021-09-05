@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <base-section title="Schedule" additional-classes="headline--bottom-border">
+    <base-section title="SCHEDULE" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <schedule-card></schedule-card>
         <schedule-card></schedule-card>
-        <router-link to="/schedule">more</router-link>
+        <more-button-link :route="'/schedule'"></more-button-link>
       </template>
     </base-section>
-    <base-section title="Profile" additional-classes="headline--bottom-border">
+    <base-section title="PROFILE" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <profile-card :full-content="false"></profile-card>
-        <router-link to="/profile">more</router-link>
+        <more-button-link :route="'/profile'"></more-button-link>
       </template>
     </base-section>
-    <base-section title="Gallery" additional-classes="headline--bottom-border">
+    <base-section title="GALLERY" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <div class="gallery-image-container">
           <long-image image-location="long/1.jpg"></long-image>
@@ -25,15 +25,18 @@
           <long-image image-location="long/3.jpg"></long-image>
           <square-image image-location="wide/5.png"></square-image>
         </div>
-        <router-link to="/gallery">more</router-link>
+        <more-button-link :route="'/gallery'"></more-button-link>
       </template>
     </base-section>
-    <base-section title="Blog" additional-classes="headline--bottom-border">
+    <base-section title="BLOG" additional-classes="headline--bottom-border">
       <template v-slot:content>
-        <!--        <blog-card></blog-card>-->
-        <!--        <blog-card></blog-card>-->
-        <!--        <blog-card></blog-card>-->
-        <router-link to="/blog">more</router-link>
+        <blog-card v-for="blog in getLimitedAmount"
+                   :title="blog.title"
+                   :date="blog.date"
+                   :description="blog.description"
+                   :image-url="blog.thumbnail">
+        </blog-card>
+        <more-button-link :route="'/blog'"></more-button-link>
       </template>
     </base-section>
   </div>
@@ -51,18 +54,22 @@ import InstagramImage from "@/components/images/instagram-image";
 import LongImage from "@/components/images/long-image";
 import SquareImage from "@/components/images/square-image";
 import BlogCard from "@/components/cards/blog-card";
+import {mapState} from "vuex";
+import MoreButtonLink from "@/components/buttons/more-button-link";
 export default {
   name: 'Home',
   components: {
+    MoreButtonLink,
     BlogCard,
     SquareImage, LongImage, InstagramImage, ProfileCard, Profile, ScheduleCard, BaseSection, MainNav,
+  },
+  computed: {
+    ...mapState({
+      blogData: state => state.blogData
+    }),
+    getLimitedAmount() {
+      return this.blogData.slice(0, 5)
+    }
   }
 }
 </script>
-
-<style scoped>
-.home {
-  width: 100%;
-}
-
-</style>

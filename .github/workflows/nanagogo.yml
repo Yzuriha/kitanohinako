@@ -2,8 +2,7 @@ name: 7gogo
 on:
   workflow_dispatch:
   push:
-    branches:
-      - gh-pages
+    branches: [ gh-pages ]
   schedule:
     - cron:  '0 0 * * *'
 

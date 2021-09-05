@@ -6,14 +6,10 @@
 <script>
 import MainNav from "@/components/navigation/main-nav";
 import {mapActions} from "vuex";
-import api from '@/api'
 export default {
   components: {MainNav},
   created() {
     this.accessSpreadSheet()
-    // console.log(api.getFilesInRepo())
-    console.log(api.get7gogoData())
-
 
   },
   methods: {
@@ -25,6 +21,14 @@ export default {
 
 <style lang="less">
 
+@font-face {
+  font-family: 'Morison';
+  src: url(./assets/fonts/Morison-Display.woff2);
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 @font-color: #4d4948;
 @tablet: ~'(min-width: 481px)';
 @laptop: ~'(min-width: 769px)';
@@ -34,7 +38,13 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
+  font-family: 'Morison', sans-serif;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+h3, h4 {
   font-family: 'Spartan', sans-serif;
   font-weight: lighter;
   margin-bottom: 10px;
@@ -53,8 +63,13 @@ h1, h2, h3, h4 {
   color: @font-color;
 }
 
+.nanagogo, .blog, .gallery, .media, .profile, .schedule, .works {
+  //margin-top: 90px;
+  margin: 90px 15px 0 15px;
+}
+
 .nav-home {
-  font-family: 'Spartan', sans-serif;
+  font-family: 'Morison', sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -74,6 +89,7 @@ h1, h2, h3, h4 {
   right: 0;
   background-color: rgba(255, 255, 255, 0.9);
   transition: all 0.5s ease-in-out;
+  z-index: 999;
 
   &.nav--background-transparent {
     background-color: transparent;
@@ -167,7 +183,11 @@ h1, h2, h3, h4 {
 
 
 .container {
-  margin: 15px;
+  max-width: 940px;
+  margin: 0 15px;
+  @media @desktop {
+    margin: 0 auto;
+  }
   .headline {
     margin-top: 40px;
     margin-bottom: 15px;
@@ -242,6 +262,7 @@ h1, h2, h3, h4 {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    word-break: break-all;
   }
   .blog-card_title {
     -webkit-line-clamp: 1;
@@ -252,6 +273,7 @@ h1, h2, h3, h4 {
   }
 }
 
+// GALLERY \\
 .gallery-image-container {
   //line-height: 0;
   column-count: 2;
@@ -262,12 +284,29 @@ h1, h2, h3, h4 {
   @media @desktop {
     column-count: 4;
   }
+  &.gallery-image-container--instagram {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+
+    //grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    //grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    @media @tablet {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media @desktop {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
   .base-image {
     /* Just in case there are inline attributes */
     width: 100%;
     height: auto;
   }
 }
+
+
 
 
 .base-image {
@@ -281,6 +320,149 @@ h1, h2, h3, h4 {
   }
 }
 
+
+//.instagram-image {
+//  width: 100%;
+//
+//  aspect-ratio: 1;
+//  object-fit: cover;
+//
+//}
+
+//.gogo-card--kii {
+//  max-width: 350px;
+//  background-color: rgba(135, 206, 250, 0.2);
+//  border-radius: 0 10px 10px 10px;
+//  padding: 15px;
+//  margin:15px;
+//}
+//.gogo-card--other {
+//  max-width: 350px;
+//  background-color:lemonchiffon;
+//  border-radius: 10px 0 10px 10px;
+//  padding: 15px;
+//  margin:15px;
+//}
+.gogo-card {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  .gogo-card_profile {
+    width: 50px;
+    border-radius: 50%;
+  }
+  .gogo-card_text {
+    max-width: 350px;
+    background-color: rgba(135, 206, 250, 0.2);
+    border-radius: 0 10px 10px 10px;
+    padding: 15px;
+    margin:15px;
+    word-break: break-all;
+  }
+  &.gogo-card--other {
+    grid-template-columns: 1fr min-content;
+    justify-items: end;
+    .gogo-card_text {
+      order: 1;
+      background-color: lemonchiffon;
+      border-radius: 10px 0 10px 10px;
+    }
+    .gogo-card_profile {
+      order: 2;
+    }
+  }
+}
+
+.more-button {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10px;
+  .more-button_link {
+    color: @font-color;
+    font-family: 'Spartan',sans-serif;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    //padding: 5px;
+    //text-decoration: none;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  //height: 0;
+  //padding-bottom: 56.25%;
+}
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.play-button {
+  color: white;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 1;
+}
+.instagram-video-container {
+  position: absolute;
+}
+.instagram-video-container,
+.instagram-video,
+.instagram-image {
+  width: 100%;
+}
+
+// MODAL \\
+.base-modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.6);
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: white;
+  }
+  .modal-container {
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    max-width: 90%;
+    max-height: 85vh;
+    .instagram-modal {
+      display: grid;
+      grid-template-rows: max-content 1fr;
+      height: 85vh;
+      .instagram-video-container {
+        position: initial;
+        + .instagram-modal_text {
+          margin: -3px 0 0 0;
+        }
+      }
+      .instagram-modal_text {
+        background-color: white;
+        padding: 10px 25px;
+        font-family: 'Noto Sans JP',sans-serif;
+        overflow: scroll;
+      }
+    }
+
+  }
+}
+
 // HELPER CLASSES \\
 .text-center {
   text-align: center;
@@ -288,6 +470,10 @@ h1, h2, h3, h4 {
 
 .visibility-hidden {
   visibility: hidden;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 </style>

@@ -1,21 +1,67 @@
 <template>
-<!--  <base-image class="base-image&#45;&#45;long" :src="imageLink"></base-image>-->
-  <img class="instagram-image" :src="imageLink">
+  <img v-if="type === 'image'"
+       @click="setActiveInstagramPost(id)"
+       :alt="title"
+       loading="lazy"
+       :id="id"
+       class="base-image base-image--square cursor-pointer"
+       :src="source">
+  <div v-else class="video-container cursor-pointer" :id="id" @click="setActiveInstagramPost(id)">
+    <div class="play-button">▶</div>
+    <div class="instagram-video-container">
+      <video class="instagram-video">
+        <source :src="source" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <base-modal :show-modal="id === activeInstagramPost" @closeModal="setActiveInstagramPost('')">
+    <template v-slot:content>
+      <div class="instagram-modal">
+        <img v-if="type === 'image'"
+             class="instagram-image"
+             :alt="title"
+             loading="lazy"
+             :id="id"
+             :src="source">
+        <div v-else :id="id" class="instagram-video-container">
+          <video class="instagram-video" autoplay muted loop>
+            <source :src="source" type="video/mp4">
+          </video>
+        </div>
+        <div class="instagram-modal_text">
+          <p v-for="text in description">{{text}}</p>
+        </div>
+      </div>
+    </template>
+  </base-modal>
 </template>
 
 <script>
 import BaseImage from "@/components/images/base-image";
+import BaseModal from "@/components/modals/base-modal";
+import {mapActions, mapState} from "vuex";
 export default {
   name: "instagram-image",
-  components: {BaseImage},
+  components: {BaseModal, BaseImage},
   props: {
     title: String,
-    description: String,
+    id: String,
+    description: Array,
     date: Date,
     source: String,
-    imageLink: String
+    imageLink: String,
+    type: String
   },
   created() {
+  },
+  computed: {
+    ...mapState({
+      activeInstagramPost: state => state.activeInstagramPost
+    }),
+  },
+  methods: {
+    ...mapActions(['setActiveInstagramPost']),
+
   }
 }
 </script>

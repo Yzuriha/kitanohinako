@@ -1,9 +1,8 @@
-name: Instagram.json
+name: Instagram
 on:
   workflow_dispatch:
   push:
-    branches:
-      - gh-pages
+    branches: [ gh-pages ]
   schedule:
     - cron: '0 0,12 * * *'
 

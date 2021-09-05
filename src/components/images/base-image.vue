@@ -1,5 +1,5 @@
 <template>
-  <img class="base-image" :src="'img/' + imageLocation" :alt="altName">
+  <img class="base-image" :src="'img/' + imageLocation" :alt="altName" loading="lazy">
 </template>
 
 <script>

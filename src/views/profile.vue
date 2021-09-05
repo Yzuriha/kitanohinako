@@ -1,9 +1,11 @@
 <template>
-  <base-section title="Profile" additional-classes="text-center">
+  <div class="profile">
+  <base-section title="PROFILE" additional-classes="text-center">
     <template v-slot:content>
       <profile-card></profile-card>
     </template>
   </base-section>
+  </div>
 </template>
 
 <script>

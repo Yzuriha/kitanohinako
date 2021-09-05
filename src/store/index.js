@@ -10,15 +10,29 @@ export default createStore({
       link: "asd",
       title: "fdf"
     }],
-    test: "NO"
+    test: "NO",
+    activeSite: "",
+    activeInstagramPost: ""
   },
   mutations: {
     SET_BLOG_DATA(state, data) {
-      state.blogData = data
+      state.blogData = data.reverse()
+    },
+    SET_ACTIVE_SITE(state, site) {
+      state.activeSite = site
+    },
+    SET_ACTIVE_INSTAGRAM_POST(state, post) {
+      state.activeInstagramPost = post
     }
   },
   actions: {
 
+    setActiveSite({commit}, site) {
+      commit("SET_ACTIVE_SITE", site)
+    },
+    setActiveInstagramPost({commit}, post) {
+      commit("SET_ACTIVE_INSTAGRAM_POST", post)
+    },
     async accessSpreadSheet({commit}) {
       const doc = new GoogleSpreadsheet('1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM');
       await doc.useServiceAccountAuth(JSON.parse(process.env.VUE_APP_GHEET_KEY));
