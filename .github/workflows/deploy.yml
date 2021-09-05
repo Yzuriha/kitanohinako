@@ -1,4 +1,4 @@
-name: 7gogo
+name: Deploy
 on:
   workflow_dispatch:
 
