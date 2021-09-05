@@ -20,4 +20,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Deloy to gh-pages
-        run: deploy.sh
+        run: |
+          # make file runnable, might not be necessary
+          chmod +x "${GITHUB_WORKSPACE}/deploy.sh"
+
+          # run script
+          "${GITHUB_WORKSPACE}/deploy.sh"
