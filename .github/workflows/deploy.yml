@@ -15,8 +15,6 @@ jobs:
       - name: Start deploy
         run: |
           npm run build
-          cd dist
-          git init
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
 
