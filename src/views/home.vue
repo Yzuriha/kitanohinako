@@ -1,9 +1,12 @@
 <template>
   <div class="home">
-    <base-section title="SCHEDULE" additional-classes="headline--bottom-border">
+    <base-section v-if="scheduleData.length" title="SCHEDULE" additional-classes="headline--bottom-border">
       <template v-slot:content>
-        <schedule-card></schedule-card>
-        <schedule-card></schedule-card>
+        <schedule-card v-for="schedule in scheduleData"
+                       :type="schedule.type"
+                       :date="schedule.date"
+                       :content="schedule.content">
+        </schedule-card>
         <more-button-link :route="'/schedule'"></more-button-link>
       </template>
     </base-section>
@@ -65,7 +68,8 @@ export default {
   },
   computed: {
     ...mapState({
-      blogData: state => state.blogData
+      blogData: state => state.blogData,
+      scheduleData: state => state.scheduleData
     }),
     getLimitedAmount() {
       return this.blogData.slice(0, 5)

@@ -77,11 +77,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  // ...
-  // explicitly return false to cancel the navigation
-  // console.log(from)
-  // console.log(to)
   store.dispatch("setActiveSite", to.name)
+  document.title = to.name !== "Home" ?  to.name + " | Kitano Hinako Unofficial Website" : "Kitano Hinako Unofficial Website"
 })
 
 export default router

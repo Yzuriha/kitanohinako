@@ -1,29 +1,50 @@
 <template>
   <div class="blog-card">
-    <div class="blog-card_image">
-<!--      <square-image  image-location="profile.jpg"></square-image>-->
+    <div class="blog-card_image cursor-pointer">
       <img class="base-image base-image--square" :src="imageUrl">
     </div>
-    <div class="blog-card_content">
-      <div class="profile-card_date">{{date}}</div>
-      <div class="blog-card_title">{{ title }}</div>
-      <div class="blog-card_text">{{description}}</div>
+    <div class="blog-card_content cursor-pointer">
+      <div class="blog-card_date" :class="{'blog-card_date--placeholder' : hasNoBlogData}">{{new Date(date).toLocaleDateString('de-DE', { year: '2-digit', month: '2-digit', day: '2-digit' })}}</div>
+      <div class="blog-card_title" :class="{'blog-card_title--placeholder' : hasNoBlogData}">{{ title }}</div>
+      <div class="blog-card_text" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
     </div>
+    <div v-if="activeBlogs.includes(blogId)" class="blog-card_extended" style="grid-column: 1/3" v-html="content"></div>
+    <hr class="blog-card_hr"/>
   </div>
 </template>
 
 <script>
 import BaseImage from "@/components/images/base-image";
 import SquareImage from "@/components/images/square-image";
+import {mapState} from "vuex";
 export default {
   name: "blog-card",
   components: {SquareImage, BaseImage},
   props: {
     date: String,
     description: String,
+    content: String,
     imageUrl: String,
     source: String,
     title: String,
+    blogId: String
+  },
+  data() {
+    return {
+      // showExtended: false
+    }
+  },
+  created() {
+    // console.log(this.blogData)
+  },
+  computed: {
+    ...mapState({
+      blogData: state => state.blogData,
+      activeBlogs: state => state.activeBlogs
+    }),
+    hasNoBlogData() {
+      return this.blogData.length <= 1
+    }
   }
 }
 </script>

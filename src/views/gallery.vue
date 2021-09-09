@@ -18,7 +18,7 @@
     <base-section title="INSTAGRAM" additional-classes="text-center">
       <template v-slot:content>
         <div class="gallery-image-container gallery-image-container--instagram">
-          <instagram-image v-for="(image, index) in instagramData" :description="image.text"
+          <instagram-image v-for="(image, index) in instagramData.reverse()" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
                            :id="image.filename.split('.')[0] + '-' + index">

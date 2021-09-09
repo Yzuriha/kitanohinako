@@ -1,10 +1,10 @@
 <template>
   <div class="profile">
-  <base-section title="PROFILE" additional-classes="text-center">
-    <template v-slot:content>
-      <profile-card></profile-card>
-    </template>
-  </base-section>
+    <base-section title="PROFILE" additional-classes="text-center">
+      <template v-slot:content>
+        <profile-card></profile-card>
+      </template>
+    </base-section>
   </div>
 </template>
 
@@ -17,7 +17,3 @@ export default {
   components: {BaseSection, ProfileCard, MainNav}
 }
 </script>
-
-<style scoped>
-
-</style>

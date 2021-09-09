@@ -1,12 +1,12 @@
 <template>
   <div class="more-button">
-    <router-link class="more-button_text" :to="route">more</router-link>
+    <span class="more-button_text">more</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "more-button-link",
+  name: "more-button",
   props: {
     route: String
   }

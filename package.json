@@ -1,5 +1,5 @@
 {
-  "name": "new",
+  "name": "kitanohinako",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +7,13 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "google-spreadsheet": "^3.1.15",
-    "register-service-worker": "^1.7.1",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "axios": "0.21.1",
+    "core-js": "3.16.3",
+    "google-spreadsheet": "3.1.15",
+    "register-service-worker": "1.7.2",
+    "vue": "3.2.6",
+    "vue-router": "4.0.11",
+    "vuex": "4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

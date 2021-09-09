@@ -1,14 +1,13 @@
 <template>
   <main-header></main-header>
   <nav v-if="activeSite === 'Home'" class="nav-home" :class="{'navigation--bottom' : isBottomNav}" ref="nav-home">
-    <router-link class="router-link" to="/schedule">Schedule</router-link>
-    <router-link class="router-link" to="/profile">Profile</router-link>
-    <router-link class="router-link" to="/gallery">Gallery</router-link>
-    <router-link class="router-link" to="/blog">Blog</router-link>
-    <!--    <router-link class="router-link" to="/">Home</router-link>-->
-    <router-link class="router-link" to="/media">Media</router-link>
-    <router-link class="router-link" to="/7gogo#bottom">7gogo</router-link>
-    <router-link class="router-link" to="/works">Works</router-link>
+    <router-link v-if="hasSchedule" class="router-link" to="/schedule">SCHEDULE</router-link>
+    <router-link class="router-link" to="/profile">PROFILE</router-link>
+    <router-link class="router-link" to="/gallery">GALLERY</router-link>
+    <router-link class="router-link" to="/blog">BLOG</router-link>
+    <router-link class="router-link" to="/media">MEDIA</router-link>
+    <router-link class="router-link" to="/7gogo#bottom">7GOGO</router-link>
+    <router-link class="router-link" to="/works">WORKS</router-link>
   </nav>
 
   <nav v-if="!navHomeActive || activeSite !== 'Home'" class="nav" :class="{'nav--background-transparent': isToggleActive}">
@@ -17,6 +16,15 @@
         <div class="nav-home-link_title">北野 日奈子</div>
         <div class="nav-home-link_subtitle">U N O F F I C I A L &nbsp; S I T E</div>
       </router-link>
+      <div class="nav-main">
+        <router-link v-if="hasSchedule" class="router-link" to="/schedule">SCHEDULE</router-link>
+        <router-link class="router-link" to="/profile">PROFILE</router-link>
+        <router-link class="router-link" to="/gallery">GALLERY</router-link>
+        <router-link class="router-link" to="/blog">BLOG</router-link>
+        <router-link class="router-link" to="/media">MEDIA</router-link>
+        <router-link class="router-link" to="/7gogo#bottom">7GOGO</router-link>
+        <router-link class="router-link" to="/works">WORKS</router-link>
+      </div>
       <div class="navigation-toggle" @click="toggle">
         <span class="navigation-toggle-bar-1" :class="{'toggled': isToggleActive}"></span>
         <span class="navigation-toggle-bar-2" :class="{'toggled': isToggleActive}"></span>
@@ -24,7 +32,7 @@
       </div>
     </div>
     <nav class="nav-side" :class="{'navigation--bottom' : isBottomNav, 'navigation-side--active' : isToggleActive}">
-      <router-link @click="toggle" class="router-link" to="/schedule">Schedule</router-link>
+      <router-link v-if="hasSchedule" @click="toggle" class="router-link" to="/schedule">Schedule</router-link>
       <router-link @click="toggle" class="router-link" to="/profile">Profile</router-link>
       <router-link @click="toggle" class="router-link" to="/gallery">Gallery</router-link>
       <router-link @click="toggle" class="router-link" to="/blog">Blog</router-link>
@@ -51,7 +59,8 @@ export default {
   },
   computed: {
     ...mapState({
-      activeSite: state => state.activeSite
+      activeSite: state => state.activeSite,
+      hasSchedule: state => state.scheduleData.length
     }),
     isBottomNav() {
       return this.$route.name === "Home"
