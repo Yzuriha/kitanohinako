@@ -10,7 +10,7 @@
     <div class="play-button">▶</div>
     <div class="instagram-video-container">
       <video class="instagram-video">
-        <source :src="source" type="video/mp4">
+        <source :src="source + '#t=0.001'" type="video/mp4">
       </video>
     </div>
   </div>

@@ -596,6 +596,8 @@ h3, h4 {
   grid-template-areas: 'a';
   align-items: center;
   justify-items: center;
+  align-content: center;
+  justify-content: center;
   img {
     width: 70%;
     max-width: 500px;
@@ -609,7 +611,7 @@ h3, h4 {
 
 .fade-loadingscreen-enter-active,
 .fade-loadingscreen-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease;
 }
 
 .fade-loadingscreen-enter-from,
