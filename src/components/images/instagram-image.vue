@@ -9,7 +9,7 @@
   <div v-else class="video-container cursor-pointer" :id="id" @click="setActiveInstagramPost(id)">
     <div class="play-button">▶</div>
     <div class="instagram-video-container">
-      <video class="instagram-video">
+      <video class="instagram-video" preload="metadata">
         <source :src="source + '#t=0.001'" type="video/mp4">
       </video>
     </div>
