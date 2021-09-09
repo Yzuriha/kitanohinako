@@ -18,7 +18,7 @@
     <base-section title="INSTAGRAM" additional-classes="text-center">
       <template v-slot:content>
         <div class="gallery-image-container gallery-image-container--instagram">
-          <instagram-image v-for="(image, index) in instagramData.reverse()" :description="image.text"
+          <instagram-image v-for="(image, index) in instagramData" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
                            :id="image.filename.split('.')[0] + '-' + index">
@@ -49,19 +49,11 @@ export default {
   },
   created() {
     api.getInstagramData().then(response => {
-      this.instagramData = response.data
-      // response.data.forEach(data => {
-      //   this.instagramData.push({
-      //     filename: response
-      //   })
-      // })
+      this.instagramData = response.data.reverse()
     })
   },
   methods: {
     getImgLocation(img) {
-      if(process.env.NODE_ENV === 'production') {
-        return `./img/instagram/${img}`
-      }
       return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://yzuriha.github.io/kitanohinako/img/instagram/${img}`
     }
   }
