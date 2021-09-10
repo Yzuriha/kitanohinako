@@ -23,9 +23,9 @@
           <long-image image-location="long/1.jpg"></long-image>
           <square-image image-location="wide/1.png"></square-image>
           <long-image image-location="long/2.jpg"></long-image>
-          <square-image image-location="wide/2.png"></square-image>
           <square-image image-location="wide/3.png"></square-image>
           <square-image image-location="wide/4.png"></square-image>
+          <square-image image-location="wide/2.png"></square-image>
           <long-image image-location="long/3.jpg"></long-image>
           <square-image image-location="wide/5.png"></square-image>
         </div>
