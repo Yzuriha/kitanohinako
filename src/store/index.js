@@ -16,7 +16,8 @@ export default createStore({
     activeInstagramPost: "",
     scheduleData: [],
     activeBlogs: [],
-    gogoData: []
+    gogoData: [],
+    activeGalleryImage: ''
   },
   mutations: {
     SET_BLOG_DATA(state, data) {
@@ -37,7 +38,10 @@ export default createStore({
     },
     SET_GOGO_DATA(state, data) {
       state.gogoData = data
-    }
+    },
+    SET_ACTIVE_GALLERY_IMAGE(state, image) {
+      state.activeGalleryImage = image
+    },
   },
   actions: {
 
@@ -101,7 +105,10 @@ export default createStore({
         })
       })
       commit("SET_GOGO_DATA", gogoData)
-    }
+    },
+    setActiveGalleryImage({commit}, image) {
+      commit("SET_ACTIVE_GALLERY_IMAGE", image)
+    },
 
   },
   modules: {

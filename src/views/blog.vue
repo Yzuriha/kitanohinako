@@ -43,11 +43,8 @@ export default {
     },
     showExtended(blog, index) {
       if(this.activeBlogs.includes(blog)) {
-        console.log("remove")
-        console.log(blog)
         this.removeActiveBlog(blog)
       } else {
-        console.log(blog)
         this.setActiveBlog(blog)
       }
     }

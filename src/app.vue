@@ -583,7 +583,19 @@ h3, h4 {
         }
       }
     }
-
+    .base-image-modal {
+      height: 85vh;
+      max-width: 940px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      .base-image {
+        max-height: 85vh;
+        object-fit: contain;
+        max-width: 940px;
+      }
+    }
   }
 }
 

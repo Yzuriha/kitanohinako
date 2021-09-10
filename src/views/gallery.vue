@@ -18,12 +18,13 @@
     <base-section title="INSTAGRAM" additional-classes="text-center">
       <template v-slot:content>
         <div class="gallery-image-container gallery-image-container--instagram">
-          <instagram-image v-for="(image, index) in instagramData" :description="image.text"
+          <instagram-image v-for="(image, index) in getLimitedAmount" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
                            :id="image.filename.split('.')[0] + '-' + index">
           </instagram-image>
         </div>
+        <more-button v-if="displayAmount < instagramData.length" @click="showMore"></more-button>
       </template>
     </base-section>
   </div>
@@ -38,13 +39,15 @@ import api from "@/api";
 import InstagramImage from "@/components/images/instagram-image";
 import BaseImage from "@/components/images/base-image";
 import BaseModal from "@/components/modals/base-modal";
+import MoreButton from "@/components/buttons/more-button";
 
 export default {
   name: "Gallery",
-  components: {BaseModal, BaseImage, InstagramImage, SquareImage, LongImage, BaseSection, MainNav},
+  components: {MoreButton, BaseModal, BaseImage, InstagramImage, SquareImage, LongImage, BaseSection, MainNav},
   data() {
     return {
-      instagramData: []
+      instagramData: [],
+      displayAmount: 12,
     }
   },
   created() {
@@ -55,6 +58,14 @@ export default {
   methods: {
     getImgLocation(img) {
       return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://yzuriha.github.io/kitanohinako/img/instagram/${img}`
+    },
+    showMore() {
+      this.displayAmount += 12
+    },
+  },
+  computed: {
+    getLimitedAmount() {
+      return this.instagramData.slice(0, this.displayAmount)
     }
   }
 }
