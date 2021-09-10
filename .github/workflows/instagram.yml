@@ -35,7 +35,6 @@ jobs:
       - name: dump results
         shell: cmd
         run: |
-          # -*- coding: utf-8 -*-
           instaloader --quiet +args.txt
       -name: delete login
         run: |
