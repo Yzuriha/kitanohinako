@@ -23,19 +23,19 @@ jobs:
           import json
 
           directoryLong = './img/long'
-          directorySquare = './img/square'
+          directoryWide = './img/wide'
           dataLong = []
-          dataSquare = []
+          dataWide = []
           for filename in os.listdir(directoryLong):
               dataLong.append(filename)
 
-          for filename in os.listdir(directorySquare):
-              dataSquare.append(filename)
+          for filename in os.listdir(directoryWide):
+              dataWide.append(filename)
 
-          jsonString = '{"long":"value1","square": "value2"}'
+          jsonString = '{"long":"value1","wide": "value2"}'
           jsonObject = json.loads(jsonString)
           jsonObject["long"] = dataLong
-          jsonObject["square"] = dataSquare
+          jsonObject["wide"] = dataWide
 
 
           directoryForJson = './assets/'
