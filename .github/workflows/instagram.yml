@@ -36,7 +36,7 @@ jobs:
         shell: cmd
         run: |
           instaloader --quiet +args.txt
-      -name: delete login
+      - name: delete login
         run: |
           rm args.txt
       - name: create Json
