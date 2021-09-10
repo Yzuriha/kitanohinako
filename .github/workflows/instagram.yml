@@ -24,7 +24,7 @@ jobs:
             instaloader
       - name: create login
         run: |
-          echo $INSTA_PW
+          echo "$INSTA_PW"
           echo "--login=invalidName123" > args.txt
           echo "$INSTA_PW" >> args.txt
           echo "--dirname-pattern=img/instagram" >> args.txt
