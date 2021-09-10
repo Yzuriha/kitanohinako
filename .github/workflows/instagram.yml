@@ -22,11 +22,24 @@ jobs:
         with:
           packages: |
             instaloader
+      - name: create login
+        run: |
+          echo "--login=invalidName123" > args.txt
+          echo $INSTA_PW >> args.txt
+          echo "--dirname-pattern=img/instagram" >> args.txt
+          echo "--dirname-pattern=img/instagram" >> args.txt
+          echo "--filename-pattern={date_utc}_{shortcode}_COUNT" >> args.txt
+          echo "kitanohinako_official" >> args.txt
+        env:
+          INSTA_PW: ${{ secrets.INSTA_PW }}
       - name: dump results
         shell: cmd
         run: |
           # -*- coding: utf-8 -*-
-          instaloader profile kitanohinako_official --dirname-pattern=img/instagram --filename-pattern={date_utc}_{shortcode}_COUNT --login=invalidname123
+          instaloader --quiet +args.txt
+      -name: delete login
+        run: |
+          rm args.txt
       - name: create Json
         shell: python
         run: |
