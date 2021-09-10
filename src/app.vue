@@ -92,10 +92,28 @@ h3, h4 {
   transition: opacity 0.25s ease;
 }
 
-
 .page-fade-enter-from,
 .page-fade-leave-to {
   opacity: 0;
+}
+
+.header-fade-enter-active,
+.header-fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.header-fade-enter-from,
+.header-fade-leave-to {
+  opacity: 0;
+}
+
+
+.main-header {
+  display: grid;
+  grid-template-areas: 'a';
+  .main-header_image {
+    grid-area: a;
+  }
 }
 
 /*******************/

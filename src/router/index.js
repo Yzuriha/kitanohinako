@@ -65,15 +65,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  // scrollBehavior(to, from, savedPosition) {
-  //   // return desired position
-  //   console.log(to)
-  //   if(to.name === "7gogo" && to.hash) {
-  //     return {
-  //       el: to.hash
-  //     };
-  //   }
-  // }
 })
 
 router.beforeEach((to, from) => {
