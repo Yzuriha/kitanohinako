@@ -1,5 +1,4 @@
 <template>
-  <main-header></main-header>
   <nav v-if="activeSite === 'Home'" class="nav-home" :class="{'navigation--bottom' : isBottomNav}" ref="nav-home">
     <router-link v-if="hasSchedule" class="router-link" to="/schedule">SCHEDULE</router-link>
     <router-link class="router-link" to="/profile">PROFILE</router-link>

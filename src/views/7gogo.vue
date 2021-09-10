@@ -22,63 +22,31 @@ import api from '@/api'
 import BaseSection from "@/components/sections/base-section";
 import MoreButton from "@/components/buttons/more-button";
 import Observer from "@/components/sections/observer";
+import {mapState} from "vuex";
 export default {
   name: "7gogo",
   components: {Observer, MoreButton, BaseSection},
   data() {
     return {
-      nanagogoData: [],
       displayAmount: 0,
       activateObserver: true
     }
   },
-  created() {
-    console.log("created")
-    api.get7gogoData().then(response => {
-      response.data.forEach(el => {
-        if(el.post.body.length === 2) {
-          this.nanagogoData.push({
-            message: el.post.body[1].text,
-            class: 'gogo-card--kii',
-            image: 'img/profile-pictures/7gogoKii.jpg'
-          })
-          this.nanagogoData.push({
-            message: el.post.body[0].comment.comment.body,
-            class: 'gogo-card--other',
-            image: 'img/profile-pictures/7gogoOther.png'
-          })
-        } else {
-          this.nanagogoData.push({
-            message: el.post.body[0].text,
-            class: 'gogo-card--kii',
-            image: 'img/profile-pictures/7gogoKii.jpg'
-          })
-        }
-      })
-    })
-  },
-  mounted() {
-    // setTimeout(() =>{
-    //   console.log("activarte")
-    //   this.activateObserver = true
-    // }, 3000);
-  },
   computed: {
+    ...mapState({
+      gogoData: state => state.gogoData
+    }),
     dataToShow() {
-      return this.nanagogoData.slice(0, this.displayAmount)
+      return this.gogoData.slice(0, this.displayAmount)
     }
   },
   methods:{
     showMore() {
       let prevHeight = this.$refs["gogo-card-container"].offsetHeight
-      console.log(prevHeight)
       this.displayAmount += 10
       this.$nextTick().then(() => {
-        // DOM updated
-        console.log(this.$refs["gogo-card-container"].offsetHeight)
         let newHeight = this.$refs["gogo-card-container"].offsetHeight
         window.scroll(0, newHeight - prevHeight)
-        console.log("tick")
       })
 
     },

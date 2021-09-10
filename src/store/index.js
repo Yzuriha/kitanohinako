@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import {GoogleSpreadsheet} from "google-spreadsheet";
+import api from "@/api";
 
 export default createStore({
   state: {
@@ -14,7 +15,8 @@ export default createStore({
     activeSite: "",
     activeInstagramPost: "",
     scheduleData: [],
-    activeBlogs: []
+    activeBlogs: [],
+    gogoData: []
   },
   mutations: {
     SET_BLOG_DATA(state, data) {
@@ -32,6 +34,9 @@ export default createStore({
     REMOVE_ACTIVE_BLOGS(state, blog) {
       let blogIndex = state.activeBlogs.findIndex(el => el === blog)
       state.activeBlogs.splice(blogIndex, 1)
+    },
+    SET_GOGO_DATA(state, data) {
+      state.gogoData = data
     }
   },
   actions: {
@@ -70,6 +75,32 @@ export default createStore({
       // console.log(rows)
       commit("SET_BLOG_DATA", formattedData)
 
+    },
+    getGogoData({commit}) {
+      let gogoData = []
+      api.get7gogoData().then(response => {
+        response.data.forEach(el => {
+          if(el.post.body.length === 2) {
+            gogoData.push({
+              message: el.post.body[1].text,
+              class: 'gogo-card--kii',
+              image: 'img/profile-pictures/7gogoKii.jpg'
+            })
+            gogoData.push({
+              message: el.post.body[0].comment.comment.body,
+              class: 'gogo-card--other',
+              image: 'img/profile-pictures/7gogoOther.png'
+            })
+          } else {
+            gogoData.push({
+              message: el.post.body[0].text,
+              class: 'gogo-card--kii',
+              image: 'img/profile-pictures/7gogoKii.jpg'
+            })
+          }
+        })
+      })
+      commit("SET_GOGO_DATA", gogoData)
     }
 
   },

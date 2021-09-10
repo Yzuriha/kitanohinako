@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <main-header></main-header>
     <base-section v-if="scheduleData.length" title="SCHEDULE" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <schedule-card v-for="schedule in scheduleData"
@@ -59,9 +60,11 @@ import SquareImage from "@/components/images/square-image";
 import BlogCard from "@/components/cards/blog-card";
 import {mapState} from "vuex";
 import MoreButtonLink from "@/components/buttons/more-button-link";
+import MainHeader from "@/components/sections/main-header";
 export default {
   name: 'Home',
   components: {
+    MainHeader,
     MoreButtonLink,
     BlogCard,
     SquareImage, LongImage, InstagramImage, ProfileCard, Profile, ScheduleCard, BaseSection, MainNav,

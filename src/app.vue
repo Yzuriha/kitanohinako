@@ -3,7 +3,13 @@
   <loading-screen v-if="showLoadingScreen" @imgLoaded="onLoad"></loading-screen>
   </transition>
   <main-nav></main-nav>
-  <router-view/>
+
+  <router-view v-slot="{ Component }">
+    <transition name="page-fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+
   <main-footer></main-footer>
 </template>
 
@@ -21,13 +27,14 @@ export default {
   },
   created() {
     this.accessSpreadSheet()
+    this.getGogoData()
     console.log("CREATEd", new Date().getTime())
   },
   mounted() {
 
   },
   methods: {
-    ...mapActions(['accessSpreadSheet']),
+    ...mapActions(['accessSpreadSheet', 'getGogoData']),
 
     onLoad() {
       console.log("LOADED", new Date().getTime())
@@ -80,6 +87,17 @@ h3, h4 {
   color: @font-color;
 }
 
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+
 /*******************/
 /* SITE COMPONENTS */
 /*******************/
@@ -111,6 +129,7 @@ h3, h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  z-index: 999;
   &.navigation--bottom {
     position: absolute;
     display: flex;
@@ -487,8 +506,8 @@ h3, h4 {
 
 // MODAL \\
 .base-modal {
-  overflow-x: hidden;
-  overflow-y: auto;
+  //overflow-x: hidden;
+  //overflow-y: auto;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -502,6 +521,7 @@ h3, h4 {
     right: 15px;
     font-size: 2em;
     color: white;
+    cursor: pointer;
   }
   .modal-container {
     margin: 0 auto;
@@ -509,10 +529,23 @@ h3, h4 {
     top: 10%;
     max-width: 90%;
     max-height: 85vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     .instagram-modal {
       display: grid;
       grid-template-rows: max-content 1fr;
       height: 85vh;
+      max-width: 940px;
+      @media @tablet {
+        grid-template-columns: 65% 1fr;
+        grid-template-rows: min-content;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+      }
       .instagram-video-container {
         position: initial;
         + .instagram-modal_text {
@@ -523,7 +556,13 @@ h3, h4 {
         background-color: white;
         padding: 10px 25px;
         font-family: 'Noto Sans JP',sans-serif;
-        overflow: scroll;
+        overflow-y: auto;
+        @media @tablet {
+          //overflow: scroll;
+          height: 0;
+          min-height: 100%;
+          padding: 0 25px;
+        }
       }
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showHeader" class="main-header">
+  <div class="main-header">
     <div class="main-header_gradient"></div>
     <div class="main-header_image main-header_image--1" :style="{backgroundImage: `url(${headerImages[4]})`}"></div>
   </div>
