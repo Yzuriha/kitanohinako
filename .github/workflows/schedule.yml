@@ -32,7 +32,7 @@ jobs:
         shell: python
         run: |
           # -*- coding: utf-8 -*-
-          import codecs, json
+          import codecs, json, os
 
           null = None
           true = True
@@ -64,4 +64,4 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'Update blog.json'
+          message: 'Update schedule.json'
