@@ -45,7 +45,7 @@ jobs:
           if not os.path.isdir(directoryForJson):
               os.mkdir(directoryForJson)
           with open(file_path, 'w', encoding='utf-8') as outfile:
-                      json.dump(data, outfile, ensure_ascii=False, indent=4)
+                      json.dump(origin, outfile, ensure_ascii=False, indent=4)
 
       - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version.
         with:
