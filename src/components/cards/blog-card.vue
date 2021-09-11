@@ -1,9 +1,9 @@
 <template>
-  <div class="blog-card">
-    <div class="blog-card_image cursor-pointer">
-      <img class="base-image base-image--square" :src="imageUrl">
+  <div v-show="loadingScreenFinished" class="blog-card entrance-animation" :id="blogId">
+    <div class="blog-card_image cursor-pointer" @click="$emit('blogCardClicked')">
+      <img class="base-image base-image--square" :src="imageUrl" :alt="blogId + '-image'">
     </div>
-    <div class="blog-card_content cursor-pointer">
+    <div class="blog-card_content cursor-pointer" @click="$emit('blogCardClicked')">
       <div class="blog-card_date" :class="{'blog-card_date--placeholder' : hasNoBlogData}">{{new Date(date).toLocaleDateString('de-DE', { year: '2-digit', month: '2-digit', day: '2-digit' })}}</div>
       <div class="blog-card_title" :class="{'blog-card_title--placeholder' : hasNoBlogData}">{{ title }}</div>
       <div class="blog-card_text" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
@@ -20,6 +20,7 @@ import {mapState} from "vuex";
 export default {
   name: "blog-card",
   components: {SquareImage, BaseImage},
+  emits: ['blogCardClicked'],
   props: {
     date: String,
     description: String,
@@ -27,20 +28,13 @@ export default {
     imageUrl: String,
     source: String,
     title: String,
-    blogId: String
-  },
-  data() {
-    return {
-      // showExtended: false
-    }
-  },
-  created() {
-    // console.log(this.blogData)
+    blogId: String,
   },
   computed: {
     ...mapState({
       blogData: state => state.blogData,
-      activeBlogs: state => state.activeBlogs
+      activeBlogs: state => state.activeBlogs,
+      loadingScreenFinished: state => state.loadingScreenFinished
     }),
     hasNoBlogData() {
       return this.blogData.length <= 1

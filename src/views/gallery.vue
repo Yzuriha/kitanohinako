@@ -2,22 +2,16 @@
   <div class="gallery">
     <base-section title="GALLERY" additional-classes="text-center">
       <template v-slot:content>
-        <div class="gallery-image-container">
-          <long-image image-location="long/1.jpg"></long-image>
-          <square-image image-location="wide/1.png"></square-image>
-          <long-image image-location="long/2.jpg"></long-image>
-          <square-image image-location="wide/2.png"></square-image>
-          <square-image image-location="wide/3.png"></square-image>
-          <square-image image-location="wide/4.png"></square-image>
-          <long-image image-location="long/3.jpg"></long-image>
-          <square-image image-location="wide/5.png"></square-image>
+        <div v-show="loadingScreenFinished" class="gallery-image-container">
+          <base-image v-for="(file, index) in getShuffledImageFilesLocation" :image-location="file.location" :style="{animationDelay: index * 100 + 'ms'}"></base-image>
         </div>
       </template>
     </base-section>
 
     <base-section title="INSTAGRAM" additional-classes="text-center">
       <template v-slot:content>
-        <div class="gallery-image-container gallery-image-container--instagram">
+        <observer @intersect="showMore" :once="true"></observer>
+        <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">
           <instagram-image v-for="(image, index) in getLimitedAmount" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
@@ -40,30 +34,42 @@ import InstagramImage from "@/components/images/instagram-image";
 import BaseImage from "@/components/images/base-image";
 import BaseModal from "@/components/modals/base-modal";
 import MoreButton from "@/components/buttons/more-button";
+import {mapGetters, mapState} from "vuex";
+import Observer from "@/components/sections/observer";
 
 export default {
   name: "Gallery",
-  components: {MoreButton, BaseModal, BaseImage, InstagramImage, SquareImage, LongImage, BaseSection, MainNav},
+  components: {Observer, MoreButton, BaseModal, BaseImage, InstagramImage, SquareImage, LongImage, BaseSection, MainNav},
   data() {
     return {
       instagramData: [],
-      displayAmount: 12,
+      displayAmount: 0,
     }
   },
   created() {
     api.getInstagramData().then(response => {
       this.instagramData = response.data.reverse()
     })
+    this.showMore()
   },
   methods: {
     getImgLocation(img) {
       return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://yzuriha.github.io/kitanohinako/img/instagram/${img}`
     },
     showMore() {
-      this.displayAmount += 12
+      for(let i = 0; i < 12; i++) {
+        setTimeout(() => {
+          this.displayAmount += 1
+        }, i * 100)
+      }
     },
   },
   computed: {
+    ...mapState({
+      loadingScreenFinished: state => state.loadingScreenFinished,
+      // imageFilesLocation: state => state.imageFilesLocation
+    }),
+    ...mapGetters(['getShuffledImageFilesLocation']),
     getLimitedAmount() {
       return this.instagramData.slice(0, this.displayAmount)
     }

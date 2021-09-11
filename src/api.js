@@ -6,10 +6,13 @@ const AXIOS = axios.create({
 
 export default {
     getInstagramData() {
-        return AXIOS.get('https://yzuriha.github.io/kitanohinako/assets/instagram.json');
+        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/instagram.json");
     },
     get7gogoData() {
         return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/7gogo.json")
+    },
+    getImageFiles() {
+        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/imageFiles.json")
     }
 
 }

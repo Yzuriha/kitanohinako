@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'observer',
-  props: ['options', 'timeout'],
+  props: ['options', 'timeout', 'once'],
   emits: ['intersect'],
   data () {
     return {
@@ -19,15 +19,23 @@ export default {
     const options = this.options || {};
     this.observer = new IntersectionObserver(([entry]) => {
       if (entry && entry.isIntersecting) {
-        setTimeout(() =>{
-          this.$emit("intersect");
+        if(this.timeout > 0){
+          setTimeout(() =>{
+            this.$emit("intersect");
 
-          console.log("wait")
-        }, this.timeout);
+            console.log("Wait", this.timeout)
+          }, this.timeout);
+        } else {
+          this.$emit("intersect");
+        }
       }
     }, options);
 
     this.observer.observe(this.$el);
+    if(this.once) {
+      console.log("once")
+      this.observer.disconnect();
+    }
   },
   destroyed() {
     this.observer.disconnect();

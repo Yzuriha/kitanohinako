@@ -1,5 +1,5 @@
 <template>
-  <img class="base-image" :src="'img/' + imageLocation" :alt="altName" loading="lazy" @click="setActiveGalleryImage(altName)" v-bind="$attrs">
+  <img class="base-image entrance-animation cursor-pointer" :src="'img/' + imageLocation" :alt="altName" loading="lazy" @click="setActiveGalleryImage(altName)" v-bind="$attrs">
   <base-modal :show-modal="altName === activeGalleryImage" @closeModal="setActiveGalleryImage('')">
     <template v-slot:content>
       <div class="base-image-modal">

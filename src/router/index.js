@@ -65,9 +65,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    console.log("to top")
+    return { left: 0, top: 0 };
+  },
 })
 
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
   store.dispatch("setActiveSite", to.name)
   document.title = to.name !== "Home" ?  to.name + " | Kitano Hinako Unofficial Website" : "Kitano Hinako Unofficial Website"
 })

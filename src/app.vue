@@ -1,14 +1,16 @@
 <template>
-  <transition name="fade-loadingscreen">
-  <loading-screen v-if="showLoadingScreen" @imgLoaded="onLoad"></loading-screen>
+  <transition name="fade-loadingscreen"
+              @leave="setLoadingScreenFinished">
+    <loading-screen v-if="showLoadingScreen" @imgLoaded="onLoad"></loading-screen>
   </transition>
   <main-nav></main-nav>
 
-  <router-view v-slot="{ Component }">
-    <transition name="page-fade" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+<!--  <router-view v-slot="{ Component }">-->
+<!--    <transition name="page-fade" mode="out-in">-->
+<!--      <component :is="Component" />-->
+<!--    </transition>-->
+<!--  </router-view>-->
+  <router-view></router-view>
 
   <main-footer></main-footer>
 </template>
@@ -26,22 +28,21 @@ export default {
     }
   },
   created() {
+    this.getImageFiles()
     this.accessSpreadSheet()
     this.getGogoData()
-    console.log("CREATEd", new Date().getTime())
   },
   mounted() {
 
   },
   methods: {
-    ...mapActions(['accessSpreadSheet', 'getGogoData']),
+    ...mapActions(['accessSpreadSheet', 'getGogoData', 'setLoadingScreenFinished', 'getImageFiles']),
 
     onLoad() {
-      console.log("LOADED", new Date().getTime())
       setTimeout(() => {
         this.showLoadingScreen = false
       }, 4500)
-    }
+    },
   }
 }
 </script>
@@ -68,6 +69,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: @font-color;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h1, h2 {
@@ -152,7 +158,10 @@ h3, h4 {
     position: absolute;
     display: flex;
     width: 100%;
-    top: calc(90vh - 40px);
+    top: calc(90vh - 50px);
+    @media @tablet {
+      top: 90vh;
+    }
   }
   .router-link {
     padding: 13px 15px;
@@ -383,6 +392,8 @@ h3, h4 {
   .blog-card_hr {
     grid-column: ~"1/3";
     width: 75%;
+    border: none;
+    border-bottom: 1px solid;
   }
 }
 
@@ -608,12 +619,12 @@ h3, h4 {
   .main-header_gradient {
     //background: linear-gradient(0deg, rgb(255 255 255) 0%, rgba(255,255,255,0.01) 45%);
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
-    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 45%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 55%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome4-9,Safari4-5 */
-    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 45%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: -o-linear-gradient(top,  rgba(255,255,255,0) 45%,rgba(255,255,255,1) 100%); /* Opera 11.10-11.50 */
-    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 45%,rgba(255,255,255,1) 100%); /* IE10 preview */
-    background: linear-gradient(to bottom,  rgba(255,255,255,0) 45%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 55%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 55%,rgba(255,255,255,1) 100%); /* Opera 11.10-11.50 */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 55%,rgba(255,255,255,1) 100%); /* IE10 preview */
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 55%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
     width: 100%;
     position: absolute;
@@ -678,6 +689,10 @@ h3, h4 {
   }
 }
 
+
+/**************/
+/* ANIMATIONS */
+/**************/
 .fade-loadingscreen-enter-active,
 .fade-loadingscreen-leave-active {
   transition: opacity 1s ease;
@@ -687,6 +702,26 @@ h3, h4 {
 .fade-loadingscreen-leave-to {
   opacity: 0;
 }
+
+.entrance-animation {
+  animation: cardEntrance 700ms 0s ease-out;
+  animation-fill-mode: backwards;
+}
+
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    //margin-top: 20px;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    //margin-top: 0;
+    transform: scale(1);
+  }
+}
+
 
 /*********************/
 /* HELPER COMPONENTS */

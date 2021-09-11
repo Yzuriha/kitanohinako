@@ -4,6 +4,7 @@ import api from "@/api";
 
 export default createStore({
   state: {
+    loadingScreenFinished: false,
     blogData: [{
       date: "",
       description: "",
@@ -14,12 +15,16 @@ export default createStore({
     test: "NO",
     activeSite: "",
     activeInstagramPost: "",
-    scheduleData: [],
+    scheduleData: ["a"],
     activeBlogs: [],
     gogoData: [],
-    activeGalleryImage: ''
+    activeGalleryImage: '',
+    imageFilesLocation: []
   },
   mutations: {
+    SET_LOADING_SCREEN_FINISHED(state) {
+      state.loadingScreenFinished = true
+    },
     SET_BLOG_DATA(state, data) {
       state.blogData = data.reverse()
     },
@@ -42,9 +47,15 @@ export default createStore({
     SET_ACTIVE_GALLERY_IMAGE(state, image) {
       state.activeGalleryImage = image
     },
+    SET_IMAGE_FILES_LOCATION(state, location) {
+      state.imageFilesLocation = shuffle(location)
+      console.log(state.imageFilesLocation)
+    },
   },
   actions: {
-
+    setLoadingScreenFinished({commit}) {
+      commit("SET_LOADING_SCREEN_FINISHED")
+    },
     setActiveSite({commit}, site) {
       commit("SET_ACTIVE_SITE", site)
     },
@@ -109,8 +120,40 @@ export default createStore({
     setActiveGalleryImage({commit}, image) {
       commit("SET_ACTIVE_GALLERY_IMAGE", image)
     },
+    getImageFiles({commit}) {
+      api.getImageFiles().then(response => {
+        let longImage = response.data.long.map(el => { return {location: 'long/' + el, type: 'long'}})
+        let wideImage = response.data.wide.map(el => { return {location: 'wide/' + el, type: 'wide'}})
 
+        // console.log(longImage)
+        // console.log(wideImage)
+        // console.log(longImage.concat(wideImage))
+
+        // allImages.push(longImage)
+        // allImages.push(wideImage)
+        commit("SET_IMAGE_FILES_LOCATION", longImage.concat(wideImage))
+        // console.log(wideImage)
+      })
+    },
+  },
+  getters: {
+    getShuffledImageFilesLocation: state => shuffle(state.imageFilesLocation)
   },
   modules: {
   }
 })
+
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle(a) {
+  let j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+}

@@ -11,7 +11,7 @@ export default {
   name: "schedule-card",
   props: {
     type: String,
-    date: Date,
+    date: String,
     content: String
   }
 }

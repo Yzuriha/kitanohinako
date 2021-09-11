@@ -6,13 +6,13 @@
                  :title="blog.title"
                  :date="blog.date"
                  :blog-id="'blog-' + index"
-                 @click="showExtended('blog-' + index, index)"
+                 @blogCardClicked="showExtended('blog-' + index, index)"
                  :content="blog.descriptionRaw"
                  :description="blog.description"
                  :image-url="blog.thumbnail">
       </blog-card>
       <more-button @click="showMore"></more-button>
-      <observer @intersect="showMore"></observer>
+      <observer @intersect="showMore" timeout="0" :options="{rootMargin: '-100px'}"></observer>
     </template>
   </base-section>
   </div>
@@ -33,15 +33,22 @@ export default {
   components: {Observer, MoreButton, BlogCard, BaseSection, MainNav},
   data() {
     return {
-      displayAmount: 10
+      displayAmount: 0
     }
+  },
+  mounted() {
+    this.showMore()
   },
   methods:{
     ...mapActions(['setActiveBlog', 'removeActiveBlog']),
     showMore() {
-      this.displayAmount += 5
+      for(let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          this.displayAmount += 1
+        }, i * 150)
+      }
     },
-    showExtended(blog, index) {
+    showExtended(blog) {
       if(this.activeBlogs.includes(blog)) {
         this.removeActiveBlog(blog)
       } else {
