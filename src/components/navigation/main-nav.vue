@@ -1,12 +1,12 @@
 <template>
   <nav v-if="activeSite === 'Home'" class="nav-home" :class="{'navigation--bottom' : isBottomNav}" ref="nav-home">
-    <router-link v-if="hasSchedule" class="router-link" to="/schedule">SCHEDULE</router-link>
-    <router-link class="router-link" to="/profile">PROFILE</router-link>
-    <router-link class="router-link" to="/gallery">GALLERY</router-link>
-    <router-link class="router-link" to="/blog">BLOG</router-link>
-    <router-link class="router-link" to="/media">MEDIA</router-link>
-    <router-link class="router-link" to="/7gogo#bottom">7GOGO</router-link>
-    <router-link class="router-link" to="/works">WORKS</router-link>
+    <router-navigation v-if="hasSchedule" to="/schedule" title="SCHEDULE"></router-navigation>
+    <router-navigation to="/profile" title="PROFILE"></router-navigation>
+    <router-navigation to="/gallery" title="GALLERY"></router-navigation>
+    <router-navigation to="/blog" title="BLOG"></router-navigation>
+    <router-navigation to="/media" title="MEDIA"></router-navigation>
+    <router-navigation to="/7gogo#bottom" title="7GOGO"></router-navigation>
+    <router-navigation to="/works" title="WORKS"></router-navigation>
   </nav>
 
   <nav v-if="!navHomeActive || activeSite !== 'Home'" class="nav" :class="{'nav--background-transparent': isToggleActive}">
@@ -16,13 +16,13 @@
         <div class="nav-home-link_subtitle">U N O F F I C I A L &nbsp; S I T E</div>
       </router-link>
       <div class="nav-main">
-        <router-link v-if="hasSchedule" class="router-link" to="/schedule">SCHEDULE</router-link>
-        <router-link class="router-link" to="/profile">PROFILE</router-link>
-        <router-link class="router-link" to="/gallery">GALLERY</router-link>
-        <router-link class="router-link" to="/blog">BLOG</router-link>
-        <router-link class="router-link" to="/media">MEDIA</router-link>
-        <router-link class="router-link" to="/7gogo#bottom">7GOGO</router-link>
-        <router-link class="router-link" to="/works">WORKS</router-link>
+        <router-navigation v-if="hasSchedule" to="/schedule" title="SCHEDULE"></router-navigation>
+        <router-navigation to="/profile" title="PROFILE"></router-navigation>
+        <router-navigation to="/gallery" title="GALLERY"></router-navigation>
+        <router-navigation to="/blog" title="BLOG"></router-navigation>
+        <router-navigation to="/media" title="MEDIA"></router-navigation>
+        <router-navigation to="/7gogo#bottom" title="7GOGO"></router-navigation>
+        <router-navigation to="/works" title="WORKS"></router-navigation>
       </div>
       <div class="navigation-toggle" @click="toggle">
         <span class="navigation-toggle-bar-1" :class="{'toggled': isToggleActive}"></span>
@@ -31,13 +31,13 @@
       </div>
     </div>
     <nav class="nav-side" :class="{'navigation--bottom' : isBottomNav, 'navigation-side--active' : isToggleActive}">
-      <router-link v-if="hasSchedule" @click="toggle" class="router-link" to="/schedule">Schedule</router-link>
-      <router-link @click="toggle" class="router-link" to="/profile">Profile</router-link>
-      <router-link @click="toggle" class="router-link" to="/gallery">Gallery</router-link>
-      <router-link @click="toggle" class="router-link" to="/blog">Blog</router-link>
-      <router-link @click="toggle" class="router-link" to="/media">Media</router-link>
-      <router-link @click="toggle" class="router-link" to="/7gogo#bottom">7gogo</router-link>
-      <router-link @click="toggle" class="router-link" to="/works">Works</router-link>
+      <router-navigation v-if="hasSchedule" @click="toggle"  to="/schedule" title="SCHEDULE"></router-navigation>
+      <router-navigation @click="toggle" to="/profile" title="PROFILE"></router-navigation>
+      <router-navigation @click="toggle" to="/gallery" title="GALLERY"></router-navigation>
+      <router-navigation @click="toggle" to="/blog" title="BLOG"></router-navigation>
+      <router-navigation @click="toggle" to="/media" title="MEDIA"></router-navigation>
+      <router-navigation @click="toggle" to="/7gogo#bottom" title="7GOGO"></router-navigation>
+      <router-navigation @click="toggle" to="/works" title="WORKS"></router-navigation>
     </nav>
   </nav>
 
@@ -47,9 +47,10 @@
 <script>
 import MainHeader from "@/components/sections/main-header";
 import {mapState} from "vuex";
+import RouterNavigation from "@/components/navigation/router-navigation";
 export default {
   name: "main-nav",
-  components: {MainHeader},
+  components: {RouterNavigation, MainHeader},
   data() {
     return {
       isToggleActive: false,

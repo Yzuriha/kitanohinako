@@ -22,24 +22,18 @@
       <template v-slot:content>
         <div v-show="loadingScreenFinished && displayGallery" class="gallery-image-container">
           <base-image v-for="(file, index) in getShuffledImageFilesLocation" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
-<!--          <long-image image-location="long/1.jpg" style="animation-delay: calc(0* 300ms)"></long-image>-->
-<!--          <square-image image-location="wide/1.png" style="animation-delay: calc(1 * 300ms)"></square-image>-->
-<!--          <long-image image-location="long/2.jpg" style="animation-delay: calc(2 * 300ms)"></long-image>-->
-<!--          <square-image image-location="wide/3.png" style="animation-delay: calc(3 * 300ms)"></square-image>-->
-<!--          <square-image image-location="wide/4.png" style="animation-delay: calc(4 * 300ms)"></square-image>-->
-<!--          <square-image image-location="wide/2.png" style="animation-delay: calc(5 * 300ms)"></square-image>-->
-<!--          <long-image image-location="long/3.jpg" style="animation-delay: calc(6 * 300ms)"></long-image>-->
-<!--          <square-image image-location="wide/5.png" style="animation-delay: calc(7 * 300ms)"></square-image>-->
         </div>
         <more-button-link :route="'/gallery'"></more-button-link>
       </template>
     </base-section>
+    {{getLimitedAmount.length - 1}}
     <base-section title="BLOG" additional-classes="headline--bottom-border">
       <template v-slot:content>
         <router-link to="/blog">
           <blog-card v-for="(blog, index) in getLimitedAmount"
                      :style="{animationDelay: index * 50 + 'ms'}"
                      :title="blog.title"
+                     :is-last-item="index === getLimitedAmount.length - 1"
                      :date="blog.date"
                      :description="blog.description"
                      :image-url="blog.thumbnail">

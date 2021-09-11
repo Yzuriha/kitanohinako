@@ -9,7 +9,7 @@
       <div class="blog-card_text" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
     </div>
     <div v-if="activeBlogs.includes(blogId)" class="blog-card_extended" style="grid-column: 1/3" v-html="content"></div>
-    <hr class="blog-card_hr"/>
+    <hr v-if="!isLastItem" class="blog-card_hr"/>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
     source: String,
     title: String,
     blogId: String,
+    isLastItem: Boolean
   },
   computed: {
     ...mapState({

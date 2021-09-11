@@ -59,6 +59,7 @@ export default {
 }
 
 @font-color: #4d4948;
+@font-color-light: #4d494885;
 @tablet: ~'(min-width: 481px)';
 @laptop: ~'(min-width: 769px)';
 @desktop: ~'(min-width: 1025px)';
@@ -138,11 +139,14 @@ h3, h4 {
   @media @desktop {
     margin: 0 auto;
   }
+  &.container--xs{
+    max-width: 769px;
+  }
   .headline {
     margin-top: 40px;
     margin-bottom: 15px;
     &.headline--bottom-border {
-      border-bottom: 1px solid @font-color;
+      border-bottom: 1px solid @font-color-light;
     }
   }
 }
@@ -165,6 +169,17 @@ h3, h4 {
   }
   .router-link {
     padding: 13px 15px;
+    &:after {
+      display:block;
+      content: '';
+      border-bottom: solid 1px @font-color-light;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+      margin: 10px auto 0;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -244,10 +259,21 @@ h3, h4 {
     .nav-main {
       display: none;
       @media @desktop {
-        display: initial;
+        display: flex;
       }
       .router-link {
         padding: 0 25px;
+        &:after {
+          display:block;
+          content: '';
+          border-bottom: solid 1px @font-color-light;
+          transform: scaleX(0);
+          transition: transform 250ms ease-in-out;
+          margin: 10px auto 0;
+        }
+        &:hover:after {
+          transform: scaleX(1);
+        }
       }
     }
 
@@ -285,29 +311,75 @@ h3, h4 {
 
 // SCHEUDLE \\
 .schedule-card {
-  margin: 15px 0;
+  //margin: 15px 0;
+  //display: grid;
+  //grid-template-columns: min-content min-content 1fr;
+  //grid-gap: 5px;
+  //.schedule-card_date {
+  //  //grid-area: date;
+  //  grid-row: ~"1/2";
+  //  font-size: 0.8rem;
+  //  padding: 0 10px;
+  //}
+  //.schedule-card_type {
+  //  //grid-area: type;
+  //  grid-row: ~"1/2";
+  //  border: 1px solid @font-color;
+  //  border-radius: 4px;
+  //  padding: 0 10px;
+  //  font-size: 0.8rem;
+  //}
+  //.schedule-card_content {
+  //  //grid-area: content;
+  //  grid-row-start: 2;
+  //  grid-column: ~"1/4";
+  //}
+
+
   display: grid;
-  grid-template-columns: min-content min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
   grid-gap: 5px;
-  .schedule-card_date {
-    //grid-area: date;
-    grid-row: ~"1/2";
-    font-size: 0.8rem;
-    padding: 0 10px;
+  //.schedule-card_date {
+  //  grid-row: 2;
+  //    font-size: 0.8rem;
+  //    padding: 0 10px;
+  //  text-align: center;
+  //}
+  //.schedule-card_type {
+  //    border: 1px solid @font-color;
+  //    border-radius: 4px;
+  //    padding: 0 10px;
+  //    font-size: 0.8rem;
+  //    width: max-content;
+  //  margin: 0 auto;
+  //}
+  //.schedule-card_content {
+  //  grid-row: span 2;
+  //}
+  .schedule-card_left {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 5px;
+    border-right: 1px solid @font-color-light;
+    .schedule-card_type,
+    .schedule-card_date {
+        font-size: 0.8rem;
+        padding: 0 10px;
+    }
+    .schedule-card_type {
+        border: 1px solid @font-color;
+        border-radius: 4px;
+     }
   }
-  .schedule-card_type {
-    //grid-area: type;
-    grid-row: ~"1/2";
-    border: 1px solid @font-color;
-    border-radius: 4px;
-    padding: 0 10px;
-    font-size: 0.8rem;
+  .schedule-card_right {
+
   }
-  .schedule-card_content {
-    //grid-area: content;
-    grid-row-start: 2;
-    grid-column: ~"1/4";
-  }
+
+
+
 }
 
 
@@ -393,7 +465,7 @@ h3, h4 {
     grid-column: ~"1/3";
     width: 75%;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid @font-color-light;
   }
 }
 
@@ -494,13 +566,17 @@ h3, h4 {
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 30px;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
   .more-button_text {
     cursor: pointer;
     color: @font-color;
     font-family: 'Spartan',sans-serif;
     text-decoration: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid @font-color-light;
   }
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="schedule">
-    <base-section title="SCHEDULE" additional-classes="text-center">
+    <base-section title="SCHEDULE" additional-classes="text-center" class="container--xs">
       <template v-slot:content>
-        <schedule-card type="MEDIA" date="20.01.2020" content="ASDDS"></schedule-card>
+        <schedule-card type="MISC" date="17.07.2022" content="Kitano Hinako Birthday"></schedule-card>
       </template>
     </base-section>
   </div></template>

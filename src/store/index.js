@@ -73,8 +73,8 @@ export default createStore({
       const doc = new GoogleSpreadsheet('1N8wXrd30_sfsKvRoVcoZcpqXDWtsdbyyaF2a-DyjmgM');
       await doc.useServiceAccountAuth(publicKey);
       await doc.loadInfo();
-      const sheet = doc.sheetsByIndex[2];
-      const  rows = await sheet.getRows()
+      const sheet = doc.sheetsByTitle['Blog'];
+      const rows = await sheet.getRows()
 
       let formattedData = []
       rows.forEach(el => {
@@ -87,7 +87,6 @@ export default createStore({
           title: el.Title
         })
       })
-      // console.log(rows)
       commit("SET_BLOG_DATA", formattedData)
 
     },
