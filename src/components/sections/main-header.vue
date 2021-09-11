@@ -13,12 +13,12 @@ export default {
   data() {
     return {
       headerImages: [
-        './img/header/1.png',
-        './img/header/2.png',
-        './img/header/3.png',
-        './img/header/4.png',
-        './img/header/5.png',
-        './img/header/6.png',
+        './img/header/1.jpg',
+        './img/header/2.jpg',
+        './img/header/3.jpg',
+        './img/header/4.jpg',
+        './img/header/5.jpg',
+        './img/header/6.jpg',
       ],
       activeHeaderImage: './img/header/1.png',
       timer: '',
