@@ -56,7 +56,7 @@ export default {
   src: url(./assets/fonts/Morison-Display.woff2);
   font-weight: normal;
   font-style: normal;
-
+  font-display: swap;
 }
 
 @font-color: #4d4948;
@@ -570,6 +570,7 @@ h2, .h2 {
 // IMAGE \\
 .base-image {
   width: 100%;
+  height: auto;
   &.base-image--long {
 
   }

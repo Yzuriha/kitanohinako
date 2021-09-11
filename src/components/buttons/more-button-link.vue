@@ -1,6 +1,6 @@
 <template>
   <div class="more-button">
-    <router-link class="more-button_text" :to="route">more</router-link>
+    <router-link class="more-button_text" :to="route">view more</router-link>
   </div>
 </template>
 
@@ -12,7 +12,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

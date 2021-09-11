@@ -105,7 +105,7 @@ export default createStore({
             gogoData.push({
               message: el.post.body[0].comment.comment.body,
               class: 'gogo-card--other',
-              image: 'img/profile-pictures/7gogoOther.png'
+              image: 'img/profile-pictures/7gogoOther.jpg'
             })
           } else {
             gogoData.push({
