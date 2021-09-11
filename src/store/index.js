@@ -15,11 +15,11 @@ export default createStore({
     test: "NO",
     activeSite: "",
     activeInstagramPost: "",
-    scheduleData: ["a"],
+    scheduleData: [],
     activeBlogs: [],
     gogoData: [],
     activeGalleryImage: '',
-    imageFilesLocation: []
+    imageFilesLocation: [],
   },
   mutations: {
     SET_LOADING_SCREEN_FINISHED(state) {
@@ -49,8 +49,10 @@ export default createStore({
     },
     SET_IMAGE_FILES_LOCATION(state, location) {
       state.imageFilesLocation = shuffle(location)
-      console.log(state.imageFilesLocation)
     },
+    SET_SCHEDULE_DATA(state, data) {
+      state.scheduleData = data
+    }
   },
   actions: {
     setLoadingScreenFinished({commit}) {
@@ -123,20 +125,40 @@ export default createStore({
       api.getImageFiles().then(response => {
         let longImage = response.data.long.map(el => { return {location: 'long/' + el, type: 'long'}})
         let wideImage = response.data.wide.map(el => { return {location: 'wide/' + el, type: 'wide'}})
-
-        // console.log(longImage)
-        // console.log(wideImage)
-        // console.log(longImage.concat(wideImage))
-
-        // allImages.push(longImage)
-        // allImages.push(wideImage)
         commit("SET_IMAGE_FILES_LOCATION", longImage.concat(wideImage))
         // console.log(wideImage)
       })
     },
+    getSchedule({commit}) {
+      api.getSchedule().then(response => {
+        let schedule = response.data.map(el => {
+          let [day, month, year] = el['Date'].split('.')
+          let jsDate = new Date(year, month - 1, day)
+          let weekday = jsDate.toLocaleDateString("en-GB", { weekday: 'short' });
+          let isoDate = new Date().toISOString(year, month, day)
+          return {
+            day: day,
+            month: month,
+            year: year,
+            weekday: weekday,
+            type: el['Type'],
+            content: el['Description'],
+            isoDate: isoDate
+          }
+        })
+        let sorted = schedule.sort((a, b) => Date.parse(b.isoDate) - Date.parse(a.isoDate))
+        commit("SET_SCHEDULE_DATA",sorted)
+      })
+    }
+
   },
   getters: {
-    getShuffledImageFilesLocation: state => shuffle(state.imageFilesLocation)
+    getShuffledImageFilesLocation: state => shuffle(state.imageFilesLocation),
+    getRecentSchedule: state => state.scheduleData.filter(el => {
+      let elementDate = new Date(el.year, el.month - 1, el.day).setHours(0, 0, 0, 0)
+      let today = new Date().setHours(0, 0, 0, 0);
+      return elementDate > today - 1
+    })
   },
   modules: {
   }

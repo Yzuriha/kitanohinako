@@ -1,24 +1,24 @@
 <template>
   <div class="home">
     <main-header></main-header>
-    <base-section v-if="scheduleData.length" title="SCHEDULE" additional-classes="headline--bottom-border">
+    <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
-        <schedule-card v-for="schedule in scheduleData"
+        <schedule-card v-for="schedule in getRecentSchedule"
                        :type="schedule.type"
-                       :date="schedule.date"
+                       :schedule-data="schedule"
+                       :date="`${schedule.day}.${schedule.month}.${schedule.year}`"
                        :content="schedule.content">
         </schedule-card>
-        <more-button-link :route="'/schedule'"></more-button-link>
+        <more-button-link v-if="getRecentSchedule.length > 5" :route="'/schedule'"></more-button-link>
       </template>
     </base-section>
-    <base-section title="PROFILE" additional-classes="headline--bottom-border">
+    <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <profile-card :full-content="false"></profile-card>
-        <more-button-link :route="'/profile'"></more-button-link>
       </template>
     </base-section>
     <observer @intersect="displayGallery = true"></observer>
-    <base-section title="GALLERY" additional-classes="headline--bottom-border">
+    <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <div v-show="loadingScreenFinished && displayGallery" class="gallery-image-container">
           <base-image v-for="(file, index) in getShuffledImageFilesLocation" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
@@ -26,8 +26,7 @@
         <more-button-link :route="'/gallery'"></more-button-link>
       </template>
     </base-section>
-    {{getLimitedAmount.length - 1}}
-    <base-section title="BLOG" additional-classes="headline--bottom-border">
+    <base-section title="BLOG" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <router-link to="/blog">
           <blog-card v-for="(blog, index) in getLimitedAmount"
@@ -80,10 +79,9 @@ export default {
   computed: {
     ...mapState({
       blogData: state => state.blogData,
-      scheduleData: state => state.scheduleData,
       loadingScreenFinished: state => state.loadingScreenFinished,
     }),
-    ...mapGetters(['getShuffledImageFilesLocation']),
+    ...mapGetters(['getShuffledImageFilesLocation', 'getRecentSchedule']),
     getLimitedAmount() {
       return this.blogData.slice(0, 5)
     },

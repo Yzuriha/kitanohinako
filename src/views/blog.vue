@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-  <base-section title="BLOG" additional-classes="text-center">
+  <base-section title="BLOG" additional-classes="headline--center">
     <template v-slot:content>
       <blog-card v-for="(blog, index) in getLimitedAmount"
                  :title="blog.title"

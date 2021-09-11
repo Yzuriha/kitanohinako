@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <base-section title="PROFILE" additional-classes="text-center">
+    <base-section title="PROFILE" additional-classes="headline--center">
       <template v-slot:content>
         <profile-card></profile-card>
       </template>

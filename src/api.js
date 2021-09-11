@@ -13,6 +13,8 @@ export default {
     },
     getImageFiles() {
         return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/imageFiles.json")
+    },
+    getSchedule() {
+        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/schedule.json")
     }
-
 }

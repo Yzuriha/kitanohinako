@@ -1,11 +1,11 @@
 <template>
   <nav v-if="activeSite === 'Home'" class="nav-home" :class="{'navigation--bottom' : isBottomNav}" ref="nav-home">
-    <router-navigation v-if="hasSchedule" to="/schedule" title="SCHEDULE"></router-navigation>
+    <router-navigation to="/schedule" title="SCHEDULE"></router-navigation>
     <router-navigation to="/profile" title="PROFILE"></router-navigation>
     <router-navigation to="/gallery" title="GALLERY"></router-navigation>
     <router-navigation to="/blog" title="BLOG"></router-navigation>
     <router-navigation to="/media" title="MEDIA"></router-navigation>
-    <router-navigation to="/7gogo#bottom" title="7GOGO"></router-navigation>
+    <router-navigation to="/7gogo" title="7GOGO"></router-navigation>
     <router-navigation to="/works" title="WORKS"></router-navigation>
   </nav>
 
@@ -16,12 +16,12 @@
         <div class="nav-home-link_subtitle">U N O F F I C I A L &nbsp; S I T E</div>
       </router-link>
       <div class="nav-main">
-        <router-navigation v-if="hasSchedule" to="/schedule" title="SCHEDULE"></router-navigation>
+        <router-navigation to="/schedule" title="SCHEDULE"></router-navigation>
         <router-navigation to="/profile" title="PROFILE"></router-navigation>
         <router-navigation to="/gallery" title="GALLERY"></router-navigation>
         <router-navigation to="/blog" title="BLOG"></router-navigation>
         <router-navigation to="/media" title="MEDIA"></router-navigation>
-        <router-navigation to="/7gogo#bottom" title="7GOGO"></router-navigation>
+        <router-navigation to="/7gogo" title="7GOGO"></router-navigation>
         <router-navigation to="/works" title="WORKS"></router-navigation>
       </div>
       <div class="navigation-toggle" @click="toggle">
@@ -31,12 +31,12 @@
       </div>
     </div>
     <nav class="nav-side" :class="{'navigation--bottom' : isBottomNav, 'navigation-side--active' : isToggleActive}">
-      <router-navigation v-if="hasSchedule" @click="toggle"  to="/schedule" title="SCHEDULE"></router-navigation>
+      <router-navigation @click="toggle"  to="/schedule" title="SCHEDULE"></router-navigation>
       <router-navigation @click="toggle" to="/profile" title="PROFILE"></router-navigation>
       <router-navigation @click="toggle" to="/gallery" title="GALLERY"></router-navigation>
       <router-navigation @click="toggle" to="/blog" title="BLOG"></router-navigation>
       <router-navigation @click="toggle" to="/media" title="MEDIA"></router-navigation>
-      <router-navigation @click="toggle" to="/7gogo#bottom" title="7GOGO"></router-navigation>
+      <router-navigation @click="toggle" to="/7gogo" title="7GOGO"></router-navigation>
       <router-navigation @click="toggle" to="/works" title="WORKS"></router-navigation>
     </nav>
   </nav>
@@ -59,8 +59,7 @@ export default {
   },
   computed: {
     ...mapState({
-      activeSite: state => state.activeSite,
-      hasSchedule: state => state.scheduleData.length
+      activeSite: state => state.activeSite
     }),
     isBottomNav() {
       return this.$route.name === "Home"

@@ -1,6 +1,6 @@
 <template>
   <div class="nanagogo" ref="nanagogo">
-    <base-section title="7gogo" additional-classes="text-center">
+    <base-section title="7gogo" additional-classes="headline--center">
       <template v-slot:content>
         <observer v-if="activateObserver" @intersect="showMore" :timeout="500"></observer>
         <more-button @click="showMore"></more-button>

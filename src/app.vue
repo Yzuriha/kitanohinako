@@ -29,6 +29,7 @@ export default {
   },
   created() {
     this.getImageFiles()
+    this.getSchedule()
     this.accessSpreadSheet()
     this.getGogoData()
   },
@@ -36,7 +37,7 @@ export default {
 
   },
   methods: {
-    ...mapActions(['accessSpreadSheet', 'getGogoData', 'setLoadingScreenFinished', 'getImageFiles']),
+    ...mapActions(['accessSpreadSheet', 'getGogoData', 'setLoadingScreenFinished', 'getImageFiles', 'getSchedule']),
 
     onLoad() {
       setTimeout(() => {
@@ -60,6 +61,8 @@ export default {
 
 @font-color: #4d4948;
 @font-color-light: #4d494885;
+@primary-color:  rgba(135, 206, 250, 0.2);
+@primary-color-light:  rgba(135, 206, 250, 0.15);
 @tablet: ~'(min-width: 481px)';
 @laptop: ~'(min-width: 769px)';
 @desktop: ~'(min-width: 1025px)';
@@ -77,16 +80,20 @@ a {
   color: inherit;
 }
 
-h1, h2 {
+h1, .h1, h2, .h2 {
   font-family: 'Morison', sans-serif;
   font-weight: normal;
   margin-bottom: 10px;
 }
 
-h3, h4 {
-  font-family: 'Spartan', sans-serif;
-  font-weight: lighter;
-  margin-bottom: 10px;
+h2, .h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+::selection {
+  background: @primary-color; /* WebKit/Blink Browsers */
 }
 
 .router-link {
@@ -123,6 +130,31 @@ h3, h4 {
   }
 }
 
+
+
+@media @desktop {
+  .instagram-modal_text::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+  .instagram-modal_text,
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: @primary-color none;
+  }
+  .instagram-modal_text::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background: none;
+  }
+  .instagram-modal_text::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background-color: @primary-color ;
+    border-radius: 6px;
+  }
+}
+
+
+
 /*******************/
 /* SITE COMPONENTS */
 /*******************/
@@ -145,6 +177,19 @@ h3, h4 {
   .headline {
     margin-top: 40px;
     margin-bottom: 15px;
+    &.headline--left {
+      .headline_title {
+        padding-left: 6px;
+        border-left: 3px solid @primary-color;
+      }
+    }
+    &.headline--center {
+      text-align: center;
+      .headline_title {
+        border-bottom: 3px solid @primary-color;
+
+      }
+    }
     &.headline--bottom-border {
       border-bottom: 1px solid @font-color-light;
     }
@@ -168,11 +213,11 @@ h3, h4 {
     }
   }
   .router-link {
-    padding: 13px 15px;
+    padding: 13px 15px 0;
     &:after {
       display:block;
       content: '';
-      border-bottom: solid 1px @font-color-light;
+      border-bottom: solid 3px @primary-color;
       transform: scaleX(0);
       transition: transform 250ms ease-in-out;
       margin: 10px auto 0;
@@ -261,17 +306,22 @@ h3, h4 {
       @media @desktop {
         display: flex;
       }
+
       .router-link {
-        padding: 0 25px;
+        padding: 0 20px;
+        margin-top: 10px;
         &:after {
           display:block;
           content: '';
-          border-bottom: solid 1px @font-color-light;
+          border-bottom: solid 3px @primary-color;
           transform: scaleX(0);
           transition: transform 250ms ease-in-out;
           margin: 10px auto 0;
         }
         &:hover:after {
+          transform: scaleX(1);
+        }
+        &.router-link-active.router-link-exact-active:after {
           transform: scaleX(1);
         }
       }
@@ -300,7 +350,7 @@ h3, h4 {
       visibility: visible;
     }
     .router-link {
-      padding: 13px 15px;
+      padding: 13px 15px 0;
       line-height: 2;
       font-weight: 100;
     }
@@ -311,75 +361,44 @@ h3, h4 {
 
 // SCHEUDLE \\
 .schedule-card {
-  //margin: 15px 0;
-  //display: grid;
-  //grid-template-columns: min-content min-content 1fr;
-  //grid-gap: 5px;
-  //.schedule-card_date {
-  //  //grid-area: date;
-  //  grid-row: ~"1/2";
-  //  font-size: 0.8rem;
-  //  padding: 0 10px;
-  //}
-  //.schedule-card_type {
-  //  //grid-area: type;
-  //  grid-row: ~"1/2";
-  //  border: 1px solid @font-color;
-  //  border-radius: 4px;
-  //  padding: 0 10px;
-  //  font-size: 0.8rem;
-  //}
-  //.schedule-card_content {
-  //  //grid-area: content;
-  //  grid-row-start: 2;
-  //  grid-column: ~"1/4";
-  //}
-
-
   display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
   grid-gap: 5px;
-  //.schedule-card_date {
-  //  grid-row: 2;
-  //    font-size: 0.8rem;
-  //    padding: 0 10px;
-  //  text-align: center;
-  //}
-  //.schedule-card_type {
-  //    border: 1px solid @font-color;
-  //    border-radius: 4px;
-  //    padding: 0 10px;
-  //    font-size: 0.8rem;
-  //    width: max-content;
-  //  margin: 0 auto;
-  //}
-  //.schedule-card_content {
-  //  grid-row: span 2;
-  //}
+  border-right: 3px solid @primary-color;
+  margin: 15px 0;
+  //border-bottom: 1px solid @font-color-light;
+
   .schedule-card_left {
     display: grid;
     justify-content: center;
     align-items: center;
     justify-items: center;
     grid-gap: 5px;
-    border-right: 1px solid @font-color-light;
-    .schedule-card_type,
+    //border-right: 1px solid @font-color-light;
+    padding: 20px;
+    background-color: @primary-color-light;
+    //.schedule-card_type,
+    //.schedule-card_date {
+    //  font-size: 0.8rem;
+    //  padding: 0 10px;
+    //}
     .schedule-card_date {
-        font-size: 0.8rem;
-        padding: 0 10px;
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .schedule-card_weekday {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .schedule-card_month-year {
+      font-size: 0.8rem;
     }
     .schedule-card_type {
-        border: 1px solid @font-color;
-        border-radius: 4px;
-     }
+      border: 1px solid @font-color;
+      border-radius: 4px;
+    }
   }
-  .schedule-card_right {
-
-  }
-
-
-
 }
 
 
@@ -464,6 +483,7 @@ h3, h4 {
   .blog-card_hr {
     grid-column: ~"1/3";
     width: 75%;
+    max-width: 500px;
     border: none;
     border-bottom: 1px solid @font-color-light;
   }
@@ -567,16 +587,16 @@ h3, h4 {
   align-content: center;
   justify-content: center;
   margin-top: 30px;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    opacity: 0.8;
-  }
   .more-button_text {
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
     color: @font-color;
     font-family: 'Spartan',sans-serif;
     text-decoration: none;
     border-bottom: 1px solid @font-color-light;
+    &:hover {
+      border-color: @primary-color;
+    }
   }
 }
 

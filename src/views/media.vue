@@ -1,6 +1,6 @@
 <template>
   <div class="media">
-    <base-section title="MEDIA" additional-classes="text-center">
+    <base-section title="MEDIA" additional-classes="headline--center">
       <template v-slot:content>
         <div class="video-container video-container--iframe">
           <iframe class="video" src="https://www.youtube.com/embed/GrA-y92MPiQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

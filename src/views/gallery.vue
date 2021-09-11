@@ -1,6 +1,6 @@
 <template>
   <div class="gallery">
-    <base-section title="GALLERY" additional-classes="text-center">
+    <base-section title="GALLERY" additional-classes="headline--center">
       <template v-slot:content>
         <div v-show="loadingScreenFinished" class="gallery-image-container">
           <base-image v-for="(file, index) in getShuffledImageFilesLocation" :image-location="file.location" :style="{animationDelay: index * 100 + 'ms'}"></base-image>
@@ -8,7 +8,7 @@
       </template>
     </base-section>
 
-    <base-section title="INSTAGRAM" additional-classes="text-center">
+    <base-section title="INSTAGRAM" additional-classes="headline--center">
       <template v-slot:content>
         <observer @intersect="showMore" :once="true"></observer>
         <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">

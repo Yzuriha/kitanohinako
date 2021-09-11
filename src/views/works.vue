@@ -1,6 +1,6 @@
 <template>
   <div class="works">
-    <base-section title="WORKS" additional-classes="text-center">
+    <base-section title="WORKS" additional-classes="headline--center">
       <template v-slot:content>
 
       </template>
