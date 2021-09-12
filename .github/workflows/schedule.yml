@@ -1,6 +1,10 @@
 name: Schedule
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [ "Deploy" ]
+    types:
+      - completed
   schedule:
     - cron: '0 0,12 * * *'
 

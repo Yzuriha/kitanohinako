@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     getImgLocation(img) {
-      return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://yzuriha.github.io/kitanohinako/img/instagram/${img}`
+      return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://kitanohinako.xyz/img/instagram/${img}`
     },
     showMoreGallery() {
       this.displayAmountGallery += 10

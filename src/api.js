@@ -6,15 +6,15 @@ const AXIOS = axios.create({
 
 export default {
     getInstagramData() {
-        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/instagram.json");
+        return AXIOS.get("https://kitanohinako.xyz/assets/instagram.json");
     },
     get7gogoData() {
-        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/7gogo.json")
+        return AXIOS.get("https://kitanohinako.xyz/assets/7gogo.json")
     },
     getImageFiles() {
-        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/imageFiles.json")
+        return AXIOS.get("https://kitanohinako.xyz/assets/imageFiles.json")
     },
     getSchedule() {
-        return AXIOS.get("https://yzuriha.github.io/kitanohinako/assets/schedule.json")
+        return AXIOS.get("https://kitanohinako.xyz/assets/schedule.json")
     }
 }
