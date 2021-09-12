@@ -50,7 +50,11 @@ const routes = [
     name: 'Works',
     component: () => import('@/views/works.vue')
   },
-
+  {
+    path: "/:pathMatch(.*)*",
+    name: '404',
+    component: () => import('@/views/404.vue')
+  }
   // {
   //   path: '/about',
   //   name: 'About',

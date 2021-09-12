@@ -3,10 +3,11 @@
     <base-section title="GALLERY" additional-classes="headline--center">
       <template v-slot:content>
         <div v-show="loadingScreenFinished" class="gallery-image-container">
-          <base-image v-for="(file, index) in getShuffledImageFilesLocation"
+          <base-image v-for="(file, index) in getLimitedAmountGallery"
                       :image-location="file.location"
-                      :style="{animationDelay: index * 100 + 'ms'}">
+                      :style="{animationDelay: ((index + 1) - 10 * delayMultiplierGallery) * 150 + 'ms'}">
           </base-image>
+          <observer @intersect="showMoreGallery" :once="true"></observer>
         </div>
       </template>
     </base-section>
@@ -14,14 +15,15 @@
     <base-section title="INSTAGRAM" additional-classes="headline--center">
       <template v-slot:content>
         <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">
-          <instagram-image v-for="(image, index) in getLimitedAmount" :description="image.text"
+          <instagram-image v-for="(image, index) in getLimitedAmountInstagram" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
-                           :id="image.filename.split('.')[0] + '-' + index">
+                           :id="image.filename.split('.')[0] + '-' + index"
+                           :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 100 + 'ms'}">
           </instagram-image>
-          <observer @intersect="showMore" :once="true"></observer>
+          <observer @intersect="showMoreInstagram" :once="true"></observer>
         </div>
-        <more-button v-if="displayAmount < instagramData.length" @click="showMore"></more-button>
+        <more-button v-if="displayAmountInstagram < instagramData.length" @click="showMoreInstagram"></more-button>
       </template>
     </base-section>
   </div>
@@ -46,38 +48,47 @@ export default {
   data() {
     return {
       instagramData: [],
-      displayAmount: 0,
-      delayMultiplier: 0
+      displayAmountInstagram: 0,
+      displayAmountGallery: 0,
+      delayMultiplierGallery: -1,
+      delayMultiplierInstagram: 0
     }
   },
   created() {
     api.getInstagramData().then(response => {
       this.instagramData = response.data.reverse()
     })
-    // this.showMore()
   },
   methods: {
     getImgLocation(img) {
       return process.env.NODE_ENV === 'production' ? `./img/instagram/${img}`: `https://yzuriha.github.io/kitanohinako/img/instagram/${img}`
     },
-    showMore() {
-      for(let i = 0; i < 12; i++) {
-        setTimeout(() => {
-          this.displayAmount += 1
-        }, i * 100)
-        this.delayMultiplier++
-      }
-      this.delayMultiplier = 0
+    showMoreGallery() {
+      this.displayAmountGallery += 10
+      this.delayMultiplierGallery++
+    },
+    showMoreInstagram() {
+      // for(let i = 0; i < 12; i++) {
+      //   setTimeout(() => {
+      //     this.displayAmountInstagram += 1
+      //   }, i * 150)
+      //   this.delayMultiplierInstagram++
+      // }
+      // this.delayMultiplierInstagram = 0
+      this.displayAmountGallery += 12
+      this.delayMultiplierGallery++
     },
   },
   computed: {
     ...mapState({
-      loadingScreenFinished: state => state.loadingScreenFinished,
-      // imageFilesLocation: state => state.imageFilesLocation
+      loadingScreenFinished: state => state.loadingScreenFinished
     }),
     ...mapGetters(['getShuffledImageFilesLocation']),
-    getLimitedAmount() {
-      return this.instagramData.slice(0, this.displayAmount)
+    getLimitedAmountGallery() {
+      return this.getShuffledImageFilesLocation.slice(0, this.displayAmountGallery)
+    },
+    getLimitedAmountInstagram() {
+      return this.instagramData.slice(0, this.displayAmountInstagram)
     }
   }
 }

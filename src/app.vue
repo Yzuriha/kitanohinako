@@ -30,14 +30,13 @@ export default {
   created() {
     this.getImageFiles()
     this.getSchedule()
-    // this.accessSpreadSheet()
     this.getGogoData()
   },
   mounted() {
 
   },
   methods: {
-    ...mapActions(['accessSpreadSheet', 'getGogoData', 'setLoadingScreenFinished', 'getImageFiles', 'getSchedule']),
+    ...mapActions(['getGogoData', 'setLoadingScreenFinished', 'getImageFiles', 'getSchedule']),
 
     onLoad() {
       setTimeout(() => {
@@ -365,10 +364,9 @@ h2, .h2 {
   display: grid;
   grid-template-columns: min-content 1fr;
   align-items: center;
-  grid-gap: 5px;
+  grid-gap: 25px;
   border-right: 3px solid @primary-color;
   margin: 15px 0;
-  //border-bottom: 1px solid @font-color-light;
 
   .schedule-card_left {
     display: grid;
@@ -376,14 +374,8 @@ h2, .h2 {
     align-items: center;
     justify-items: center;
     grid-gap: 5px;
-    //border-right: 1px solid @font-color-light;
     padding: 20px;
     background-color: @primary-color-light;
-    //.schedule-card_type,
-    //.schedule-card_date {
-    //  font-size: 0.8rem;
-    //  padding: 0 10px;
-    //}
     .schedule-card_date {
       font-size: 2.5rem;
       line-height: 1;
@@ -395,8 +387,14 @@ h2, .h2 {
     .schedule-card_month-year {
       font-size: 0.8rem;
     }
+  }
+  .schedule-card_right {
     .schedule-card_type {
-      border: 1px solid @font-color;
+      border: 1px solid black;
+      display: inline-block;
+      padding: 0 5px;
+      font-size: 12px;
+      margin: 10px 0;
       border-radius: 4px;
     }
   }
@@ -563,6 +561,37 @@ h2, .h2 {
     }
     .gogo-card_profile {
       order: 2;
+    }
+  }
+}
+
+
+// WORKS \\
+.work-card {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  grid-gap: 10px;
+  margin: 20px 0;
+  .work-card_title {
+    border-right: 1px solid @primary-color-dark;
+    font-family: 'Morison', sans-serif;
+    font-weight: bold;
+  }
+  .word-card_entry {
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: start;
+    align-content: start;
+    grid-gap: 5px;
+    .bullet_point {
+      opacity: 0.4;
+      height: 100%;
+    }
+    .entry-romaji,
+    .entry-kanji,
+    .entry-year{
+      grid-column-start: 2;
     }
   }
 }
