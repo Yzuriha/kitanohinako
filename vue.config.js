@@ -1,7 +1,5 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-        ? '/kitanohinako/'
-        : '/',
+    publicPath: '/',
     pwa: {
         workboxOptions: {
             skipWaiting: true,
