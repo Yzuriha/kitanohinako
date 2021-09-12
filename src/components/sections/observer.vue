@@ -22,13 +22,10 @@ export default {
         if(this.timeout > 0){
           setTimeout(() =>{
             this.$emit("intersect");
-
-            console.log("Wait", this.timeout)
             this.checkOnce()
           }, this.timeout);
         } else {
           this.$emit("intersect");
-          console.log("NOWA")
           this.checkOnce()
         }
       }
@@ -42,7 +39,6 @@ export default {
   methods: {
     checkOnce() {
       if(this.once) {
-        console.log("once")
         this.observer.disconnect();
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="loading-screen">
-    <img class="sign" :src="'img/final.svg?' + getTimestamp" @load="$emit('imgLoaded')" width="500" height="500">
-    <img class="texture" :src="'img/textureOld.png'" width="500" height="500">
+    <img class="sign" :src="'img/final.svg' + getTimestamp" @load="$emit('imgLoaded')" width="500" height="500" alt="loading-screen-image">
+    <img class="texture" :src="'img/textureOld.png'" width="500" height="500" alt="loading-screen-texture">
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   emits: ['imgLoaded'],
   computed: {
     getTimestamp() {
-      return Date.now()
+      return navigator.onLine ? '?' + Date.now() : ''
     }
   }
 }

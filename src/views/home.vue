@@ -30,7 +30,7 @@
       </template>
     </base-section>
 
-<!--    <observer @intersect="accessSpreadSheet" :once="true"></observer>-->
+    <observer @intersect="accessSpreadSheet" :once="true"></observer>
     <base-section title="BLOG" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <router-link to="/blog">

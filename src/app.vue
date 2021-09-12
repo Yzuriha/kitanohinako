@@ -586,8 +586,13 @@ h2, .h2 {
     aspect-ratio: 1;
     object-fit: cover;
   }
-  &:hover {
-    transform: scale(1.1);
+  &:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px @primary-color;
+    //transform: scaleX(0);
+    //transition: transform 250ms ease-in-out;
+    //margin: 10px auto 0;
   }
 }
 
@@ -756,13 +761,13 @@ h2, .h2 {
     justify-content: center;
     font-size: 0.8em;
     .insta-follow-btn {
-      width: 1em;
-      height: 1em;
+      width: 13px;
+      height: 13px;
       padding: 10px;
     }
   }
   .main-footer_disclaimer {
-    font-size: 0.7em;
+    font-size: 12px;
     text-align: center;
   }
 }
