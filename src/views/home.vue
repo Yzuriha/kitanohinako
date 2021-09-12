@@ -24,7 +24,7 @@
     <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <div v-show="loadingScreenFinished && displayGallery" class="gallery-image-container">
-          <base-image v-for="(file, index) in getShuffledImageFilesLocation.slice(0, 11)" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
+          <base-image v-for="(file, index) in getShuffledImageFilesLocation.slice(0, 9)" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
         </div>
         <more-button-link :route="'/gallery'"></more-button-link>
       </template>

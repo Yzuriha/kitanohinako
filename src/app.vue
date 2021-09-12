@@ -160,7 +160,8 @@ h2, .h2 {
 /*******************/
 
 .nanagogo, .blog, .gallery, .media, .profile, .schedule, .works {
-  margin: 90px 15px 0 15px;
+  //margin: 90px 15px 0 15px;
+  margin-top: 90px;
 }
 
 // SITE CONTAINER \\
@@ -614,14 +615,6 @@ h2, .h2 {
   &.base-image--square {
     aspect-ratio: 1;
     object-fit: cover;
-  }
-  &:after {
-    display:block;
-    content: '';
-    border-bottom: solid 3px @primary-color;
-    //transform: scaleX(0);
-    //transition: transform 250ms ease-in-out;
-    //margin: 10px auto 0;
   }
 }
 

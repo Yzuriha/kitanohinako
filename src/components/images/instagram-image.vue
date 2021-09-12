@@ -1,12 +1,14 @@
 <template>
-  <img v-if="type === 'image'"
-       @click="setActiveInstagramPost(id)"
-       :alt="title"
-       loading="lazy"
-       :id="id"
-       v-bind="$attrs"
-       class="base-image base-image--square cursor-pointer entrance-animation"
-       :src="source">
+  <div v-if="type === 'image'" class="instagram-image-container">
+    <img
+         @click="setActiveInstagramPost(id)"
+         :alt="title"
+         loading="lazy"
+         :id="id"
+         v-bind="$attrs"
+         class="base-image base-image--square cursor-pointer entrance-animation"
+         :src="source">
+  </div>
   <div v-else class="video-container cursor-pointer entrance-animation"
        :id="id"
        v-bind="$attrs"
@@ -69,3 +71,25 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+
+.instagram-image-container {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%
+
+  }
+  .base-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+
+</style>
