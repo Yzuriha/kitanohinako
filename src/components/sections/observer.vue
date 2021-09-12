@@ -24,21 +24,28 @@ export default {
             this.$emit("intersect");
 
             console.log("Wait", this.timeout)
+            this.checkOnce()
           }, this.timeout);
         } else {
           this.$emit("intersect");
+          console.log("NOWA")
+          this.checkOnce()
         }
       }
     }, options);
 
     this.observer.observe(this.$el);
-    if(this.once) {
-      console.log("once")
-      this.observer.disconnect();
-    }
   },
   destroyed() {
     this.observer.disconnect();
   },
+  methods: {
+    checkOnce() {
+      if(this.once) {
+        console.log("once")
+        this.observer.disconnect();
+      }
+    }
+  }
 };
 </script>

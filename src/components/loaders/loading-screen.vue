@@ -1,7 +1,7 @@
 <template>
   <div class="loading-screen">
-    <img class="sign" :src="'img/final.svg?' + getTimestamp" @load="$emit('imgLoaded')">
-    <img class="texture" :src="'img/textureOld.png'">
+    <img class="sign" :src="'img/final.svg?' + getTimestamp" @load="$emit('imgLoaded')" width="500" height="500">
+    <img class="texture" :src="'img/textureOld.png'" width="500" height="500">
   </div>
 </template>
 
@@ -16,7 +16,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

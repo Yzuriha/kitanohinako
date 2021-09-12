@@ -20,7 +20,7 @@ export default {
         './img/header/5.jpg',
         './img/header/6.jpg',
       ],
-      activeHeaderImage: './img/header/1.png',
+      activeHeaderImage: './img/header/1.jpg',
       timer: '',
       imageCounter: 0
     }

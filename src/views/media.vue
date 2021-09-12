@@ -18,7 +18,3 @@ export default {
   components: {BaseSection, MainNav}
 }
 </script>
-
-<style scoped>
-
-</style>

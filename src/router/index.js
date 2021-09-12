@@ -1,55 +1,54 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import store from "@/store";
-import Home from '@/views/home.vue'
-import Gogo from '@/views/7gogo.vue'
-import Blog from '@/views/blog.vue'
-import Gallery from "@/views/gallery"
-import Media from "@/views/media"
-import Profile from "@/views/profile"
-import Schedule from "@/views/schedule"
-import Works from "@/views/works"
+// import Home from '@/views/home.vue'
+// import Gogo from '@/views/7gogo.vue'
+// import Blog from '@/views/blog.vue'
+// import Gallery from "@/views/gallery"
+// import Media from "@/views/media"
+// import Profile from "@/views/profile"
+// import Schedule from "@/views/schedule"
+// import Works from "@/views/works"
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('@/views/home.vue')
   },
   {
     path: '/7gogo',
     name: '7gogo',
-    component: Gogo,
-    hash: 'test'
+    component: () => import('@/views/7gogo.vue')
   },
   {
     path: '/blog',
     name: 'Blog',
-    component: Blog
+    component: () => import('@/views/blog.vue')
   },
   {
     path: '/gallery',
     name: 'Gallery',
-    component: Gallery
+    component: () => import('@/views/gallery.vue')
   },
   {
     path: '/media',
     name: 'Media',
-    component: Media
+    component: () => import('@/views/media.vue')
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: () => import('@/views/profile.vue')
   },
   {
     path: '/schedule',
     name: 'Schedule',
-    component: Schedule
+    component: () => import('@/views/schedule.vue')
   },
   {
     path: '/works',
     name: 'Works',
-    component: Works
+    component: () => import('@/views/works.vue')
   },
 
   // {

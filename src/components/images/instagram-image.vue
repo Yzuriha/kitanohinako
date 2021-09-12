@@ -4,9 +4,13 @@
        :alt="title"
        loading="lazy"
        :id="id"
+       v-bind="$attrs"
        class="base-image base-image--square cursor-pointer entrance-animation"
        :src="source">
-  <div v-else class="video-container cursor-pointer entrance-animation" :id="id" @click="setActiveInstagramPost(id)">
+  <div v-else class="video-container cursor-pointer entrance-animation"
+       :id="id"
+       v-bind="$attrs"
+       @click="setActiveInstagramPost(id)">
     <div class="play-button">▶</div>
     <div class="instagram-video-container">
       <video class="instagram-video" preload="metadata">

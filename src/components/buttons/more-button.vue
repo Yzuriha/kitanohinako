@@ -1,6 +1,6 @@
 <template>
   <div class="more-button">
-    <span class="more-button_text">more</span>
+    <span class="more-button_text">view more</span>
   </div>
 </template>
 
@@ -12,7 +12,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

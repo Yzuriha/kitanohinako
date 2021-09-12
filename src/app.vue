@@ -19,7 +19,7 @@
 import MainNav from "@/components/navigation/main-nav";
 import {mapActions} from "vuex";
 import MainFooter from "@/components/sections/main-footer";
-import LoadingScreen from "@/components/loading-screen";
+import LoadingScreen from "@/components/loaders/loading-screen";
 export default {
   components: {LoadingScreen, MainFooter, MainNav},
   data() {
@@ -30,7 +30,7 @@ export default {
   created() {
     this.getImageFiles()
     this.getSchedule()
-    this.accessSpreadSheet()
+    // this.accessSpreadSheet()
     this.getGogoData()
   },
   mounted() {
@@ -63,6 +63,7 @@ export default {
 @font-color-light: #4d494885;
 @primary-color:  rgba(135, 206, 250, 0.2);
 @primary-color-light:  rgba(135, 206, 250, 0.15);
+@primary-color-dark: rgba(135, 206, 250, 0.45);
 @tablet: ~'(min-width: 481px)';
 @laptop: ~'(min-width: 769px)';
 @desktop: ~'(min-width: 1025px)';
@@ -148,7 +149,7 @@ h2, .h2 {
   }
   .instagram-modal_text::-webkit-scrollbar-thumb,
   body::-webkit-scrollbar-thumb {
-    background-color: @primary-color ;
+    background-color: @primary-color-dark;
     border-radius: 6px;
   }
 }
@@ -437,6 +438,11 @@ h2, .h2 {
   .blog-card_image {
     height: 100px;
     width: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
     .base-image {
       height: 100%;
     }
@@ -571,12 +577,17 @@ h2, .h2 {
 .base-image {
   width: 100%;
   height: auto;
+  transition: all 0.5s ease-in;
+  overflow: hidden;
   &.base-image--long {
 
   }
   &.base-image--square {
     aspect-ratio: 1;
     object-fit: cover;
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -778,6 +789,7 @@ h2, .h2 {
   img {
     width: 70%;
     max-width: 500px;
+    height: auto;
     opacity: 0.85;
   }
 

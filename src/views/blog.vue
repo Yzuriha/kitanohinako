@@ -36,11 +36,16 @@ export default {
       displayAmount: 0
     }
   },
+  created() {
+    if(this.blogData.length <= 1) {
+      this.accessSpreadSheet()
+    }
+  },
   mounted() {
     this.showMore()
   },
   methods:{
-    ...mapActions(['setActiveBlog', 'removeActiveBlog']),
+    ...mapActions(['setActiveBlog', 'removeActiveBlog', 'accessSpreadSheet']),
     showMore() {
       for(let i = 0; i < 5; i++) {
         setTimeout(() => {

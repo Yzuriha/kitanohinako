@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <main-header></main-header>
+
     <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <schedule-card v-for="schedule in getRecentSchedule"
@@ -12,11 +13,13 @@
         <more-button-link v-if="getRecentSchedule.length > 5" :route="'/schedule'"></more-button-link>
       </template>
     </base-section>
+
     <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <profile-card :full-content="false"></profile-card>
       </template>
     </base-section>
+
     <observer @intersect="displayGallery = true"></observer>
     <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
@@ -26,6 +29,8 @@
         <more-button-link :route="'/gallery'"></more-button-link>
       </template>
     </base-section>
+
+<!--    <observer @intersect="accessSpreadSheet" :once="true"></observer>-->
     <base-section title="BLOG" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <router-link to="/blog">
@@ -56,7 +61,7 @@ import InstagramImage from "@/components/images/instagram-image";
 import LongImage from "@/components/images/long-image";
 import SquareImage from "@/components/images/square-image";
 import BlogCard from "@/components/cards/blog-card";
-import {mapGetters, mapState} from "vuex";
+import {mapActions, mapGetters, mapState} from "vuex";
 import MoreButtonLink from "@/components/buttons/more-button-link";
 import MainHeader from "@/components/sections/main-header";
 import Observer from "@/components/sections/observer";
@@ -91,6 +96,9 @@ export default {
       }
       // return `animation-delay: calc(${index} * 100ms)`
     }
+  },
+  methods: {
+    ...mapActions(['accessSpreadSheet']),
   }
 }
 </script>

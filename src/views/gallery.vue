@@ -3,20 +3,23 @@
     <base-section title="GALLERY" additional-classes="headline--center">
       <template v-slot:content>
         <div v-show="loadingScreenFinished" class="gallery-image-container">
-          <base-image v-for="(file, index) in getShuffledImageFilesLocation" :image-location="file.location" :style="{animationDelay: index * 100 + 'ms'}"></base-image>
+          <base-image v-for="(file, index) in getShuffledImageFilesLocation"
+                      :image-location="file.location"
+                      :style="{animationDelay: index * 100 + 'ms'}">
+          </base-image>
         </div>
       </template>
     </base-section>
 
     <base-section title="INSTAGRAM" additional-classes="headline--center">
       <template v-slot:content>
-        <observer @intersect="showMore" :once="true"></observer>
         <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">
           <instagram-image v-for="(image, index) in getLimitedAmount" :description="image.text"
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
                            :id="image.filename.split('.')[0] + '-' + index">
           </instagram-image>
+          <observer @intersect="showMore" :once="true"></observer>
         </div>
         <more-button v-if="displayAmount < instagramData.length" @click="showMore"></more-button>
       </template>
@@ -44,13 +47,14 @@ export default {
     return {
       instagramData: [],
       displayAmount: 0,
+      delayMultiplier: 0
     }
   },
   created() {
     api.getInstagramData().then(response => {
       this.instagramData = response.data.reverse()
     })
-    this.showMore()
+    // this.showMore()
   },
   methods: {
     getImgLocation(img) {
@@ -61,7 +65,9 @@ export default {
         setTimeout(() => {
           this.displayAmount += 1
         }, i * 100)
+        this.delayMultiplier++
       }
+      this.delayMultiplier = 0
     },
   },
   computed: {
