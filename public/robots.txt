@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://kitanohinako.xyz/sitemap.txt
+Sitemap: https://kitanohinako.xyz/sitemap.xml
