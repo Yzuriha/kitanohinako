@@ -2,9 +2,10 @@
   <div class="nanagogo" ref="nanagogo">
     <base-section title="7gogo" additional-classes="headline--center">
       <template v-slot:content>
-        <observer v-if="activateObserver" @intersect="showMore" :timeout="500"></observer>
+        <observer @intersect="showMore" :timeout="500"></observer>
         <more-button @click="showMore"></more-button>
-        <div class="gogo-card-container" ref="gogo-card-container">
+        <transition name="standard-long-fade">
+        <div v-if="displayGogoCards" class="gogo-card-container" ref="gogo-card-container">
           <div v-for="(data, index) in dataToShow.reverse()" class="gogo-card" :class="data.class" :ref="'gogo-card-' + index">
             <img :src="data.image" class="gogo-card_profile" alt="gogo-card_profile">
             <div class="gogo-card_text">
@@ -12,6 +13,7 @@
             </div>
           </div>
         </div>
+        </transition>
       </template>
     </base-section>
   </div>
@@ -29,7 +31,7 @@ export default {
   data() {
     return {
       displayAmount: 0,
-      activateObserver: true
+      displayGogoCards: false
     }
   },
   computed: {
@@ -42,12 +44,18 @@ export default {
   },
   methods:{
     showMore() {
-      let prevHeight = this.$refs["gogo-card-container"].offsetHeight
-      this.displayAmount += 10
+     this.displayGogoCards = true
       this.$nextTick().then(() => {
-        let newHeight = this.$refs["gogo-card-container"].offsetHeight
-        window.scroll(0, newHeight - prevHeight)
+
+        let prevHeight = this.$refs["gogo-card-container"].offsetHeight
+        this.displayAmount += 10
+        this.$nextTick().then(() => {
+          let newHeight = this.$refs["gogo-card-container"].offsetHeight
+          window.scroll(0, newHeight - prevHeight)
+        })
+
       })
+
 
     },
   },

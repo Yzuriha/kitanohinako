@@ -42,7 +42,6 @@ export default {
     }
   },
   unmounted() {
-    console.log("unmounted")
     this.cancelAutoUpdate();
   }
 }

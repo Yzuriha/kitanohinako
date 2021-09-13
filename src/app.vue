@@ -101,25 +101,6 @@ h2, .h2 {
   color: @font-color;
 }
 
-.page-fade-enter-active,
-.page-fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.page-fade-enter-from,
-.page-fade-leave-to {
-  opacity: 0;
-}
-
-.header-fade-enter-active,
-.header-fade-leave-active {
-  transition: opacity 1s ease;
-}
-
-.header-fade-enter-from,
-.header-fade-leave-to {
-  opacity: 0;
-}
 
 
 .main-header {
@@ -178,6 +159,7 @@ h2, .h2 {
   .headline {
     margin-top: 40px;
     margin-bottom: 15px;
+    animation: 1.5s slide-in ease;
     &.headline--left {
       .headline_title {
         padding-left: 6px;
@@ -858,6 +840,74 @@ h2, .h2 {
   }
 }
 
+.standard-fade-enter-active,
+.standard-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.standard-fade-enter-from,
+.standard-fade-leave-to {
+  opacity: 0;
+}
+
+.standard-long-fade-enter-active,
+.standard-long-fade-leave-active {
+  transition: opacity 1.5s ease;
+}
+
+.standard-long-fade-enter-from,
+.standard-long-fade-leave-to {
+  opacity: 0;
+}
+
+
+.header-fade-enter-active,
+.header-fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.header-fade-enter-from,
+.header-fade-leave-to {
+  opacity: 0;
+}
+
+
+.title-animation-enter-active {
+  animation: slide-in 1.5s;
+}
+.title-animation-leave-active {
+  animation: slide-in 1.5s;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform:  translateX(0px);
+    opacity: 1;
+  }
+}
+
+.work-card-animation-enter-active {
+  animation: slide-down 1.5s;
+}
+.work-card-animation-leave-active {
+  animation: slide-down 1.5s;
+}
+@keyframes slide-down {
+  0% {
+    //transform: translateY(-20px);
+    opacity: 0;
+  }
+  //75% {
+  //  transform:  translateX(10px);
+  //}
+  100% {
+    //transform:  translateX(0px);
+    opacity: 1;
+  }
+}
 
 /*********************/
 /* HELPER COMPONENTS */

@@ -22,7 +22,7 @@
                                :type="image.type"
                                :source="getImgLocation(image.filename)"
                                :id="image.filename.split('.')[0] + '-' + index"
-                               :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 100 + 'ms'}">
+                               :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 150 + 'ms'}">
               </instagram-image>
               <observer @intersect="showMoreInstagram" :once="true"></observer>
             </div>
@@ -85,14 +85,6 @@ export default {
       this.delayMultiplierGallery++
     },
     showMoreInstagram() {
-      // for(let i = 0; i < 12; i++) {
-      //   setTimeout(() => {
-      //     this.displayAmountInstagram += 1
-      //   }, i * 150)
-      //   this.delayMultiplierInstagram++
-      // }
-      // this.delayMultiplierInstagram = 0
-      console.log("hose")
       this.displayAmountInstagram += 12
       this.delayMultiplierInstagram++
     },

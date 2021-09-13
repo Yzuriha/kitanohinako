@@ -1,6 +1,6 @@
 <template>
   <teleport to="body">
-    <transition name="page-fade">
+    <transition name="standard-fade">
     <div v-if="showModal" class="base-modal" @click.self="closeModal">
       <div class="modal-container" @click.self="closeModal">
         <slot name="content"></slot>
