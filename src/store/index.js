@@ -96,7 +96,7 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageBlogData', JSON.stringify(formattedData))
+      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.slice(0, 5)))
       commit("SET_BLOG_DATA", formattedData)
 
     },
