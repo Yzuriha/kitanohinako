@@ -58,6 +58,14 @@ export default {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Spartan';
+  src: url(./assets/fonts/Spartan-Thin.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-color: #4d4948;
 @font-color-light: #4d494885;
 @primary-color:  rgba(135, 206, 250, 0.2);
