@@ -96,8 +96,8 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.slice(0, 5)))
       commit("SET_BLOG_DATA", formattedData)
+      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.reverse().slice(0, 5)))
 
     },
     getGogoData({commit}) {
@@ -131,8 +131,8 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageGogoData', JSON.stringify(gogoData))
       commit("SET_GOGO_DATA", gogoData)
+      localStorage.setItem('storageGogoData', JSON.stringify(gogoData))
     },
     setActiveGalleryImage({commit}, image) {
       commit("SET_ACTIVE_GALLERY_IMAGE", image)
@@ -169,8 +169,8 @@ export default createStore({
           }
         })
         let sorted = schedule.sort((a, b) => Date.parse(b.isoDate) - Date.parse(a.isoDate))
-        localStorage.setItem('storageScheduleData', JSON.stringify(sorted))
         commit("SET_SCHEDULE_DATA",sorted)
+        localStorage.setItem('storageScheduleData', JSON.stringify(sorted))
       })
     }
 
