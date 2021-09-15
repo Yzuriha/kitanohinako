@@ -4,6 +4,7 @@ module.exports = {
         workboxOptions: {
             skipWaiting: true,
             clientsClaim: true,
+            exclude: [/_redirects/]
         }
     },
     pluginOptions: {

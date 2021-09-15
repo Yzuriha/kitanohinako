@@ -4,7 +4,4 @@
 # the sitemap.xml links need to be adjusted. Lastly, you have to remove the custom domain from GitHub and add it as a
 # custom domain to Netlify.
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+/*    /index.html   200
