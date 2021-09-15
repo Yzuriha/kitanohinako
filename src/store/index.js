@@ -73,7 +73,7 @@ export default createStore({
     async accessSpreadSheet({commit}) {
 
       if(!navigator.onLine) {
-        let data = localStorage.getItem('storageBlogData')
+        let data = JSON.parse(localStorage.getItem('storageBlogData'))
         commit("SET_BLOG_DATA", data)
       }
 
@@ -96,14 +96,14 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageBlogData', formattedData)
+      localStorage.setItem('storageBlogData', JSON.stringify(formattedData))
       commit("SET_BLOG_DATA", formattedData)
 
     },
     getGogoData({commit}) {
 
       if(!navigator.onLine) {
-        let data = localStorage.getItem('storageGogoData')
+        let data = JSON.parse(localStorage.getItem('storageGogoData'))
         commit("SET_GOGO_DATA", data)
       }
 
@@ -131,7 +131,7 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageGogoData', gogoData)
+      localStorage.setItem('storageGogoData', JSON.stringify(gogoData))
       commit("SET_GOGO_DATA", gogoData)
     },
     setActiveGalleryImage({commit}, image) {
@@ -148,7 +148,7 @@ export default createStore({
     getSchedule({commit}) {
 
       if(!navigator.onLine) {
-        let data = localStorage.getItem('storageScheduleData')
+        let data = JSON.parse(localStorage.getItem('storageScheduleData'))
         commit("SET_SCHEDULE_DATA", data)
       }
 
@@ -169,7 +169,7 @@ export default createStore({
           }
         })
         let sorted = schedule.sort((a, b) => Date.parse(b.isoDate) - Date.parse(a.isoDate))
-        localStorage.setItem('storageScheduleData', sorted)
+        localStorage.setItem('storageScheduleData', JSON.stringify(sorted))
         commit("SET_SCHEDULE_DATA",sorted)
       })
     }
