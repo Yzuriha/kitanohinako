@@ -6,7 +6,7 @@
 <!--      <div v-show="showSection"  class="headline" :class="additionalClasses">-->
 <!--        <h2-bar class="headline_title" :title="title"></h2-bar>-->
 <!--      </div>      -->
-      <div :style="{visibility: showSection ? 'visible' : 'hidden'}" class="headline" :class="additionalClasses">
+      <div :style="{visibility: showSection ? 'visible' : 'hidden', animationDelay: isAnimationDelayed ? '500ms' : '0'}" class="headline" :class="additionalClasses">
         <h2-bar class="headline_title" :title="title"></h2-bar>
       </div>
 <!--    </transition>-->
@@ -24,11 +24,17 @@ export default {
   components: {Observer, H2Bar},
   props: {
     title: String,
-    additionalClasses: String
+    additionalClasses: String,
+    isAnimationDelayed: Boolean,
   },
   data() {
     return {
       showSection: false
+    }
+  },
+  computed: {
+    delayedAnimation() {
+      return this.isAnimationDelayed ? 'animation-delay: 500ms' : ''
     }
   }
 }

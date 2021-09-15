@@ -2,7 +2,7 @@
   <div class="home">
     <main-header></main-header>
 
-    <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left">
+    <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
       <template v-slot:content>
         <schedule-card v-for="schedule in getRecentSchedule"
                        :type="schedule.type"
@@ -14,14 +14,14 @@
       </template>
     </base-section>
 
-    <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left">
+    <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
       <template v-slot:content>
         <profile-card :full-content="false"></profile-card>
       </template>
     </base-section>
 
     <observer @intersect="displayGallery = true"></observer>
-    <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left">
+    <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
       <template v-slot:content>
         <div v-show="loadingScreenFinished && displayGallery" class="gallery-image-container">
           <base-image v-for="(file, index) in getShuffledImageFilesLocation.slice(0, 9)" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
@@ -31,7 +31,7 @@
     </base-section>
 
     <observer @intersect="accessSpreadSheet" :once="true"></observer>
-    <base-section title="BLOG" additional-classes="headline--bottom-border headline--left">
+    <base-section title="BLOG" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
       <template v-slot:content>
         <router-link to="/blog">
           <blog-card v-for="(blog, index) in getLimitedAmount"
