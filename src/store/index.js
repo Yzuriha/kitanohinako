@@ -98,7 +98,7 @@ export default createStore({
       })
 
       commit("SET_BLOG_DATA", formattedData)
-      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.slice(0, 10)))
+      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.slice(0, 10).reverse()))
 
     },
     getGogoData({commit}) {
