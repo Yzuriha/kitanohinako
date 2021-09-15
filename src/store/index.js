@@ -73,6 +73,7 @@ export default createStore({
     async accessSpreadSheet({commit}) {
 
       if(!navigator.onLine) {
+        console.log("Load BlogData from Storage")
         let data = JSON.parse(localStorage.getItem('storageBlogData'))
         commit("SET_BLOG_DATA", data)
       }
@@ -97,7 +98,7 @@ export default createStore({
       })
 
       commit("SET_BLOG_DATA", formattedData)
-      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.reverse().slice(0, 5)))
+      localStorage.setItem('storageBlogData', JSON.stringify(formattedData.slice(0, 10)))
 
     },
     getGogoData({commit}) {
