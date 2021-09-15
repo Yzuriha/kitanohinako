@@ -96,7 +96,7 @@ export default createStore({
         })
       })
 
-      localStorage.setItem('storageBlogData', formattedData.reverse())
+      localStorage.setItem('storageBlogData', formattedData)
       commit("SET_BLOG_DATA", formattedData)
 
     },
