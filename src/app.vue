@@ -266,7 +266,7 @@ h2, .h2 {
       .navigation-toggle-bar-1,
       .navigation-toggle-bar-2,
       .navigation-toggle-bar-3 {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid @primary-color-dark;
         transition: 0.5s ease-in-out;
       }
       .navigation-toggle-bar-1 {
@@ -381,7 +381,7 @@ h2, .h2 {
   }
   .schedule-card_right {
     .schedule-card_type {
-      border: 1px solid black;
+      border: 1px solid @primary-color;
       display: inline-block;
       padding: 0 5px;
       font-size: 12px;
