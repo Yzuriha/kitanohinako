@@ -2,7 +2,7 @@
   <div class="home">
     <main-header></main-header>
 
-    <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
+    <base-section v-if="getRecentSchedule.length" title="SCHEDULE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <schedule-card v-for="schedule in getRecentSchedule"
                        :type="schedule.type"
@@ -14,26 +14,27 @@
       </template>
     </base-section>
 
-    <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
+    <base-section title="PROFILE" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <profile-card :full-content="false"></profile-card>
       </template>
     </base-section>
 
     <observer @intersect="displayGallery = true"></observer>
-    <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
+    <base-section title="GALLERY" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
         <div v-show="loadingScreenFinished && displayGallery" class="gallery-image-container">
-          <base-image v-for="(file, index) in getShuffledImageFilesLocation.slice(0, 9)" :image-location="file.location" :style="{animationDelay: index * 150 + 'ms'}"></base-image>
+          <base-image v-for="(file, index) in getShuffledImageFilesLocation.slice(0, 9)" :image-location="file.location" :style="{animationDelay: index * 100 + 'ms'}"></base-image>
         </div>
         <more-button-link :route="'/gallery'"></more-button-link>
       </template>
     </base-section>
 
-    <observer @intersect="accessSpreadSheet" :once="true"></observer>
-    <base-section title="BLOG" additional-classes="headline--bottom-border headline--left" :is-animation-delayed="true">
+    <observer @intersect="triggerBlogAction" :once="true"></observer>
+    <base-section title="BLOG" additional-classes="headline--bottom-border headline--left">
       <template v-slot:content>
-        <router-link to="/blog">
+        <transition name="work-card-animation">
+        <router-link v-if="displayBlogs" to="/blog">
           <blog-card v-for="(blog, index) in getLimitedAmount"
                      :style="{animationDelay: index * 50 + 'ms'}"
                      :title="blog.title"
@@ -43,6 +44,7 @@
                      :image-url="blog.thumbnail">
           </blog-card>
         </router-link>
+        </transition>
         <more-button-link :route="'/blog'"></more-button-link>
       </template>
     </base-section>
@@ -78,7 +80,8 @@ export default {
   },
   data() {
     return {
-      displayGallery: false
+      displayGallery: false,
+      displayBlogs: false
     }
   },
   computed: {
@@ -90,15 +93,13 @@ export default {
     getLimitedAmount() {
       return this.blogData.slice(0, 5)
     },
-    getImageAnimationDelay(index) {
-      return {
-        animationDelay: index * 100 + 'ms'
-      }
-      // return `animation-delay: calc(${index} * 100ms)`
-    }
   },
   methods: {
     ...mapActions(['accessSpreadSheet']),
+    triggerBlogAction() {
+      this.accessSpreadSheet()
+      this.displayBlogs = true
+    }
   }
 }
 </script>

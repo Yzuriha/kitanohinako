@@ -1,5 +1,7 @@
 <template>
-  <div class="schedule-card">
+  <observer :once="true" @intersect="showCard = true"></observer>
+  <transition name="work-card-animation">
+  <div v-if="showCard" class="schedule-card">
     <div class="schedule-card_left">
       <div class="schedule-card_date">{{day}}</div>
       <div class="schedule-card_weekday">{{weekday}}</div>
@@ -10,16 +12,18 @@
       <div class="schedule-card_content">{{content}}</div>
     </div>
   </div>
-
-
+  </transition>
 </template>
 
 <script>
+import Observer from "@/components/sections/observer";
 export default {
   name: "schedule-card",
+  components: {Observer},
   props: {
     scheduleData: Object
   },
+  inheritAttrs: false,
   data() {
     return {
       day: '',
@@ -28,7 +32,7 @@ export default {
       weekday: '',
       content: '',
       type: '',
-
+      showCard: false
     }
   },
   created() {

@@ -266,7 +266,7 @@ h2, .h2 {
       .navigation-toggle-bar-1,
       .navigation-toggle-bar-2,
       .navigation-toggle-bar-3 {
-        border-bottom: 2px solid @primary-color-dark;
+        border-bottom: 2px solid @font-color;
         transition: 0.5s ease-in-out;
       }
       .navigation-toggle-bar-1 {
@@ -381,7 +381,7 @@ h2, .h2 {
   }
   .schedule-card_right {
     .schedule-card_type {
-      border: 1px solid @primary-color;
+      border: 1px solid @font-color;
       display: inline-block;
       padding: 0 5px;
       font-size: 12px;
@@ -560,7 +560,7 @@ h2, .h2 {
 // WORKS \\
 .work-card {
   display: grid;
-  grid-template-columns: 75px 1fr;
+  grid-template-columns: 85px 1fr;
   grid-gap: 10px;
   margin: 20px 0;
   .work-card_title {
@@ -637,6 +637,7 @@ h2, .h2 {
   &.video-container--iframe {
     height: 0;
     padding-bottom: 56.25%;
+    margin-bottom: 30px;
   }
   .instagram-video-container {
     position: absolute;
