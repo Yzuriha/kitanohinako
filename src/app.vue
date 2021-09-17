@@ -81,6 +81,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: @font-color;
+  overflow-y: scroll; /* Show vertical scrollbar */
+
 }
 
 a {
