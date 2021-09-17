@@ -5,14 +5,14 @@
         <observer @intersect="showMore" :timeout="500"></observer>
         <more-button @click="showMore"></more-button>
         <transition name="standard-long-fade">
-        <div v-if="displayGogoCards" class="gogo-card-container" ref="gogo-card-container">
-          <div v-for="(data, index) in dataToShow.reverse()" class="gogo-card" :class="data.class" :ref="'gogo-card-' + index">
-            <img :src="data.image" class="gogo-card_profile" alt="gogo-card_profile">
-            <div class="gogo-card_text">
-              {{data.message}}
+          <div v-if="displayGogoCards" class="gogo-card-container" ref="gogo-card-container">
+            <div v-for="(data, index) in dataToShow.reverse()" class="gogo-card" :class="data.class" :ref="'gogo-card-' + index">
+              <img :src="data.image" class="gogo-card_profile" alt="gogo-card_profile">
+              <div class="gogo-card_text">
+                {{data.message}}
+              </div>
             </div>
           </div>
-        </div>
         </transition>
       </template>
     </base-section>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import api from '@/api'
 import BaseSection from "@/components/sections/base-section";
 import MoreButton from "@/components/buttons/more-button";
 import Observer from "@/components/sections/observer";
@@ -44,7 +43,7 @@ export default {
   },
   methods:{
     showMore() {
-     this.displayGogoCards = true
+      this.displayGogoCards = true
       this.$nextTick().then(() => {
 
         let prevHeight = this.$refs["gogo-card-container"].offsetHeight
