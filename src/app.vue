@@ -46,15 +46,6 @@ export default {
 
 
 <style lang="less">
-
-.refresh-button {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-
 @font-face {
   font-family: 'Morison';
   src: url(./assets/fonts/Morison-Display.woff2);
