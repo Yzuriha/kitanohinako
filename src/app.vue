@@ -153,6 +153,8 @@ h2, .h2 {
 .nanagogo, .blog, .gallery, .media, .profile, .schedule, .works {
   //margin: 90px 15px 0 15px;
   margin-top: 90px;
+  // 90px for margin-top; 50px for footer-height; 40px * 2 for footer-margins
+  min-height: calc(100vh - 90px - 50px - 40px - 40px);
 }
 
 // SITE CONTAINER \\
