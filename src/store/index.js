@@ -88,7 +88,7 @@ export default createStore({
       let formattedData = []
       rows.forEach(el => {
         formattedData.push({
-          date: el.Date,
+          date:   new Date(el.Date).toLocaleDateString('de-DE', { year: '2-digit', month: '2-digit', day: '2-digit' }),
           description: el.Description.replaceAll(" ", ''),
           descriptionRaw: el.DescriptionRaw,
           thumbnail: el.Thumbnail,

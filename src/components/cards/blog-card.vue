@@ -5,7 +5,7 @@
       <img v-else class="base-image base-image--square" src="img/placeholder.svg" :alt="blogId + '-image'">
     </div>
     <div class="blog-card_content cursor-pointer" @click="$emit('blogCardClicked')">
-      <div class="blog-card_date" :class="{'blog-card_date--placeholder' : hasNoBlogData}">{{createDate}}</div>
+      <div class="blog-card_date" :class="{'blog-card_date--placeholder' : hasNoBlogData}">{{date}}</div>
       <div class="blog-card_title ja" :class="{'blog-card_title--placeholder' : hasNoBlogData}">{{ title }}</div>
       <div class="blog-card_text ja" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
     </div>
@@ -42,11 +42,6 @@ export default {
     }),
     hasNoBlogData() {
       return this.blogData.length <= 1
-    },
-    createDate() {
-      if(this.date) {
-        return new Date(this.date).toLocaleDateString('de-DE', { year: '2-digit', month: '2-digit', day: '2-digit' })
-      }
     }
   }
 }

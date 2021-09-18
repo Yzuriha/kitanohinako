@@ -655,6 +655,57 @@ h2, .h2 {
 }
 
 
+// INPUT \\
+.input_group {
+  position: relative;
+  padding-top: 15px;
+  margin-bottom: 30px;
+
+  .input_field {
+    font-family: "Noto Sans JP", sans-serif;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid @font-color-light;
+    color: @font-color;
+    outline: 0;
+    font-size: 0.9rem;
+    padding: 10px 0 7px 0;
+    background: transparent;
+    transition: all 0.35s ease;
+    &::placeholder {
+      color: transparent;
+    }
+    &:placeholder-shown ~ .input_label {
+      font-size: 1rem;
+      cursor: text;
+      top: 20px;
+    }
+    &:focus {
+      padding-bottom: 7px;
+      border-color: @primary-color-dark;
+      ~ .input_label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: all 0.35s ease;
+        font-size: 1rem;
+        color: @font-color;
+      }
+    }
+  }
+
+  .input_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.35s;
+    font-size: 1rem;
+    user-select: none;
+    color: @font-color;
+  }
+}
+
+
 // VIDEO \\
 .video-container {
   position: relative;

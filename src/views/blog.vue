@@ -2,6 +2,7 @@
   <div class="blog">
   <base-section title="BLOG" additional-classes="headline--center">
     <template v-slot:content>
+      <input-text v-model="blogFilter"></input-text>
       <blog-card v-for="(blog, index) in getLimitedAmount"
                  :title="blog.title"
                  :date="blog.date"
@@ -16,8 +17,6 @@
     </template>
   </base-section>
   </div>
-<!--  {{getLimitedAmount}}-->
-
 </template>
 
 <script>
@@ -28,12 +27,14 @@ import BlogCard from "@/components/cards/blog-card";
 import {mapActions, mapState} from "vuex"
 import MoreButton from "@/components/buttons/more-button";
 import Observer from "@/components/sections/observer";
+import InputText from "@/components/input/input-text";
 export default {
   name: "Blog",
-  components: {Observer, MoreButton, BlogCard, BaseSection, MainNav},
+  components: {InputText, Observer, MoreButton, BlogCard, BaseSection, MainNav},
   data() {
     return {
-      displayAmount: 0
+      displayAmount: 0,
+      blogFilter: ''
     }
   },
   created() {
@@ -67,7 +68,12 @@ export default {
       activeBlogs: state => state.activeBlogs
     }),
     getLimitedAmount() {
-      return this.blogData.slice(0, this.displayAmount)
+      return this.filteredBlogs.slice(0, this.displayAmount)
+    },
+    filteredBlogs() {
+      return this.blogData.filter(blog => {
+        return blog.date.toLowerCase().includes(this.blogFilter)
+      })
     }
   }
 }
