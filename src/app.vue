@@ -28,11 +28,6 @@ export default {
     }
   },
   created() {
-
-    document.addEventListener(
-        'serviceWorkerUpdateEvent', this.refreshPage, { once: true }
-    );
-
     this.getImageFiles()
     this.getSchedule()
     this.getGogoData()
@@ -44,9 +39,6 @@ export default {
       setTimeout(() => {
         this.showLoadingScreen = false
       }, 4500)
-    },
-    refreshPage(){
-      window.location.reload()
     }
   }
 }
