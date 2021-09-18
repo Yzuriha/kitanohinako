@@ -28,12 +28,14 @@ export default {
     }
   },
   created() {
+
+    document.addEventListener(
+        'serviceWorkerUpdateEvent', this.refreshPage, { once: true }
+    );
+
     this.getImageFiles()
     this.getSchedule()
     this.getGogoData()
-  },
-  mounted() {
-
   },
   methods: {
     ...mapActions(['getGogoData', 'setLoadingScreenFinished', 'getImageFiles', 'getSchedule']),
@@ -43,12 +45,23 @@ export default {
         this.showLoadingScreen = false
       }, 4500)
     },
+    refreshPage(){
+      window.location.reload()
+    }
   }
 }
 </script>
 
 
 <style lang="less">
+
+.refresh-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
 
 @font-face {
   font-family: 'Morison';
