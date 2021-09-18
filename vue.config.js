@@ -1,8 +1,6 @@
 module.exports = {
     publicPath: '/',
     pwa: {
-        name: 'Kiichan',
-        appleMobileWebAppCapable: 'yes',
         workboxOptions: {
             skipWaiting: true,
             clientsClaim: true,
