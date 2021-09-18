@@ -1,21 +1,23 @@
 <template>
   <div class="blog">
-  <base-section title="BLOG" additional-classes="headline--center">
-    <template v-slot:content>
-      <input-text v-model="blogFilter" @deleteValue="blogFilter = ''"></input-text>
-      <blog-card v-for="(blog, index) in getLimitedAmount"
-                 :title="blog.title"
-                 :date="blog.date"
-                 :blog-id="'blog-' + index"
-                 @blogCardClicked="showExtended('blog-' + index, index)"
-                 :content="blog.descriptionRaw"
-                 :description="blog.description"
-                 :image-url="blog.thumbnail">
-      </blog-card>
-      <more-button @click="showMore"></more-button>
-      <observer @intersect="showMore" timeout="0" :options="{rootMargin: '-100px'}"></observer>
-    </template>
-  </base-section>
+    <base-section title="BLOG" additional-classes="headline--center">
+      <template v-slot:content>
+        <transition appear name="standard-long-fade">
+          <input-text v-model="blogFilter" @deleteValue="blogFilter = ''"></input-text>
+        </transition>
+        <blog-card v-for="(blog, index) in getLimitedAmount"
+                   :title="blog.title"
+                   :date="blog.date"
+                   :blog-id="'blog-' + index"
+                   @blogCardClicked="showExtended('blog-' + index, index)"
+                   :content="blog.descriptionRaw"
+                   :description="blog.description"
+                   :image-url="blog.thumbnail">
+        </blog-card>
+        <more-button @click="showMore"></more-button>
+        <observer @intersect="showMore" timeout="0" :options="{rootMargin: '-100px'}"></observer>
+      </template>
+    </base-section>
   </div>
 </template>
 

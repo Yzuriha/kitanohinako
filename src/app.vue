@@ -917,6 +917,7 @@ h2, .h2 {
   opacity: 0;
 }
 
+// Card Entrace Animation
 .entrance-animation {
   animation: cardEntrance 700ms 0s ease-out;
   animation-fill-mode: backwards;
@@ -926,16 +927,15 @@ h2, .h2 {
 @keyframes cardEntrance {
   from {
     opacity: 0;
-    //margin-top: 20px;
     transform: scale(0.9);
   }
   to {
     opacity: 1;
-    //margin-top: 0;
     transform: scale(1);
   }
 }
 
+// Standard Fade
 .standard-fade-enter-active,
 .standard-fade-leave-active {
   transition: opacity 0.25s ease;
@@ -946,6 +946,7 @@ h2, .h2 {
   opacity: 0;
 }
 
+// Standard Long Fade
 .standard-long-fade-enter-active,
 .standard-long-fade-leave-active {
   transition: opacity 1.5s ease;
@@ -956,7 +957,7 @@ h2, .h2 {
   opacity: 0;
 }
 
-
+// Header Fade
 .header-fade-enter-active,
 .header-fade-leave-active {
   transition: opacity 1s ease;
@@ -967,7 +968,7 @@ h2, .h2 {
   opacity: 0;
 }
 
-
+// Title Slide In
 .title-animation-enter-active {
   animation: slide-in 1.5s;
 }
@@ -985,6 +986,7 @@ h2, .h2 {
   }
 }
 
+// Work Card Slide Down
 .work-card-animation-enter-active {
   animation: slide-down 1.5s;
 }
@@ -993,14 +995,10 @@ h2, .h2 {
 }
 @keyframes slide-down {
   0% {
-    //transform: translateY(-20px);
     opacity: 0;
   }
-  //75% {
-  //  transform:  translateX(10px);
-  //}
+
   100% {
-    //transform:  translateX(0px);
     opacity: 1;
   }
 }

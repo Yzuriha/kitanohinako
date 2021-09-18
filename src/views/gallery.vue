@@ -22,7 +22,7 @@
                            :type="image.type"
                            :source="getImgLocation(image.filename)"
                            :id="image.filename.split('.')[0] + '-' + index"
-                           :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 150 + 'ms'}">
+                           :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * delayAmount + 'ms'}">
           </instagram-image>
           <observer @intersect="showMoreInstagram" :once="true"></observer>
         </div>
@@ -30,7 +30,7 @@
       </template>
     </base-section>
 
-    <base-section title="GALLERY" additional-classes="headline--center">
+    <base-section v-if="showGallery" title="GALLERY" additional-classes="headline--center">
       <template v-slot:content>
         <div v-show="loadingScreenFinished" class="gallery-image-container">
           <base-image v-for="(file, index) in getLimitedAmountGallery"
@@ -64,7 +64,9 @@ export default {
   components: {Observer, MoreButton, BaseModal, BaseImage, InstagramImage, SquareImage, LongImage, BaseSection, MainNav},
   data() {
     return {
+      showGallery: false,
       instagramData: [],
+      delayAmount: 150,
       displayAmountInstagram: 0,
       displayAmountGallery: 0,
       delayMultiplierGallery: -1,
@@ -75,6 +77,11 @@ export default {
     api.getInstagramData().then(response => {
       this.instagramData = response.data.reverse()
     })
+  },
+  mounted() {
+    setTimeout(() => {
+      this.showGallery = true
+    }, 12 * this.delayAmount)
   },
   methods: {
     getImgLocation(img) {
