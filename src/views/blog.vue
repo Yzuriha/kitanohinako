@@ -2,7 +2,7 @@
   <div class="blog">
   <base-section title="BLOG" additional-classes="headline--center">
     <template v-slot:content>
-      <input-text v-model="blogFilter"></input-text>
+      <input-text v-model="blogFilter" @deleteValue="blogFilter = ''"></input-text>
       <blog-card v-for="(blog, index) in getLimitedAmount"
                  :title="blog.title"
                  :date="blog.date"

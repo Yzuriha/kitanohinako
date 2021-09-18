@@ -660,7 +660,11 @@ h2, .h2 {
   position: relative;
   padding-top: 15px;
   margin-bottom: 30px;
-
+  .input_text-container {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+  }
+  .input_delete,
   .input_field {
     font-family: "Noto Sans JP", sans-serif;
     width: 100%;
@@ -691,9 +695,16 @@ h2, .h2 {
         font-size: 1rem;
         color: @font-color;
       }
+     + .input_delete {
+       border-color: @primary-color-dark;
+     }
     }
   }
 
+  .input_delete {
+    transform: scaleX(1.5);
+    //font-weight: bold;
+  }
   .input_label {
     position: absolute;
     top: 0;
