@@ -12,7 +12,7 @@
   <nav v-if="!navHomeActive || activeSite !== 'Home'" class="nav" :class="{'nav--background-transparent': isToggleActive}">
     <div class="nav-top">
       <router-link class="router-link nav-home-link" to="/">
-        <div class="nav-home-link_title">北野 日奈子</div>
+        <div class="nav-home-link_title ja">北野 日奈子</div>
         <div class="nav-home-link_subtitle">U N O F F I C I A L &nbsp; S I T E</div>
       </router-link>
       <div class="nav-main">

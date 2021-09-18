@@ -1,34 +1,34 @@
 <template>
   <div class="gallery">
 
-<!--    <base-section title="GALLERY" additional-classes="headline&#45;&#45;center">-->
-<!--      <template v-slot:content>-->
-<!--        <div v-show="loadingScreenFinished" class="fake-masonry">-->
-<!--          <base-image v-for="(file, index) in getLimitedAmountGallery"-->
-<!--                      :image-location="file.location"-->
-<!--                      class="item"-->
-<!--                      :style="{animationDelay: ((index + 1) - 10 * delayMultiplierGallery) * 150 + 'ms'}">-->
-<!--          </base-image>-->
-<!--          <observer @intersect="showMoreGallery" :once="true"></observer>-->
-<!--        </div>-->
-<!--      </template>-->
-<!--    </base-section>-->
+    <!--    <base-section title="GALLERY" additional-classes="headline&#45;&#45;center">-->
+    <!--      <template v-slot:content>-->
+    <!--        <div v-show="loadingScreenFinished" class="fake-masonry">-->
+    <!--          <base-image v-for="(file, index) in getLimitedAmountGallery"-->
+    <!--                      :image-location="file.location"-->
+    <!--                      class="item"-->
+    <!--                      :style="{animationDelay: ((index + 1) - 10 * delayMultiplierGallery) * 150 + 'ms'}">-->
+    <!--          </base-image>-->
+    <!--          <observer @intersect="showMoreGallery" :once="true"></observer>-->
+    <!--        </div>-->
+    <!--      </template>-->
+    <!--    </base-section>-->
 
 
-        <base-section title="INSTAGRAM" additional-classes="headline--center">
-          <template v-slot:content>
-            <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">
-              <instagram-image v-for="(image, index) in getLimitedAmountInstagram" :description="image.text"
-                               :type="image.type"
-                               :source="getImgLocation(image.filename)"
-                               :id="image.filename.split('.')[0] + '-' + index"
-                               :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 150 + 'ms'}">
-              </instagram-image>
-              <observer @intersect="showMoreInstagram" :once="true"></observer>
-            </div>
-            <more-button v-if="displayAmountInstagram < instagramData.length" @click="showMoreInstagram"></more-button>
-          </template>
-        </base-section>
+    <base-section title="INSTAGRAM" additional-classes="headline--center">
+      <template v-slot:content>
+        <div v-show="loadingScreenFinished" class="gallery-image-container gallery-image-container--instagram">
+          <instagram-image v-for="(image, index) in getLimitedAmountInstagram" :description="image.text"
+                           :type="image.type"
+                           :source="getImgLocation(image.filename)"
+                           :id="image.filename.split('.')[0] + '-' + index"
+                           :style="{animationDelay: ((index + 1) - 12 * delayMultiplierInstagram) * 150 + 'ms'}">
+          </instagram-image>
+          <observer @intersect="showMoreInstagram" :once="true"></observer>
+        </div>
+        <more-button v-if="displayAmountInstagram < instagramData.length" @click="showMoreInstagram"></more-button>
+      </template>
+    </base-section>
 
     <base-section title="GALLERY" additional-classes="headline--center">
       <template v-slot:content>

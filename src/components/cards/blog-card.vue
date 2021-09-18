@@ -6,11 +6,11 @@
     </div>
     <div class="blog-card_content cursor-pointer" @click="$emit('blogCardClicked')">
       <div class="blog-card_date" :class="{'blog-card_date--placeholder' : hasNoBlogData}">{{createDate}}</div>
-      <div class="blog-card_title" :class="{'blog-card_title--placeholder' : hasNoBlogData}">{{ title }}</div>
-      <div class="blog-card_text" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
+      <div class="blog-card_title ja" :class="{'blog-card_title--placeholder' : hasNoBlogData}">{{ title }}</div>
+      <div class="blog-card_text ja" :class="{'blog-card_text--placeholder' : hasNoBlogData}">{{description}}</div>
     </div>
     <transition-collapse>
-    <div v-if="activeBlogs.includes(blogId)" class="blog-card_extended" style="grid-column: 1/3" v-html="content"></div>
+      <div v-if="activeBlogs.includes(blogId)" class="blog-card_extended ja" style="grid-column: 1/3" v-html="content"></div>
     </transition-collapse>
   </div>
 </template>

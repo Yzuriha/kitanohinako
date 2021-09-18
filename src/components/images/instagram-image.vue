@@ -35,7 +35,7 @@
           </video>
         </div>
         <div class="instagram-modal_text">
-          <p v-for="text in description">{{text}}</p>
+          <p v-for="text in description" class="ja">{{text}}</p>
         </div>
       </div>
     </template>

@@ -66,6 +66,27 @@ export default {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url(./assets/fonts/NotoSansJP-Thin.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif JP';
+  src: url(./assets/fonts/NotoSerifJP-ExtraLight.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.ja {
+  font-family: 'Noto Serif JP', serif;
+}
+
 @font-color: #4d4948;
 @font-color-light: #4d494885;
 @primary-color:  rgba(135, 206, 250, 0.2);
@@ -77,7 +98,7 @@ export default {
 
 body {
   margin: 0;
-  font-family: 'Noto Sans JP', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: @font-color;

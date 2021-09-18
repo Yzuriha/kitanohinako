@@ -8,7 +8,7 @@
           <div v-if="displayGogoCards" class="gogo-card-container" ref="gogo-card-container">
             <div v-for="(data, index) in dataToShow.reverse()" class="gogo-card" :class="data.class" :ref="'gogo-card-' + index">
               <img :src="data.image" class="gogo-card_profile" alt="gogo-card_profile">
-              <div class="gogo-card_text">
+              <div class="gogo-card_text ja">
                 {{data.message}}
               </div>
             </div>
