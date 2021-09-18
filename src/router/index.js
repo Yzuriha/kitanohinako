@@ -68,8 +68,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior() {
-    return { left: 0, top: 0 };
+  scrollBehavior(to, from) {
+    let positionY = to.name === 'Media' ? 0 : 1
+    return { left: 0, top: positionY };
   },
 })
 

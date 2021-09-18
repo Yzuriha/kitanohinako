@@ -1,7 +1,9 @@
 <template>
-  <div class="more-button">
-    <span class="more-button_text">view more</span>
-  </div>
+  <transition appear name="standard-long-fade">
+    <div class="more-button">
+      <span class="more-button_text">view more</span>
+    </div>
+  </transition>
 </template>
 
 <script>
