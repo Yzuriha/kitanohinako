@@ -14,4 +14,4 @@ jobs:
           username: 'yzuriha'
           reponame: 'kitanohinako'
           token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
-          cname: 'kitanohinako.xyz'
+          #cname: 'kitanohinako.xyz'
