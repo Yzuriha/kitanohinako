@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["npm.node-fetch"],{a18f:function(e,n,t){"use strict";var o=function(){if("undefined"!==typeof self)return self;if("undefined"!==typeof window)return window;if("undefined"!==typeof f)return f;throw new Error("unable to locate global object")},f=o();e.exports=n=f.fetch,f.fetch&&(n.default=f.fetch.bind(f)),n.Headers=f.Headers,n.Request=f.Request,n.Response=f.Response}}]);
+//# sourceMappingURL=npm.node-fetch-legacy.40a68d22.js.map

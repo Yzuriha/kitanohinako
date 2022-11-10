@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["npm.https-browserify"],{"24f8":function(t,o,r){var n=r("9490"),p=r("0b16"),e=t.exports;for(var s in n)n.hasOwnProperty(s)&&(e[s]=n[s]);function c(t){if("string"===typeof t&&(t=p.parse(t)),t.protocol||(t.protocol="https:"),"https:"!==t.protocol)throw new Error('Protocol "'+t.protocol+'" not supported. Expected "https:"');return t}e.request=function(t,o){return t=c(t),n.request.call(this,t,o)},e.get=function(t,o){return t=c(t),n.get.call(this,t,o)}}}]);
+//# sourceMappingURL=npm.https-browserify-legacy.5b92ddee.js.map

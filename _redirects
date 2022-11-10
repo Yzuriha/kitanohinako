@@ -1,0 +1,7 @@
+# In case you want to switch from hosting on gh-pages (because private repos need a PRO account), you can use Netlify.
+# The Netlify app itself is already deployed and ready on https://app.netlify.com/sites/kitanohinako/overview .
+# When switching, the redirects on the index.html need to be removed and the 404.html needs to be deleted. Additionally,
+# the sitemap.xml links need to be adjusted. Lastly, you have to remove the custom domain from GitHub and add it as a
+# custom domain to Netlify.
+
+/*    /index.html   200

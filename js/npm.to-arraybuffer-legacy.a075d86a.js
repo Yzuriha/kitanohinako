@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["npm.to-arraybuffer"],{d938:function(e,f,r){var t=r("b639").Buffer;e.exports=function(e){if(e instanceof Uint8Array){if(0===e.byteOffset&&e.byteLength===e.buffer.byteLength)return e.buffer;if("function"===typeof e.buffer.slice)return e.buffer.slice(e.byteOffset,e.byteOffset+e.byteLength)}if(t.isBuffer(e)){for(var f=new Uint8Array(e.length),r=e.length,n=0;n<r;n++)f[n]=e[n];return f.buffer}throw new Error("Argument must be a Buffer")}}}]);
+//# sourceMappingURL=npm.to-arraybuffer-legacy.a075d86a.js.map
