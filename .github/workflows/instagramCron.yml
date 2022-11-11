@@ -30,8 +30,6 @@ jobs:
           import json
 
           directory = './img/instagram'
-          if not os.path.exists(directory):
-              os.makedirs(directory)
           data = []
           for filename in os.listdir(directory):
               jsonString = '{"filename":"value1","text":"value2", "type":"value3"}'
