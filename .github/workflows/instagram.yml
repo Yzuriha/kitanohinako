@@ -23,7 +23,7 @@ jobs:
       - name: dump results
         shell: cmd
         run: |
-          instaloader profile kitanohinako_official --login=invalidName123 --dirname-pattern=img/instagram --no-profile-pic --no-compress-json --filename-pattern={date_utc}_{shortcode}_COUNT --password="%INSTA_PW%"
+          instaloader profile kitanohinako_official --dirname-pattern=img/instagram --no-profile-pic --no-compress-json --filename-pattern={date_utc}_{shortcode}_COUNT --password="%INSTA_PW%"
         env:
           INSTA_PW: ${{ secrets.INSTA_PW }}
       - name: create Json
